@@ -7,13 +7,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{b8d41b7d-a8e6-403b-b3db-0f413fb2f90e}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>UNStaistic.DB</RootNamespace>
     <AssemblyName>UNStaistic.DB</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,5 +58,21 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Security\" />
+    <Folder Include="staging" />
+    <Folder Include="staging\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\datamart.sql" />
+    <Build Include="Security\dwh.sql" />
+    <Build Include="Security\etl.sql" />
+    <Build Include="Security\staging.sql" />
+    <Build Include="staging\Tables\uncrime_untyped.sql" />
+    <Build Include="staging\Tables\uncrime_typed.sql" />
+    <Build Include="staging\Tables\countriesref_untyped.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UNStaistic.DB.publish.DEV.xml" />
   </ItemGroup>
 </Project>
