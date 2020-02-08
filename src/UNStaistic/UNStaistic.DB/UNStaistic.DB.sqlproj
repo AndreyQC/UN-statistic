@@ -74,6 +74,7 @@
     <Build Include="staging\Tables\uncrime_typed.sql" />
     <Build Include="staging\Tables\countriesref_untyped.sql" />
     <Build Include="dwh\Tables\DimDate.sql" />
+    <Build Include="dwh\Tables\DimCrimeType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStaistic.DB.publish.DEV.xml" />
