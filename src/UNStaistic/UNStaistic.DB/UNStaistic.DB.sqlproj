@@ -61,6 +61,8 @@
     <Folder Include="Security\" />
     <Folder Include="staging" />
     <Folder Include="staging\Tables" />
+    <Folder Include="dwh" />
+    <Folder Include="dwh\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\RoleMemberships.sql" />
@@ -71,6 +73,7 @@
     <Build Include="staging\Tables\uncrime_untyped.sql" />
     <Build Include="staging\Tables\uncrime_typed.sql" />
     <Build Include="staging\Tables\countriesref_untyped.sql" />
+    <Build Include="dwh\Tables\DimDate.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStaistic.DB.publish.DEV.xml" />
