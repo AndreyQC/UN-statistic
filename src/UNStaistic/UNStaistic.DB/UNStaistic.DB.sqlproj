@@ -84,6 +84,7 @@
     <Build Include="msbicourse\FactSales.sql" />
     <Build Include="dwh\Tables\FactPopulation.sql" />
     <Build Include="dwh\Tables\DimDate.sql" />
+    <Build Include="dwh\Tables\FactCrime.sql" />
     <Build Include="dwh\Tables\DimCrimeType.sql" />
     <Build Include="staging\Tables\population_typed.sql" />
     <Build Include="staging\Tables\population_untyped.sql" />
