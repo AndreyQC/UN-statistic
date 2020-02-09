@@ -61,6 +61,9 @@
     <Folder Include="Security\" />
     <Folder Include="staging" />
     <Folder Include="staging\Tables" />
+    <Folder Include="msbicourse" />
+    <Folder Include="etl" />
+    <Folder Include="etl\Stored procedures" />
     <Folder Include="dwh" />
     <Folder Include="dwh\Tables" />
   </ItemGroup>
@@ -73,6 +76,12 @@
     <Build Include="staging\Tables\uncrime_untyped.sql" />
     <Build Include="staging\Tables\uncrime_typed.sql" />
     <Build Include="staging\Tables\countriesref_untyped.sql" />
+    <Build Include="Security\msbicourse.sql" />
+    <Build Include="msbicourse\DimCustomer.sql" />
+    <Build Include="msbicourse\staging_Customer.sql" />
+    <Build Include="etl\Stored procedures\usp_DimDateSeed.sql" />
+    <Build Include="msbicourse\staging_Sales.sql" />
+    <Build Include="msbicourse\FactSales.sql" />
     <Build Include="dwh\Tables\FactPopulation.sql" />
     <Build Include="dwh\Tables\DimDate.sql" />
     <Build Include="staging\Tables\population_typed.sql" />
@@ -80,5 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStaistic.DB.publish.DEV.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
