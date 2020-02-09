@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [msbicourse].[staging_Customer]
 (
- [custid] [int] IDENTITY(1,1) NOT NULL,
+ [custid] [int]  NOT NULL,
  [companyname] [nvarchar](40) NOT NULL,
  [contactname] [nvarchar](30) NOT NULL,
  [contacttitle] [nvarchar](30) NOT NULL,
@@ -11,4 +11,8 @@
  [country] [nvarchar](15) NOT NULL,
  [phone] [nvarchar](24) NOT NULL,
  [fax] [nvarchar](24) NULL,
+     [sysCreatedAt] DATETIME DEFAULT GETUTCDATE(),
+     [sysChangedAt] DATETIME DEFAULT GETUTCDATE(),
+     [sysChangedBy] INT NOT NULL DEFAULT -1,
+     [sysCreatedBy] INT NOT NULL DEFAULT -1, 
 )

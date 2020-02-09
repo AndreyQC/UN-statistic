@@ -31,6 +31,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorldBank", "WorldBank", "{
 		\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\Worldbank\API_SP.POP.TOTL_DS2_en_csv_v2_713131.csv = \\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\Worldbank\API_SP.POP.TOTL_DS2_en_csv_v2_713131.csv
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbicourse", "msbicourse", "{3AF71481-B177-4D6D-8A37-4BDC86C72982}"
+	ProjectSection(SolutionItems) = preProject
+		\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\msbicourse\Customers_202002081637.csv = \\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\msbicourse\Customers_202002081637.csv
+		\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\msbicourse\fact.csv = \\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\msbicourse\fact.csv
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +67,7 @@ Global
 		{4917D409-3209-4D5A-8A22-E7D56ECDD770} = {6581BC2F-3D02-4121-8D74-697B40F1E9DD}
 		{BA06244F-27D2-4E06-BCFD-5028B598A1D5} = {6581BC2F-3D02-4121-8D74-697B40F1E9DD}
 		{7A7EF9B7-572A-4A71-92F4-0A905E8B5700} = {6581BC2F-3D02-4121-8D74-697B40F1E9DD}
+		{3AF71481-B177-4D6D-8A37-4BDC86C72982} = {6581BC2F-3D02-4121-8D74-697B40F1E9DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {290A0129-821B-4C02-A2F7-C39381A1FDBA}

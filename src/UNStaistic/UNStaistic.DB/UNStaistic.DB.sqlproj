@@ -62,6 +62,8 @@
     <Folder Include="staging" />
     <Folder Include="staging\Tables" />
     <Folder Include="msbicourse" />
+    <Folder Include="etl" />
+    <Folder Include="etl\Stored procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\RoleMemberships.sql" />
@@ -75,8 +77,14 @@
     <Build Include="Security\msbicourse.sql" />
     <Build Include="msbicourse\DimCustomer.sql" />
     <Build Include="msbicourse\staging_Customer.sql" />
+    <Build Include="etl\Stored procedures\usp_DimDateSeed.sql" />
+    <Build Include="msbicourse\staging_Sales.sql" />
+    <Build Include="msbicourse\FactSales.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStaistic.DB.publish.DEV.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
