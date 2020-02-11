@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{4C574B6A-64C1-4861-972E-5C4708763F58}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{36C06137-6EC4-4E4C-B0D9-4EF40AC65AF3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -957,6 +957,13 @@
           Size="474,181"
           Id="Package\SEQ Load"
           TopLeft="127,295" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="483,74"
+          Size="483,117"
+          Id="Package\SEQC Completion"
+          TopLeft="122,546" />
         <NodeLayout
           Size="281,42"
           Id="Package\SEQC Preparation\SQL truncate staging countriesref_untyped"
@@ -968,13 +975,6 @@
           Size="475,177"
           Id="Package\SEQC Preparation"
           TopLeft="127,42" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="483,74"
-          Size="483,117"
-          Id="Package\SEQC Completion"
-          TopLeft="122,546" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="364.25,219">
@@ -1028,13 +1028,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="267,42"
+          Id="Package\SEQ Load\DFT Load staging countriesref_untyped\OLE_DST  staging countriesref_untyped"
+          TopLeft="207,319" />
+        <NodeLayout
           Size="177,42"
           Id="Package\SEQ Load\DFT Load staging countriesref_untyped\FFS_SRC CountryRef"
           TopLeft="256,90" />
         <NodeLayout
-          Size="267,42"
-          Id="Package\SEQ Load\DFT Load staging countriesref_untyped\OLE_DST  staging countriesref_untyped"
-          TopLeft="207,319" />
+          Size="121,42"
+          Id="Package\SEQ Load\DFT Load staging countriesref_untyped\Union All"
+          TopLeft="675,265" />
         <EdgeLayout
           Id="Package\SEQ Load\DFT Load staging countriesref_untyped.Paths[Flat File Source Output]"
           TopLeft="316.333333333333,132">
@@ -1066,13 +1070,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\SEQ Load\DFT Load staging countriesref_untyped\Union All"
-          TopLeft="675,265" />
         <EdgeLayout
           Id="Package\SEQ Load\DFT Load staging countriesref_untyped.Paths[Flat File Source Error Output]"
           TopLeft="372.666666666667,132">

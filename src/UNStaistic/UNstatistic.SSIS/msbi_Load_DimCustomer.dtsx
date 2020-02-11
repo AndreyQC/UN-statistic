@@ -1,0 +1,2115 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/30/2020 11:21:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EPRUSARW1710"
+  DTS:CreatorName="SARATOV\Andrey_Potapov"
+  DTS:DTSID="{6F97D941-87D0-4CEB-821C-C04F47D21FFE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1900.80"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="msbi_Load_DimCustomer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{94573C7F-B679-4EC5-86FE-DF0CDBBA65CF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQ Load"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{73914A34-962B-4273-BBDC-F5E7F0E9D3FE}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ Load">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Load\DFT Load DimCustomer"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{770F86EA-C230-460B-891F-9E32C3B8C266}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT Load DimCustomer"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input].Columns[CustomerBK_DST]"
+                          cachedDataType="i4"
+                          cachedName="CustomerBK_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_DST]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input].Columns[contactname_UPPER_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input].Columns[city_UPPER_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input].Columns[contactname_UPPER_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_DST]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input].Columns[city_UPPER_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_DST]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[ToInsert]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ToInsert"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[ISNULL](#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_DST]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CustomerBK_DST)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[SCD2]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="SCD2"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">((#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_SRC]}) != (#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_DST]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">((city_UPPER_SRC) != (city_UPPER_DST))</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[SCD1]"
+                      description="Output 3 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="SCD1"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">((#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_SRC]}) != (#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_DST]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">((contactname_UPPER_SRC) != (contactname_UPPER_DST))</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">2</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[IsCurrent]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[IsCurrent]"
+                          name="IsCurrent"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">1</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK"
+                  componentClassID="Microsoft.MergeJoin"
+                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+                  name="Merge by Customer BK"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of join to perform."
+                      name="JoinType"
+                      typeConverter="JoinType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of columns in the ordering key."
+                      name="NumKeyColumns">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the null values are treated as equal values."
+                      name="TreatNullsAsEqual">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates the requested maximum buffers per input before blocking."
+                      name="MaxBuffersPerInput">5</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Left Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[custid]"
+                          cachedDataType="i4"
+                          cachedName="custid"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[custid]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[contactname_UPPER]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[contactname_UPPER]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[contactname]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[contactname]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[city]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[city]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[city_UPPER]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[city_UPPER]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Right Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input].Columns[CustomerBK]"
+                          cachedDataType="i4"
+                          cachedName="CustomerBK"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[CustomerBK]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input].Columns[contactname_UPPER]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[contactname_UPPER]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input].Columns[city_UPPER]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[city_UPPER]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output]"
+                      isSorted="true"
+                      name="Merge Join Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_SRC]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_SRC]"
+                          name="CustomerBK_SRC"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[custid]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_DST]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_DST]"
+                          name="CustomerBK_DST">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input].Columns[CustomerBK]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_SRC]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_SRC]"
+                          name="contactname_UPPER_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[contactname_UPPER]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_SRC]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_SRC]"
+                          name="contactname_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[contactname]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_SRC]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_SRC]"
+                          name="city_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[city]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_SRC]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_SRC]"
+                          name="city_UPPER_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input].Columns[city_UPPER]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_DST]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_DST]"
+                          name="contactname_UPPER_DST">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input].Columns[contactname_UPPER]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_DST]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_DST]"
+                          name="city_UPPER_DST">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input].Columns[city_UPPER]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[msbicourse].[DimCustomer_tmp]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsCurrent]"
+                          cachedDataType="i4"
+                          cachedName="IsCurrent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[IsCurrent]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerBK_SRC]"
+                          cachedDataType="i4"
+                          cachedName="CustomerBK_SRC"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerBK]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[contactname_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_SRC"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contactname]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_SRC"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_SRC]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RowID]"
+                          dataType="i4"
+                          name="RowID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DimCustomerKey]"
+                          dataType="i4"
+                          name="DimCustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerBK]"
+                          dataType="i4"
+                          name="CustomerBK" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contactname]"
+                          dataType="wstr"
+                          length="30"
+                          name="contactname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contacttitle]"
+                          dataType="wstr"
+                          length="30"
+                          name="contacttitle" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          dataType="wstr"
+                          length="15"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                          dataType="wstr"
+                          length="15"
+                          name="region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[postalcode]"
+                          dataType="wstr"
+                          length="10"
+                          name="postalcode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          dataType="wstr"
+                          length="15"
+                          name="country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[phone]"
+                          dataType="wstr"
+                          length="24"
+                          name="phone" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fax]"
+                          dataType="wstr"
+                          length="24"
+                          name="fax" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                          dataType="i4"
+                          name="IsCurrent" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFromDate]"
+                          dataType="dbTimeStamp"
+                          name="ValidFromDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidToDate]"
+                          dataType="dbTimeStamp"
+                          name="ValidToDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysCreatedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysChangedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
+                          dataType="i4"
+                          name="sysChangedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedBy]"
+                          dataType="i4"
+                          name="sysCreatedBy" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC DimCustomer"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT dc.[DimCustomerKey]
+      ,dc.[CustomerBK]
+      ,dc.[contactname]
+      ,UPPER(dc.[contactname]) AS contactname_UPPER
+      ,dc.[city]
+      ,UPPER(dc.[city]) AS city_UPPER
+      ,dc.[IsCurrent]
+      ,dc.[ValidFromDate]
+      ,dc.[ValidToDate]
+  FROM [msbicourse].[DimCustomer] AS dc
+  WHERE dc.[IsCurrent] = 1
+  ORDER BY dc.[CustomerBK]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[DimCustomerKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[DimCustomerKey]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[DimCustomerKey]"
+                          name="DimCustomerKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[CustomerBK]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[CustomerBK]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[CustomerBK]"
+                          name="CustomerBK"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[contactname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[contactname]"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[contactname]"
+                          name="contactname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[contactname_UPPER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[contactname_UPPER]"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[contactname_UPPER]"
+                          name="contactname_UPPER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[city]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[city]"
+                          name="city"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[city_UPPER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[city_UPPER]"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[city_UPPER]"
+                          name="city_UPPER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                          name="IsCurrent"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[ValidFromDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[ValidFromDate]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[ValidFromDate]"
+                          name="ValidFromDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[ValidToDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[ValidToDate]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].Columns[ValidToDate]"
+                          name="ValidToDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[DimCustomerKey]"
+                          dataType="i4"
+                          name="DimCustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[CustomerBK]"
+                          dataType="i4"
+                          name="CustomerBK" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[contactname]"
+                          dataType="wstr"
+                          length="30"
+                          name="contactname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[contactname_UPPER]"
+                          dataType="wstr"
+                          length="30"
+                          name="contactname_UPPER" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                          dataType="wstr"
+                          length="15"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[city_UPPER]"
+                          dataType="wstr"
+                          length="15"
+                          name="city_UPPER" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                          dataType="i4"
+                          name="IsCurrent" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[ValidFromDate]"
+                          dataType="dbTimeStamp"
+                          name="ValidFromDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output].ExternalColumns[ValidToDate]"
+                          dataType="dbTimeStamp"
+                          name="ValidToDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[DimCustomerKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[DimCustomerKey]"
+                          name="DimCustomerKey" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[CustomerBK]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[CustomerBK]"
+                          name="CustomerBK" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[contactname]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[contactname]"
+                          name="contactname" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[contactname_UPPER]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[contactname_UPPER]"
+                          name="contactname_UPPER" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[city]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[city]"
+                          name="city" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[city_UPPER]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[city_UPPER]"
+                          name="city_UPPER" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                          name="IsCurrent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ValidFromDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ValidFromDate]"
+                          name="ValidFromDate" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ValidToDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ValidToDate]"
+                          name="ValidToDate" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC Staging Customer"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT sc.[custid]
+      ,sc.[contactname]
+      ,UPPER(sc.[contactname]) AS contactname_UPPER
+      ,sc.[city]
+      ,UPPER(sc.[city]) AS city_UPPER
+  FROM [msbicourse].[staging_Customer] AS sc WITH(NOLOCK)
+  ORDER BY sc.[custid]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[custid]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[custid]"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[custid]"
+                          name="custid"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[contactname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[contactname]"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[contactname]"
+                          name="contactname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[contactname_UPPER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[contactname_UPPER]"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[contactname_UPPER]"
+                          name="contactname_UPPER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[city]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[city]"
+                          name="city"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[city_UPPER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[city_UPPER]"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].Columns[city_UPPER]"
+                          name="city_UPPER"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[custid]"
+                          dataType="i4"
+                          name="custid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[contactname]"
+                          dataType="wstr"
+                          length="30"
+                          name="contactname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[contactname_UPPER]"
+                          dataType="wstr"
+                          length="30"
+                          name="contactname_UPPER" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                          dataType="wstr"
+                          length="15"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output].ExternalColumns[city_UPPER]"
+                          dataType="wstr"
+                          length="15"
+                          name="city_UPPER" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[custid]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[custid]"
+                          name="custid" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[contactname]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[contactname]"
+                          name="contactname" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[contactname_UPPER]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[contactname_UPPER]"
+                          name="contactname_UPPER" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[city]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[city]"
+                          name="city" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[city_UPPER]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[city_UPPER]"
+                          name="city_UPPER" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[CustomerBK_SRC]"
+                          cachedDataType="i4"
+                          cachedName="CustomerBK_SRC"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[CustomerBK_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[CustomerBK_DST]"
+                          cachedDataType="i4"
+                          cachedName="CustomerBK_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_DST]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[CustomerBK_DST]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[contactname_UPPER_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_UPPER_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[contactname_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[city_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[city_UPPER_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_UPPER_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[contactname_UPPER_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_DST]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_UPPER_DST]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1].Columns[city_UPPER_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_DST]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_UPPER_DST]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 2]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[CustomerBK_SRC]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[CustomerBK_SRC]"
+                          name="CustomerBK_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[CustomerBK_DST]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[CustomerBK_DST]"
+                          name="CustomerBK_DST" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_UPPER_SRC]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_UPPER_SRC]"
+                          name="contactname_UPPER_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_SRC]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_SRC]"
+                          name="contactname_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_SRC]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_SRC]"
+                          name="city_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_UPPER_SRC]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_UPPER_SRC]"
+                          name="city_UPPER_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_UPPER_DST]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[contactname_UPPER_DST]"
+                          name="contactname_UPPER_DST" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_UPPER_DST]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All.Outputs[Union All Output 1].Columns[city_UPPER_DST]"
+                          name="city_UPPER_DST" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All 1"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[CustomerBK_SRC]"
+                          cachedDataType="i4"
+                          cachedName="CustomerBK_SRC"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[CustomerBK_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[CustomerBK_DST]"
+                          cachedDataType="i4"
+                          cachedName="CustomerBK_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[CustomerBK_DST]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[CustomerBK_DST]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[contactname_UPPER_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_UPPER_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[contactname_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[city_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[city_UPPER_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER_SRC"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_UPPER_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[contactname_UPPER_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="contactname_UPPER_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[contactname_UPPER_DST]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_UPPER_DST]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1].Columns[city_UPPER_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="city_UPPER_DST"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output].Columns[city_UPPER_DST]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_UPPER_DST]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 2]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[CustomerBK_SRC]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[CustomerBK_SRC]"
+                          name="CustomerBK_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[CustomerBK_DST]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[CustomerBK_DST]"
+                          name="CustomerBK_DST" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_UPPER_SRC]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_UPPER_SRC]"
+                          name="contactname_UPPER_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_SRC]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_SRC]"
+                          name="contactname_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_SRC]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_SRC]"
+                          name="city_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_UPPER_SRC]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_UPPER_SRC]"
+                          name="city_UPPER_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_UPPER_DST]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[contactname_UPPER_DST]"
+                          name="contactname_UPPER_DST" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_UPPER_DST]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Outputs[Union All Output 1].Columns[city_UPPER_DST]"
+                          name="city_UPPER_DST" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQ Load\DFT Load DimCustomer.Paths[Derived Column Output]"
+                  endId="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load DimCustomer.Paths[Merge Join Output]"
+                  endId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Merge Join Output"
+                  startId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load DimCustomer.Paths[OLE DB Source Output]"
+                  endId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Left Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load DimCustomer.Paths[OLE DB Source Output1]"
+                  endId="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK.Inputs[Merge Join Right Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load DimCustomer.Paths[SCD1]"
+                  endId="Package\SEQ Load\DFT Load DimCustomer\Union All.Inputs[Union All Input 1]"
+                  name="SCD1"
+                  startId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[SCD1]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load DimCustomer.Paths[SCD2]"
+                  endId="Package\SEQ Load\DFT Load DimCustomer\Union All 1.Inputs[Union All Input 1]"
+                  name="SCD2"
+                  startId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[SCD2]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load DimCustomer.Paths[ToInsert]"
+                  endId="Package\SEQ Load\DFT Load DimCustomer\Derived Column.Inputs[Derived Column Input]"
+                  name="ToInsert"
+                  startId="Package\SEQ Load\DFT Load DimCustomer\Conditional Split.Outputs[ToInsert]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Load\SQL Insert new rows"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{974EE54E-7044-4891-86FF-4122DDA5C83A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL Insert new rows"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="INSERT INTO [msbicourse].[DimCustomer]&#xA;           ([CustomerBK]&#xA;           ,[contactname]&#xA;           ,[contacttitle]&#xA;           ,[city]&#xA;           ,[region]&#xA;           ,[country]&#xA;           ,phone&#xA;            ,[IsCurrent]&#xA; )&#xA;SELECT  &#xA;      [CustomerBK]&#xA;      ,[contactname]&#xA;      ,'' as [contacttitle]&#xA;      ,[city]&#xA;      ,[region]&#xA;      ,'' as [country]&#xA;      ,'' as [phone]&#xA;      ,[IsCurrent]&#xA;  FROM [msbicourse].[DimCustomer_tmp]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ Load.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{05227B91-F900-4582-9CF2-5FBFAB436590}"
+          DTS:From="Package\SEQ Load\DFT Load DimCustomer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ Load\SQL Insert new rows" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC Completion"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2E728ED2-0918-4143-87A3-3C85DD928467}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC Completion">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC Preparation"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{336F6D8E-41F6-486C-93E6-347B91CFCE23}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC Preparation">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Preparation\SQL truncate tmp tables"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e539084f-3cf1-4865-b104-47d10411436b}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL truncate tmp tables"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [msbicourse].[DimCustomer_tmp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B4AD02B0-E982-4D62-B070-625479947FD1}"
+      DTS:From="Package\SEQC Preparation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQ Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B4F6A1C7-7E00-4B08-8FF1-81B2B8620F4A}"
+      DTS:From="Package\SEQ Load"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQC Completion" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer"
+          TopLeft="141,39" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\SEQ Load\SQL Insert new rows"
+          TopLeft="173,118" />
+        <EdgeLayout
+          Id="Package\SEQ Load.PrecedenceConstraints[Constraint]"
+          TopLeft="236.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18,37"
+              Start="0,0"
+              End="18,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="14,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14,18.5"
+                    Point2="18,18.5"
+                    Point3="18,22.5" />
+                  <mssgle:LineSegment
+                    End="18,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="610,246"
+          Size="610,289"
+          Id="Package\SEQ Load"
+          TopLeft="133,349" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="483,74"
+          Size="483,117"
+          Id="Package\SEQC Completion"
+          TopLeft="135,625" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\SEQC Preparation\SQL truncate tmp tables"
+          TopLeft="139,38" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="569,204"
+          Size="569,247"
+          Id="Package\SEQC Preparation"
+          TopLeft="127,42" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="411.5,289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.5,60"
+              Start="0,0"
+              End="26.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="22.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,30"
+                    Point2="26.5,30"
+                    Point3="26.5,34" />
+                  <mssgle:LineSegment
+                    End="26.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="438,638">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="180,45.5"
+              Start="0,0"
+              End="172.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.5"
+                    Point2="0,45.5"
+                    Point3="4,45.5" />
+                  <mssgle:LineSegment
+                    End="172.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQ Load\DFT Load DimCustomer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="209,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer"
+          TopLeft="83,113" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer"
+          TopLeft="541,118" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\Merge by Customer BK"
+          TopLeft="316,261" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load DimCustomer.Paths[OLE DB Source Output]"
+          TopLeft="187.5,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="222,106"
+              Start="0,0"
+              End="222,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="4,53" />
+                  <mssgle:LineSegment
+                    End="218,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="218,53"
+                    Point2="222,53"
+                    Point3="222,57" />
+                  <mssgle:LineSegment
+                    End="222,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load DimCustomer.Paths[OLE DB Source Output1]"
+          TopLeft="635.5,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-196.166666666667,101"
+              Start="0,0"
+              End="-196.166666666667,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.0858960763521" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.0858960763521"
+                    Point2="0,60.0858960763521"
+                    Point3="-4,60.0858960763521" />
+                  <mssgle:LineSegment
+                    End="-192.166666666667,60.0858960763521" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-192.166666666667,60.0858960763521"
+                    Point2="-196.166666666667,60.0858960763521"
+                    Point3="-196.166666666667,64.0858960763521" />
+                  <mssgle:LineSegment
+                    End="-196.166666666667,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\Conditional Split"
+          TopLeft="335,366" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load DimCustomer.Paths[Merge Join Output]"
+          TopLeft="411,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,19.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\Derived Column"
+          TopLeft="62,441" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load DimCustomer.Paths[ToInsert]"
+          TopLeft="375.75,408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-236.75,33"
+              Start="0,0"
+              End="-236.75,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.37209302325582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.37209302325582"
+                    Point2="0,11.3720930232558"
+                    Point3="-4,11.3720930232558" />
+                  <mssgle:LineSegment
+                    End="-232.75,11.3720930232558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-232.75,11.3720930232558"
+                    Point2="-236.75,11.3720930232558"
+                    Point3="-236.75,15.3720930232558" />
+                  <mssgle:LineSegment
+                    End="-236.75,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-137.99248046875,16.3720930232558,39.2349609375,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination"
+          TopLeft="59,566" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load DimCustomer.Paths[Derived Column Output]"
+          TopLeft="141.75,483">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\Union All"
+          TopLeft="689,502" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQ Load\DFT Load DimCustomer\Union All 1"
+          TopLeft="341,522" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load DimCustomer.Paths[SCD2]"
+          TopLeft="409.25,408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114"
+              Start="0,0"
+              End="0,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-21.189765625,45.25,42.37953125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load DimCustomer.Paths[SCD1]"
+          TopLeft="449.25,408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="300.25,94"
+              Start="0,0"
+              End="300.25,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3932346723044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3932346723044"
+                    Point2="0,32.3932346723044"
+                    Point3="4,32.3932346723044" />
+                  <mssgle:LineSegment
+                    End="296.25,32.3932346723044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="296.25,32.3932346723044"
+                    Point2="300.25,32.3932346723044"
+                    Point3="300.25,36.3932346723044" />
+                  <mssgle:LineSegment
+                    End="300.25,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="129.12078125,37.3932346723044,42.0084375,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC Staging Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load DimCustomer\OLE_SRC DimCustomer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load DimCustomer\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
