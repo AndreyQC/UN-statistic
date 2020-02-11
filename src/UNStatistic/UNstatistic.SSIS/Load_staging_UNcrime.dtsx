@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{AFFFB445-13A5-4988-A515-2263297D89D3}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{9D9BCD36-609C-41F9-9962-BAB810CC366B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -733,13 +733,13 @@
           Id="Package\SEQC Completion"
           TopLeft="122,546" />
         <NodeLayout
-          Size="263,42"
-          Id="Package\SEQC Preparation\SQL truncate staging uncrime_untyped"
-          TopLeft="101,12" />
-        <NodeLayout
           Size="251,42"
           Id="Package\SEQC Preparation\SQL truncate staging uncrime_typed"
           TopLeft="101,114" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\SEQC Preparation\SQL truncate staging uncrime_untyped"
+          TopLeft="101,12" />
         <EdgeLayout
           Id="Package\SEQC Preparation.PrecedenceConstraints[Constraint]"
           TopLeft="229.5,54">
@@ -822,17 +822,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="166,42"
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
-          TopLeft="256,90" />
+          Size="191,42"
+          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns"
+          TopLeft="247,231" />
         <NodeLayout
           Size="246,42"
           Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped"
           TopLeft="217,363" />
         <NodeLayout
-          Size="191,42"
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns"
-          TopLeft="247,231" />
+          Size="166,42"
+          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
+          TopLeft="256,90" />
         <EdgeLayout
           Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped.Paths[Flat File Source Output]"
           TopLeft="340.75,132">

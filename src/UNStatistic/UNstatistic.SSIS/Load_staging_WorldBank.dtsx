@@ -7,12 +7,12 @@
   DTS:CreatorName="SARATOV\Andrey_Potapov"
   DTS:DTSID="{76CD89DF-7B24-4364-AEA0-DD0ACE467027}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="15.0.1900.80"
   DTS:LocaleID="1033"
   DTS:ObjectName="Load_staging_WorldBank"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{7717AB87-AA0E-4238-8209-4A851064D1A8}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{19A9275F-DA6F-415F-9315-3DCDC3600A1B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5817,7 +5817,7 @@
                         <externalMetadataColumn
                           refId="Package\SEQ Load\DFT Load staging population_untyped\OLE_DST staging population_untyped.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
                           dataType="wstr"
-                          length="255"
+                          length="100"
                           name="CountryName" />
                         <externalMetadataColumn
                           refId="Package\SEQ Load\DFT Load staging population_untyped\OLE_DST staging population_untyped.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
@@ -6398,13 +6398,13 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="258,42"
-          Id="Package\SEQ Load\DFT Load staging population_untyped"
-          TopLeft="101,39" />
-        <NodeLayout
           Size="246,42"
           Id="Package\SEQ Load\DFT Load staging population_typed"
           TopLeft="90,113" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\SEQ Load\DFT Load staging population_untyped"
+          TopLeft="101,39" />
         <EdgeLayout
           Id="Package\SEQ Load.PrecedenceConstraints[Constraint]"
           TopLeft="230,81">
@@ -6454,13 +6454,13 @@
           Id="Package\SEQC Completion"
           TopLeft="135,625" />
         <NodeLayout
-          Size="274,42"
-          Id="Package\SEQC Preparation\SQL truncate staging population_untyped"
-          TopLeft="107,5" />
-        <NodeLayout
           Size="262,42"
           Id="Package\SEQC Preparation\SQL truncate staging population_typed"
           TopLeft="104,96" />
+        <NodeLayout
+          Size="274,42"
+          Id="Package\SEQC Preparation\SQL truncate staging population_untyped"
+          TopLeft="107,5" />
         <EdgeLayout
           Id="Package\SEQC Preparation.PrecedenceConstraints[Constraint]"
           TopLeft="244,47">
@@ -6573,135 +6573,6 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\SEQ Load\DFT Load staging population_untyped">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="175,42"
-          Id="Package\SEQ Load\DFT Load staging population_untyped\FFS_SRC WorldBank"
-          TopLeft="40,23" />
-        <NodeLayout
-          Size="257,42"
-          Id="Package\SEQ Load\DFT Load staging population_untyped\OLE_DST staging population_untyped"
-          TopLeft="35,268" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\SEQ Load\DFT Load staging population_untyped\Union All"
-          TopLeft="377,78" />
-        <EdgeLayout
-          Id="Package\SEQ Load\DFT Load staging population_untyped.Paths[Flat File Source Error Output]"
-          TopLeft="215,44">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="162,55"
-              Start="0,0"
-              End="154.5,55">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="77,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="77,0"
-                    Point2="81,0"
-                    Point3="81,4" />
-                  <mssgle:LineSegment
-                    End="81,51" />
-                  <mssgle:CubicBezierSegment
-                    Point1="81,51"
-                    Point2="81,55"
-                    Point3="85,55" />
-                  <mssgle:LineSegment
-                    End="154.5,55" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.50496093750002,-22,144.990078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\SEQ Load\DFT Load staging population_untyped\DER Add Column"
-          TopLeft="90,134" />
-        <EdgeLayout
-          Id="Package\SEQ Load\DFT Load staging population_untyped.Paths[Flat File Source Output]"
-          TopLeft="127.5,65">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="42,69"
-              Start="0,0"
-              End="42,61.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.5"
-                    Point2="0,34.5"
-                    Point3="4,34.5" />
-                  <mssgle:LineSegment
-                    End="38,34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="38,34.5"
-                    Point2="42,34.5"
-                    Point3="42,38.5" />
-                  <mssgle:LineSegment
-                    End="42,61.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ Load\DFT Load staging population_untyped.Paths[Derived Column Output]"
-          TopLeft="166.5,176">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,92"
-              Start="0,0"
-              End="0,84.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,84.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQ Load\DFT Load staging population_untyped\OLE_DST staging population_untyped">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\SEQ Load\DFT Load staging population_typed">
     <LayoutInfo>
@@ -6820,6 +6691,135 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\SEQ Load\DFT Load staging population_typed\OLE_DST staging population_untyped">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SEQ Load\DFT Load staging population_untyped">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="257,42"
+          Id="Package\SEQ Load\DFT Load staging population_untyped\OLE_DST staging population_untyped"
+          TopLeft="35,268" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQ Load\DFT Load staging population_untyped\Union All"
+          TopLeft="377,78" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SEQ Load\DFT Load staging population_untyped\DER Add Column"
+          TopLeft="90,134" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\SEQ Load\DFT Load staging population_untyped\FFS_SRC WorldBank"
+          TopLeft="40,23" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load staging population_untyped.Paths[Flat File Source Output]"
+          TopLeft="127.5,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42,69"
+              Start="0,0"
+              End="42,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="38,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38,34.5"
+                    Point2="42,34.5"
+                    Point3="42,38.5" />
+                  <mssgle:LineSegment
+                    End="42,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load staging population_untyped.Paths[Flat File Source Error Output]"
+          TopLeft="215,44">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162,55"
+              Start="0,0"
+              End="154.5,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77,0"
+                    Point2="81,0"
+                    Point3="81,4" />
+                  <mssgle:LineSegment
+                    End="81,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81,51"
+                    Point2="81,55"
+                    Point3="85,55" />
+                  <mssgle:LineSegment
+                    End="154.5,55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.50496093750002,-22,127.2527734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load staging population_untyped.Paths[Derived Column Output]"
+          TopLeft="166.5,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92"
+              Start="0,0"
+              End="0,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load staging population_untyped\OLE_DST staging population_untyped">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

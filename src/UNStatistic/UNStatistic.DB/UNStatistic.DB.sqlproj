@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>UNStaistic.DB</Name>
+    <Name>UNStatistic.DB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{b8d41b7d-a8e6-403b-b3db-0f413fb2f90e}</ProjectGuid>
@@ -11,8 +11,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>UNStaistic.DB</RootNamespace>
-    <AssemblyName>UNStaistic.DB</AssemblyName>
+    <RootNamespace>UNStatistic.DB</RootNamespace>
+    <AssemblyName>UNStatistic.DB</AssemblyName>
     <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -92,7 +92,7 @@
     <Build Include="msbicourse\DimCustomer_tmp.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="UNStaistic.DB.publish.DEV.xml" />
+    <None Include="UNStatistic.DB.DEV.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />
