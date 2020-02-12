@@ -90,6 +90,7 @@
     <Build Include="staging\Tables\population_typed.sql" />
     <Build Include="staging\Tables\population_untyped.sql" />
     <Build Include="msbicourse\DimCustomer_tmp.sql" />
+    <Build Include="staging\Tables\population_unpivoted.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStatistic.DB.DEV.publish.xml" />
