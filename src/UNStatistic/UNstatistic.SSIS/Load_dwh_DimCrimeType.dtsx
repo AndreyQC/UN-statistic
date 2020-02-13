@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Load_dwh_DimCrimeType"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{9337FF00-FF74-48AC-A7E7-76B21CB7112A}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{B6843FE4-156E-4D6F-AD96-DEAE83A95322}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -26,7 +26,335 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SEQ Load">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Load\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{173650FE-8049-40E5-9622-7D41A8A9C9D5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_DST DimCrimeType"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dwh].[DimCrimeType]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[DimCrimeTypeKey]"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[DimCrimeTypeKey]"
+                          name="DimCrimeTypeKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[CrimeType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[CrimeType]"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[CrimeType]"
+                          name="CrimeType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysCreatedAt]"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysCreatedAt]"
+                          name="sysCreatedAt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysChangedAt]"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysChangedAt]"
+                          name="sysChangedAt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysChangedBy]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysChangedBy]"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysChangedBy]"
+                          name="sysChangedBy"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysCreatedBy]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysCreatedBy]"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].Columns[sysCreatedBy]"
+                          name="sysCreatedBy"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          name="DimCrimeTypeKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[CrimeType]"
+                          dataType="wstr"
+                          length="100"
+                          name="CrimeType" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysCreatedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysChangedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysChangedBy]"
+                          dataType="i4"
+                          name="sysChangedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Output].ExternalColumns[sysCreatedBy]"
+                          dataType="i4"
+                          name="sysCreatedBy" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[DimCrimeTypeKey]"
+                          name="DimCrimeTypeKey" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[CrimeType]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[CrimeType]"
+                          name="CrimeType" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysCreatedAt]"
+                          name="sysCreatedAt" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysChangedAt]"
+                          name="sysChangedAt" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysChangedBy]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysChangedBy]"
+                          name="sysChangedBy" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysCreatedBy]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[sysCreatedBy]"
+                          name="sysCreatedBy" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC Distinct FileName UNcrime"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT [FileName]
+FROM [staging].[uncrime_untyped]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Output].Columns[FileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Output].Columns[FileName]"
+                          name="FileName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FileName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          name="FileName" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SEQC Completion"
@@ -81,6 +409,10 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\SEQ Load\Data Flow Task"
+          TopLeft="141,88" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -94,7 +426,7 @@
           PanelSize="483,74"
           Size="483,117"
           Id="Package\SEQC Completion"
-          TopLeft="135,625" />
+          TopLeft="145,741" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -142,20 +474,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="180,45.5"
+              EndConnector="-51.5,103"
               Start="0,0"
-              End="172.5,45.5">
+              End="-51.5,95.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,47.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41.5"
-                    Point2="0,45.5"
-                    Point3="4,45.5" />
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="-4,51.5" />
                   <mssgle:LineSegment
-                    End="172.5,45.5" />
+                    End="-47.5,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.5,51.5"
+                    Point2="-51.5,51.5"
+                    Point3="-51.5,55.5" />
+                  <mssgle:LineSegment
+                    End="-51.5,95.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -174,5 +512,42 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\SEQ Load\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="251,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime"
+          TopLeft="211,83" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType"
+          TopLeft="678,94" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\Data Flow Task\OLE_SRC Distinct FileName UNcrime">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\Data Flow Task\OLE_DST DimCrimeType">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

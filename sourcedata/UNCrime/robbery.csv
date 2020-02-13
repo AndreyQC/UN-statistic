@@ -1,0 +1,1483 @@
+RegionName,SubRegionName,CountryName,Year,Count
+Africa,Eastern Africa,Burundi,2008,4009
+Africa,Eastern Africa,Burundi,2009,4231
+Africa,Eastern Africa,Burundi,2010,3039
+Africa,Eastern Africa,Burundi,2011,4266
+Africa,Eastern Africa,Burundi,2012,4246
+Africa,Eastern Africa,Burundi,2013,4108
+Africa,Eastern Africa,Burundi,2014,4495
+Africa,Eastern Africa,Kenya,2004,7967
+Africa,Eastern Africa,Kenya,2005,6936
+Africa,Eastern Africa,Kenya,2006,5234
+Africa,Eastern Africa,Kenya,2007,3492
+Africa,Eastern Africa,Kenya,2008,3401
+Africa,Eastern Africa,Kenya,2009,2938
+Africa,Eastern Africa,Kenya,2010,2843
+Africa,Eastern Africa,Kenya,2011,3262
+Africa,Eastern Africa,Kenya,2012,3262
+Africa,Eastern Africa,Kenya,2013,3551
+Africa,Eastern Africa,Kenya,2014,3011
+Africa,Eastern Africa,Kenya,2015,2865
+Africa,Eastern Africa,Kenya,2016,2654
+Africa,Eastern Africa,Kenya,2017,2713
+Africa,Eastern Africa,Madagascar,2010,3131
+Africa,Eastern Africa,Madagascar,2011,2272
+Africa,Eastern Africa,Madagascar,2012,2192
+Africa,Eastern Africa,Madagascar,2013,2819
+Africa,Eastern Africa,Madagascar,2014,2165
+Africa,Eastern Africa,Madagascar,2015,1741
+Africa,Eastern Africa,Mauritius,2003,855
+Africa,Eastern Africa,Mauritius,2004,1047
+Africa,Eastern Africa,Mauritius,2005,1350
+Africa,Eastern Africa,Mauritius,2006,1217
+Africa,Eastern Africa,Mauritius,2007,1633
+Africa,Eastern Africa,Mauritius,2008,1441
+Africa,Eastern Africa,Mauritius,2009,1410
+Africa,Eastern Africa,Mauritius,2010,1085
+Africa,Eastern Africa,Mauritius,2011,814
+Africa,Eastern Africa,Mozambique,2004,7534
+Africa,Eastern Africa,Mozambique,2005,6826
+Africa,Eastern Africa,Mozambique,2006,5543
+Africa,Eastern Africa,Mozambique,2007,6008
+Africa,Eastern Africa,Mozambique,2008,5744
+Africa,Eastern Africa,Mozambique,2009,5267
+Africa,Eastern Africa,Rwanda,2008,1753
+Africa,Eastern Africa,Rwanda,2009,2103
+Africa,Eastern Africa,Rwanda,2010,2072
+Africa,Eastern Africa,Rwanda,2011,1766
+Africa,Eastern Africa,Rwanda,2012,2617
+Africa,Eastern Africa,Rwanda,2013,2772
+Africa,Eastern Africa,Uganda,2003,3904
+Africa,Eastern Africa,Uganda,2004,4919
+Africa,Eastern Africa,Uganda,2005,7309
+Africa,Eastern Africa,Uganda,2006,8167
+Africa,Eastern Africa,Uganda,2007,5666
+Africa,Eastern Africa,Uganda,2008,4258
+Africa,Eastern Africa,Uganda,2009,7519
+Africa,Eastern Africa,Uganda,2010,6025
+Africa,Eastern Africa,Uganda,2011,4174
+Africa,Eastern Africa,Uganda,2012,4194
+Africa,Eastern Africa,Uganda,2013,3620
+Africa,Eastern Africa,Uganda,2014,3644
+Africa,Eastern Africa,Uganda,2016,7257
+Africa,Eastern Africa,Uganda,2017,6850
+Africa,Eastern Africa,United Republic of Tanzania,2010,11915
+Africa,Eastern Africa,United Republic of Tanzania,2011,11834
+Africa,Eastern Africa,United Republic of Tanzania,2012,11956
+Africa,Eastern Africa,United Republic of Tanzania,2013,11020
+Africa,Eastern Africa,United Republic of Tanzania,2014,10413
+Africa,Eastern Africa,United Republic of Tanzania,2015,9389
+Africa,Eastern Africa,Zimbabwe,2003,14028
+Africa,Eastern Africa,Zimbabwe,2004,12666
+Africa,Eastern Africa,Zimbabwe,2005,11146
+Africa,Eastern Africa,Zimbabwe,2006,11654
+Africa,Eastern Africa,Zimbabwe,2007,9274
+Africa,Eastern Africa,Zimbabwe,2008,8796
+Africa,Middle Africa,Cameroon,2009,10293
+Africa,Middle Africa,Cameroon,2010,16419
+Africa,Middle Africa,Cameroon,2011,17759
+Africa,Middle Africa,Cameroon,2012,15752
+Africa,Middle Africa,Cameroon,2013,25027
+Africa,Middle Africa,Cameroon,2014,3690
+Africa,Middle Africa,Cameroon,2015,4805
+Africa,Middle Africa,Cameroon,2016,4211
+Africa,Middle Africa,Cameroon,2017,4458
+Africa,Middle Africa,Sao Tome and Principe,2006,0
+Africa,Middle Africa,Sao Tome and Principe,2007,0
+Africa,Middle Africa,Sao Tome and Principe,2008,0
+Africa,Middle Africa,Sao Tome and Principe,2009,0
+Africa,Middle Africa,Sao Tome and Principe,2010,1
+Africa,Middle Africa,Sao Tome and Principe,2011,1
+Africa,Northern Africa,Algeria,2005,25147
+Africa,Northern Africa,Algeria,2006,21349
+Africa,Northern Africa,Algeria,2007,20518
+Africa,Northern Africa,Algeria,2008,20052
+Africa,Northern Africa,Algeria,2009,19139
+Africa,Northern Africa,Algeria,2010,18490
+Africa,Northern Africa,Algeria,2011,19103
+Africa,Northern Africa,Algeria,2012,10709
+Africa,Northern Africa,Algeria,2013,17750
+Africa,Northern Africa,Algeria,2014,21011
+Africa,Northern Africa,Algeria,2015,26022
+Africa,Northern Africa,Egypt,2003,337
+Africa,Northern Africa,Egypt,2004,435
+Africa,Northern Africa,Egypt,2005,435
+Africa,Northern Africa,Egypt,2006,529
+Africa,Northern Africa,Egypt,2007,631
+Africa,Northern Africa,Egypt,2008,747
+Africa,Northern Africa,Egypt,2009,732
+Africa,Northern Africa,Egypt,2010,694
+Africa,Northern Africa,Egypt,2011,2673
+Africa,Northern Africa,Morocco,2003,16291
+Africa,Northern Africa,Morocco,2004,15297
+Africa,Northern Africa,Morocco,2005,15017
+Africa,Northern Africa,Morocco,2006,21749
+Africa,Northern Africa,Morocco,2007,22393
+Africa,Northern Africa,Morocco,2008,23269
+Africa,Northern Africa,Morocco,2009,25935
+Africa,Northern Africa,Morocco,2013,14857
+Africa,Northern Africa,Morocco,2015,19047
+Africa,Northern Africa,Morocco,2016,18595
+Africa,Northern Africa,Morocco,2017,48174
+Africa,Northern Africa,Sudan,2008,3017
+Africa,Southern Africa,Botswana,2009,3004
+Africa,Southern Africa,Botswana,2010,2403
+Africa,Southern Africa,Botswana,2011,2461
+Africa,Southern Africa,Botswana,2014,1698
+Africa,Southern Africa,Eswatini,2003,2723
+Africa,Southern Africa,Eswatini,2004,3392
+Africa,Southern Africa,Lesotho,2007,994
+Africa,Southern Africa,Lesotho,2008,1080
+Africa,Southern Africa,Lesotho,2009,1270
+Africa,Southern Africa,South Africa,2014,183972
+Africa,Southern Africa,South Africa,2015,186637
+Africa,Southern Africa,South Africa,2016,194374
+Africa,Southern Africa,South Africa,2017,189094
+Africa,Western Africa,Benin,2017,182
+Africa,Western Africa,Cabo Verde,2010,3074
+Africa,Western Africa,Cabo Verde,2011,3165
+Africa,Western Africa,Cabo Verde,2012,4418
+Africa,Western Africa,Cabo Verde,2013,3874
+Africa,Western Africa,Cabo Verde,2014,3908
+Africa,Western Africa,Cabo Verde,2015,5472
+Africa,Western Africa,Cote d'Ivoire,2007,666
+Africa,Western Africa,Cote d'Ivoire,2008,591
+Africa,Western Africa,Guinea,2007,151
+Africa,Western Africa,Guinea-Bissau,2013,543
+Africa,Western Africa,Guinea-Bissau,2014,712
+Africa,Western Africa,Guinea-Bissau,2015,235
+Africa,Western Africa,Guinea-Bissau,2016,362
+Africa,Western Africa,Nigeria,2007,2327
+Africa,Western Africa,Nigeria,2008,2340
+Africa,Western Africa,Nigeria,2009,5909
+Africa,Western Africa,Nigeria,2010,2240
+Africa,Western Africa,Nigeria,2012,2988
+Africa,Western Africa,Nigeria,2013,1910
+Africa,Western Africa,Senegal,2005,2744
+Africa,Western Africa,Senegal,2006,2601
+Africa,Western Africa,Senegal,2007,1589
+Africa,Western Africa,Senegal,2008,2699
+Africa,Western Africa,Senegal,2009,2606
+Africa,Western Africa,Senegal,2010,2503
+Africa,Western Africa,Senegal,2015,2503
+Africa,Western Africa,Sierra Leone,2007,167
+Africa,Western Africa,Sierra Leone,2008,184
+Americas,Caribbean,Bahamas,2009,316
+Americas,Caribbean,Bahamas,2010,336
+Americas,Caribbean,Bahamas,2011,369
+Americas,Caribbean,Bahamas,2012,367
+Americas,Caribbean,Bahamas,2014,1222
+Americas,Caribbean,Bahamas,2015,1076
+Americas,Caribbean,Bahamas,2016,913
+Americas,Caribbean,Bahamas,2017,630
+Americas,Caribbean,Barbados,2004,289
+Americas,Caribbean,Barbados,2005,330
+Americas,Caribbean,Barbados,2006,367
+Americas,Caribbean,Barbados,2007,392
+Americas,Caribbean,Barbados,2008,394
+Americas,Caribbean,Barbados,2009,383
+Americas,Caribbean,Barbados,2010,487
+Americas,Caribbean,Barbados,2011,471
+Americas,Caribbean,Barbados,2012,555
+Americas,Caribbean,Barbados,2013,351
+Americas,Caribbean,Barbados,2014,285
+Americas,Caribbean,Barbados,2015,300
+Americas,Caribbean,Barbados,2016,186
+Americas,Caribbean,Dominican Republic,2012,2091
+Americas,Caribbean,Dominican Republic,2014,7913
+Americas,Caribbean,Dominican Republic,2015,7682
+Americas,Caribbean,Dominican Republic,2016,6984
+Americas,Caribbean,Grenada,2005,45
+Americas,Caribbean,Grenada,2006,50
+Americas,Caribbean,Grenada,2007,60
+Americas,Caribbean,Grenada,2008,43
+Americas,Caribbean,Grenada,2009,19
+Americas,Caribbean,Grenada,2010,26
+Americas,Caribbean,Grenada,2011,38
+Americas,Caribbean,Grenada,2012,24
+Americas,Caribbean,Grenada,2013,20
+Americas,Caribbean,Grenada,2014,64
+Americas,Caribbean,Grenada,2015,76
+Americas,Caribbean,Grenada,2016,55
+Americas,Caribbean,Grenada,2017,57
+Americas,Caribbean,Jamaica,2006,2009
+Americas,Caribbean,Jamaica,2007,1600
+Americas,Caribbean,Jamaica,2008,2660
+Americas,Caribbean,Jamaica,2009,3025
+Americas,Caribbean,Jamaica,2010,2855
+Americas,Caribbean,Jamaica,2011,3093
+Americas,Caribbean,Jamaica,2012,2771
+Americas,Caribbean,Jamaica,2013,2674
+Americas,Caribbean,Jamaica,2014,2269
+Americas,Caribbean,Jamaica,2015,1918
+Americas,Caribbean,Jamaica,2016,1432
+Americas,Caribbean,Jamaica,2017,1267
+Americas,Caribbean,Puerto Rico,2008,5467
+Americas,Caribbean,Puerto Rico,2009,6093
+Americas,Caribbean,Puerto Rico,2010,6516
+Americas,Caribbean,Puerto Rico,2011,6465
+Americas,Caribbean,Puerto Rico,2012,6298
+Americas,Caribbean,Puerto Rico,2013,6016
+Americas,Caribbean,Puerto Rico,2014,5171
+Americas,Caribbean,Puerto Rico,2015,4070
+Americas,Caribbean,Puerto Rico,2016,3252
+Americas,Caribbean,Puerto Rico,2017,2878
+Americas,Caribbean,St. Kitts and Nevis,2009,108
+Americas,Caribbean,St. Kitts and Nevis,2010,87
+Americas,Caribbean,St. Kitts and Nevis,2011,66
+Americas,Caribbean,St. Vincent and the Grenadines,2004,62
+Americas,Caribbean,St. Vincent and the Grenadines,2005,73
+Americas,Caribbean,St. Vincent and the Grenadines,2006,79
+Americas,Caribbean,St. Vincent and the Grenadines,2007,56
+Americas,Caribbean,St. Vincent and the Grenadines,2008,47
+Americas,Caribbean,St. Vincent and the Grenadines,2009,68
+Americas,Caribbean,St. Vincent and the Grenadines,2010,117
+Americas,Caribbean,St. Vincent and the Grenadines,2011,170
+Americas,Caribbean,St. Vincent and the Grenadines,2012,160
+Americas,Caribbean,St. Vincent and the Grenadines,2013,149
+Americas,Caribbean,St. Vincent and the Grenadines,2016,79
+Americas,Caribbean,Trinidad and Tobago,2004,3885
+Americas,Caribbean,Trinidad and Tobago,2005,4868
+Americas,Caribbean,Trinidad and Tobago,2006,5633
+Americas,Caribbean,Trinidad and Tobago,2007,4965
+Americas,Caribbean,Trinidad and Tobago,2008,5043
+Americas,Caribbean,Trinidad and Tobago,2009,6107
+Americas,Caribbean,Trinidad and Tobago,2010,5123
+Americas,Caribbean,Trinidad and Tobago,2011,3718
+Americas,Caribbean,Trinidad and Tobago,2012,4436
+Americas,Caribbean,Trinidad and Tobago,2013,2958
+Americas,Caribbean,Trinidad and Tobago,2014,2672
+Americas,Caribbean,Trinidad and Tobago,2015,2469
+Americas,Central America,Belize,2005,667
+Americas,Central America,Belize,2006,526
+Americas,Central America,Belize,2009,545
+Americas,Central America,Belize,2010,477
+Americas,Central America,Belize,2011,447
+Americas,Central America,Belize,2012,487
+Americas,Central America,Belize,2013,296
+Americas,Central America,Belize,2014,304
+Americas,Central America,Belize,2015,214
+Americas,Central America,Belize,2016,232
+Americas,Central America,Costa Rica,2003,17457
+Americas,Central America,Costa Rica,2004,19697
+Americas,Central America,Costa Rica,2005,21285
+Americas,Central America,Costa Rica,2006,40948
+Americas,Central America,Costa Rica,2007,39688
+Americas,Central America,Costa Rica,2008,43185
+Americas,Central America,Costa Rica,2009,45545
+Americas,Central America,Costa Rica,2010,43185
+Americas,Central America,Costa Rica,2011,40427
+Americas,Central America,Costa Rica,2013,47954
+Americas,Central America,Costa Rica,2014,87954
+Americas,Central America,Costa Rica,2015,81945
+Americas,Central America,Costa Rica,2016,76363
+Americas,Central America,Costa Rica,2017,78581
+Americas,Central America,El Salvador,2005,4861
+Americas,Central America,El Salvador,2006,5598
+Americas,Central America,El Salvador,2007,5705
+Americas,Central America,El Salvador,2008,5997
+Americas,Central America,El Salvador,2009,6480
+Americas,Central America,El Salvador,2010,5418
+Americas,Central America,El Salvador,2011,5769
+Americas,Central America,El Salvador,2012,5521
+Americas,Central America,El Salvador,2013,5346
+Americas,Central America,El Salvador,2014,4732
+Americas,Central America,El Salvador,2015,5161
+Americas,Central America,Guatemala,2004,12073
+Americas,Central America,Guatemala,2005,10987
+Americas,Central America,Guatemala,2006,9154
+Americas,Central America,Guatemala,2007,9587
+Americas,Central America,Guatemala,2008,10105
+Americas,Central America,Guatemala,2009,3840
+Americas,Central America,Guatemala,2010,3236
+Americas,Central America,Guatemala,2011,3410
+Americas,Central America,Guatemala,2012,3823
+Americas,Central America,Guatemala,2013,93991
+Americas,Central America,Guatemala,2014,54556
+Americas,Central America,Guatemala,2015,50154
+Americas,Central America,Guatemala,2016,45432
+Americas,Central America,Honduras,2011,24808
+Americas,Central America,Honduras,2012,19674
+Americas,Central America,Honduras,2013,14142
+Americas,Central America,Honduras,2014,15037
+Americas,Central America,Honduras,2015,9553
+Americas,Central America,Honduras,2016,16704
+Americas,Central America,Honduras,2017,11393
+Americas,Central America,Mexico,2004,514922
+Americas,Central America,Mexico,2005,515916
+Americas,Central America,Mexico,2006,545232
+Americas,Central America,Mexico,2007,610730
+Americas,Central America,Mexico,2008,656877
+Americas,Central America,Mexico,2009,680566
+Americas,Central America,Mexico,2010,738138
+Americas,Central America,Mexico,2011,751750
+Americas,Central America,Mexico,2012,746894
+Americas,Central America,Mexico,2013,176019
+Americas,Central America,Mexico,2014,167280
+Americas,Central America,Mexico,2015,96472
+Americas,Central America,Mexico,2016,158894
+Americas,Central America,Mexico,2017,223617
+Americas,Central America,Nicaragua,2005,21378
+Americas,Central America,Nicaragua,2006,24348
+Americas,Central America,Nicaragua,2010,28429
+Americas,Central America,Panama,2004,4960
+Americas,Central America,Panama,2005,5249
+Americas,Central America,Panama,2006,5843
+Americas,Central America,Panama,2007,6352
+Americas,Central America,Panama,2008,7861
+Americas,Central America,Panama,2009,8145
+Americas,Central America,Panama,2010,9506
+Americas,Central America,Panama,2011,9668
+Americas,Central America,Panama,2012,10038
+Americas,Central America,Panama,2013,8748
+Americas,Central America,Panama,2014,9788
+Americas,Central America,Panama,2015,8168
+Americas,Central America,Panama,2016,7722
+Americas,Central America,Panama,2017,9972
+Americas,Northern America,Bermuda,2003,87
+Americas,Northern America,Bermuda,2004,77
+Americas,Northern America,Bermuda,2009,142
+Americas,Northern America,Bermuda,2010,99
+Americas,Northern America,Bermuda,2011,96
+Americas,Northern America,Bermuda,2012,84
+Americas,Northern America,Bermuda,2013,32
+Americas,Northern America,Bermuda,2014,33
+Americas,Northern America,Bermuda,2015,46
+Americas,Northern America,Bermuda,2017,50
+Americas,Northern America,Canada,2003,32084
+Americas,Northern America,Canada,2004,30990
+Americas,Northern America,Canada,2005,32437
+Americas,Northern America,Canada,2006,34641
+Americas,Northern America,Canada,2007,34182
+Americas,Northern America,Canada,2008,32372
+Americas,Northern America,Canada,2009,32463
+Americas,Northern America,Canada,2010,30478
+Americas,Northern America,Canada,2011,29790
+Americas,Northern America,Canada,2012,27748
+Americas,Northern America,Canada,2013,23249
+Americas,Northern America,Canada,2014,20923
+Americas,Northern America,Canada,2015,22149
+Americas,Northern America,Canada,2016,21958
+Americas,Northern America,Canada,2017,22739
+Americas,Northern America,United States of America,2003,414235
+Americas,Northern America,United States of America,2004,401470
+Americas,Northern America,United States of America,2005,417438
+Americas,Northern America,United States of America,2006,449246
+Americas,Northern America,United States of America,2007,447324
+Americas,Northern America,United States of America,2008,443563
+Americas,Northern America,United States of America,2009,408742
+Americas,Northern America,United States of America,2010,369089
+Americas,Northern America,United States of America,2011,354746
+Americas,Northern America,United States of America,2012,355051
+Americas,Northern America,United States of America,2013,345100
+Americas,Northern America,United States of America,2014,322900
+Americas,Northern America,United States of America,2015,328100
+Americas,Northern America,United States of America,2016,332800
+Americas,Northern America,United States of America,2017,319400
+Americas,South America,Argentina,2005,355332
+Americas,South America,Argentina,2006,354040
+Americas,South America,Argentina,2007,339347
+Americas,South America,Argentina,2008,386828
+Americas,South America,Argentina,2014,483929
+Americas,South America,Argentina,2015,443033
+Americas,South America,Argentina,2016,437078
+Americas,South America,Argentina,2017,405361
+Americas,South America,Bolivia (Plurinational State of),2005,8571
+Americas,South America,Bolivia (Plurinational State of),2006,8520
+Americas,South America,Bolivia (Plurinational State of),2007,10481
+Americas,South America,Bolivia (Plurinational State of),2008,13187
+Americas,South America,Bolivia (Plurinational State of),2009,13292
+Americas,South America,Bolivia (Plurinational State of),2010,12470
+Americas,South America,Bolivia (Plurinational State of),2011,11872
+Americas,South America,Bolivia (Plurinational State of),2012,14411
+Americas,South America,Brazil,2006,894978
+Americas,South America,Brazil,2007,927667
+Americas,South America,Brazil,2008,934548
+Americas,South America,Brazil,2009,910679
+Americas,South America,Brazil,2010,1081041
+Americas,South America,Brazil,2011,1087059
+Americas,South America,Brazil,2012,979571
+Americas,South America,Brazil,2013,1012504
+Americas,South America,Chile,2004,63880
+Americas,South America,Chile,2005,64873
+Americas,South America,Chile,2006,78252
+Americas,South America,Chile,2007,93462
+Americas,South America,Chile,2008,89633
+Americas,South America,Chile,2009,91902
+Americas,South America,Chile,2010,81667
+Americas,South America,Chile,2011,91982
+Americas,South America,Chile,2012,81664
+Americas,South America,Chile,2013,93062
+Americas,South America,Chile,2014,106342
+Americas,South America,Chile,2015,106476
+Americas,South America,Chile,2016,115880
+Americas,South America,Chile,2017,117004
+Americas,South America,Colombia,2004,55079
+Americas,South America,Colombia,2005,40637
+Americas,South America,Colombia,2006,54933
+Americas,South America,Colombia,2007,51307
+Americas,South America,Colombia,2008,48322
+Americas,South America,Colombia,2009,61067
+Americas,South America,Colombia,2010,61439
+Americas,South America,Colombia,2011,67861
+Americas,South America,Colombia,2012,82647
+Americas,South America,Colombia,2013,93742
+Americas,South America,Colombia,2014,94369
+Americas,South America,Colombia,2015,101341
+Americas,South America,Colombia,2016,146642
+Americas,South America,Colombia,2017,119531
+Americas,South America,Ecuador,2003,30625
+Americas,South America,Ecuador,2004,30915
+Americas,South America,Ecuador,2005,47625
+Americas,South America,Ecuador,2006,52655
+Americas,South America,Ecuador,2009,52430
+Americas,South America,Ecuador,2010,54107
+Americas,South America,Ecuador,2011,72275
+Americas,South America,Ecuador,2012,85892
+Americas,South America,Ecuador,2013,94209
+Americas,South America,Ecuador,2014,89075
+Americas,South America,Ecuador,2015,94329
+Americas,South America,Ecuador,2016,82366
+Americas,South America,Ecuador,2017,76747
+Americas,South America,Guyana,2009,1225
+Americas,South America,Guyana,2010,1095
+Americas,South America,Guyana,2011,1191
+Americas,South America,Guyana,2012,1401
+Americas,South America,Guyana,2013,1531
+Americas,South America,Guyana,2015,1463
+Americas,South America,Guyana,2016,1289
+Americas,South America,Guyana,2017,1250
+Americas,South America,Paraguay,2006,8998
+Americas,South America,Paraguay,2007,10688
+Americas,South America,Paraguay,2008,10911
+Americas,South America,Paraguay,2009,13078
+Americas,South America,Paraguay,2010,13680
+Americas,South America,Paraguay,2011,13514
+Americas,South America,Paraguay,2012,15006
+Americas,South America,Paraguay,2013,17717
+Americas,South America,Paraguay,2014,20305
+Americas,South America,Paraguay,2015,21060
+Americas,South America,Paraguay,2016,22277
+Americas,South America,Paraguay,2017,1979
+Americas,South America,Peru,2003,38584
+Americas,South America,Peru,2004,42908
+Americas,South America,Peru,2005,45594
+Americas,South America,Peru,2006,45997
+Americas,South America,Peru,2007,41606
+Americas,South America,Peru,2008,42931
+Americas,South America,Peru,2009,48785
+Americas,South America,Peru,2010,56814
+Americas,South America,Peru,2011,64903
+Americas,South America,Peru,2012,76424
+Americas,South America,Peru,2013,79873
+Americas,South America,Peru,2014,77600
+Americas,South America,Peru,2015,82950
+Americas,South America,Peru,2016,76742
+Americas,South America,Peru,2017,70079
+Americas,South America,Uruguay,2003,9700
+Americas,South America,Uruguay,2004,9224
+Americas,South America,Uruguay,2005,9700
+Americas,South America,Uruguay,2006,8867
+Americas,South America,Uruguay,2007,9173
+Americas,South America,Uruguay,2008,10705
+Americas,South America,Uruguay,2009,11391
+Americas,South America,Uruguay,2010,13829
+Americas,South America,Uruguay,2011,15003
+Americas,South America,Uruguay,2012,15414
+Americas,South America,Uruguay,2013,16718
+Americas,South America,Uruguay,2014,18577
+Americas,South America,Uruguay,2015,19423
+Americas,South America,Uruguay,2016,18794
+Americas,South America,Uruguay,2017,17957
+Asia,Central Asia,Kazakhstan,2005,13064
+Asia,Central Asia,Kazakhstan,2006,12607
+Asia,Central Asia,Kazakhstan,2007,10925
+Asia,Central Asia,Kazakhstan,2008,11227
+Asia,Central Asia,Kazakhstan,2009,9265
+Asia,Central Asia,Kazakhstan,2010,10734
+Asia,Central Asia,Kazakhstan,2011,18117
+Asia,Central Asia,Kazakhstan,2012,20259
+Asia,Central Asia,Kazakhstan,2013,18832
+Asia,Central Asia,Kazakhstan,2014,14317
+Asia,Central Asia,Kazakhstan,2015,12197
+Asia,Central Asia,Kazakhstan,2017,9469
+Asia,Central Asia,Kyrgyzstan,2005,2718
+Asia,Central Asia,Kyrgyzstan,2006,2405
+Asia,Central Asia,Kyrgyzstan,2007,2488
+Asia,Central Asia,Kyrgyzstan,2008,2347
+Asia,Central Asia,Kyrgyzstan,2009,2347
+Asia,Central Asia,Kyrgyzstan,2010,2798
+Asia,Central Asia,Kyrgyzstan,2011,2434
+Asia,Central Asia,Kyrgyzstan,2012,2074
+Asia,Central Asia,Kyrgyzstan,2013,1616
+Asia,Central Asia,Kyrgyzstan,2016,969
+Asia,Central Asia,Tajikistan,2006,265
+Asia,Central Asia,Tajikistan,2007,257
+Asia,Central Asia,Tajikistan,2008,217
+Asia,Central Asia,Tajikistan,2009,210
+Asia,Central Asia,Tajikistan,2010,245
+Asia,Central Asia,Tajikistan,2011,288
+Asia,Central Asia,Turkmenistan,2003,238
+Asia,Central Asia,Turkmenistan,2004,180
+Asia,Central Asia,Turkmenistan,2005,162
+Asia,Central Asia,Turkmenistan,2006,141
+Asia,Central Asia,Uzbekistan,2014,1432
+Asia,Central Asia,Uzbekistan,2015,1220
+Asia,Central Asia,Uzbekistan,2016,1052
+Asia,Central Asia,Uzbekistan,2017,831
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2003,3215
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2004,2237
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2005,1675
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2006,1574
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2007,1216
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2008,1100
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2009,870
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2010,778
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2011,731
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2012,616
+Asia,Eastern Asia,Hong Kong Special Administrative Region of China,2013,500
+Asia,Eastern Asia,Japan,2004,7295
+Asia,Eastern Asia,Japan,2005,5988
+Asia,Eastern Asia,Japan,2006,5108
+Asia,Eastern Asia,Japan,2007,4567
+Asia,Eastern Asia,Japan,2008,4300
+Asia,Eastern Asia,Japan,2009,4536
+Asia,Eastern Asia,Japan,2010,4052
+Asia,Eastern Asia,Japan,2011,3698
+Asia,Eastern Asia,Japan,2012,3693
+Asia,Eastern Asia,Japan,2013,3324
+Asia,Eastern Asia,Japan,2014,3056
+Asia,Eastern Asia,Japan,2015,2426
+Asia,Eastern Asia,Japan,2016,2332
+Asia,Eastern Asia,Macao Special Administrative Region of China,2008,378
+Asia,Eastern Asia,Macao Special Administrative Region of China,2009,268
+Asia,Eastern Asia,Macao Special Administrative Region of China,2010,178
+Asia,Eastern Asia,Macao Special Administrative Region of China,2011,198
+Asia,Eastern Asia,Macao Special Administrative Region of China,2012,179
+Asia,Eastern Asia,Macao Special Administrative Region of China,2013,150
+Asia,Eastern Asia,Macao Special Administrative Region of China,2014,120
+Asia,Eastern Asia,Macao Special Administrative Region of China,2015,113
+Asia,Eastern Asia,Macao Special Administrative Region of China,2016,98
+Asia,Eastern Asia,Macao Special Administrative Region of China,2017,108
+Asia,Eastern Asia,Mongolia,2003,825
+Asia,Eastern Asia,Mongolia,2004,655
+Asia,Eastern Asia,Mongolia,2005,584
+Asia,Eastern Asia,Mongolia,2006,455
+Asia,Eastern Asia,Mongolia,2007,656
+Asia,Eastern Asia,Mongolia,2008,818
+Asia,Eastern Asia,Mongolia,2009,754
+Asia,Eastern Asia,Mongolia,2010,520
+Asia,Eastern Asia,Mongolia,2011,536
+Asia,Eastern Asia,Mongolia,2012,552
+Asia,Eastern Asia,Mongolia,2013,620
+Asia,Eastern Asia,Mongolia,2014,686
+Asia,Eastern Asia,Mongolia,2015,537
+Asia,Eastern Asia,Mongolia,2016,474
+Asia,Eastern Asia,Mongolia,2017,1233
+Asia,Eastern Asia,Republic of Korea,2003,7292
+Asia,Eastern Asia,Republic of Korea,2004,5832
+Asia,Eastern Asia,Republic of Korea,2005,5170
+Asia,Eastern Asia,Republic of Korea,2006,4848
+Asia,Eastern Asia,Republic of Korea,2007,4452
+Asia,Eastern Asia,Republic of Korea,2008,4841
+Asia,Eastern Asia,Republic of Korea,2009,6367
+Asia,Eastern Asia,Republic of Korea,2010,4409
+Asia,Eastern Asia,Republic of Korea,2011,3994
+Asia,Eastern Asia,Republic of Korea,2012,2586
+Asia,Eastern Asia,Republic of Korea,2013,1980
+Asia,Eastern Asia,Republic of Korea,2014,1586
+Asia,Eastern Asia,Republic of Korea,2015,1446
+Asia,Eastern Asia,Republic of Korea,2016,1149
+Asia,Eastern Asia,Republic of Korea,2017,967
+Asia,South-Eastern Asia,Brunei Darussalam,2003,16
+Asia,South-Eastern Asia,Brunei Darussalam,2004,11
+Asia,South-Eastern Asia,Brunei Darussalam,2005,9
+Asia,South-Eastern Asia,Brunei Darussalam,2006,2
+Asia,South-Eastern Asia,Indonesia,2008,9742
+Asia,South-Eastern Asia,Indonesia,2009,10933
+Asia,South-Eastern Asia,Indonesia,2010,9910
+Asia,South-Eastern Asia,Indonesia,2011,11207
+Asia,South-Eastern Asia,Indonesia,2012,12355
+Asia,South-Eastern Asia,Indonesia,2013,12045
+Asia,South-Eastern Asia,Indonesia,2014,11758
+Asia,South-Eastern Asia,Indonesia,2015,11776
+Asia,South-Eastern Asia,Indonesia,2016,12095
+Asia,South-Eastern Asia,Indonesia,2017,10692
+Asia,South-Eastern Asia,Malaysia,2005,15409
+Asia,South-Eastern Asia,Malaysia,2006,21419
+Asia,South-Eastern Asia,Myanmar,2009,18
+Asia,South-Eastern Asia,Myanmar,2010,13
+Asia,South-Eastern Asia,Myanmar,2011,10
+Asia,South-Eastern Asia,Myanmar,2012,10
+Asia,South-Eastern Asia,Myanmar,2013,121
+Asia,South-Eastern Asia,Myanmar,2014,116
+Asia,South-Eastern Asia,Myanmar,2015,146
+Asia,South-Eastern Asia,Myanmar,2016,179
+Asia,South-Eastern Asia,Philippines,2003,7536
+Asia,South-Eastern Asia,Philippines,2004,7558
+Asia,South-Eastern Asia,Philippines,2005,7723
+Asia,South-Eastern Asia,Philippines,2006,7313
+Asia,South-Eastern Asia,Philippines,2007,6520
+Asia,South-Eastern Asia,Philippines,2008,6584
+Asia,South-Eastern Asia,Philippines,2009,45063
+Asia,South-Eastern Asia,Philippines,2010,36121
+Asia,South-Eastern Asia,Philippines,2011,31037
+Asia,South-Eastern Asia,Philippines,2012,26988
+Asia,South-Eastern Asia,Philippines,2013,49247
+Asia,South-Eastern Asia,Philippines,2014,43726
+Asia,South-Eastern Asia,Philippines,2015,31741
+Asia,South-Eastern Asia,Philippines,2016,21218
+Asia,South-Eastern Asia,Philippines,2017,16073
+Asia,South-Eastern Asia,Singapore,2003,973
+Asia,South-Eastern Asia,Singapore,2004,829
+Asia,South-Eastern Asia,Singapore,2005,1092
+Asia,South-Eastern Asia,Singapore,2006,946
+Asia,South-Eastern Asia,Singapore,2007,989
+Asia,South-Eastern Asia,Singapore,2008,929
+Asia,South-Eastern Asia,Singapore,2009,713
+Asia,South-Eastern Asia,Singapore,2010,518
+Asia,South-Eastern Asia,Singapore,2011,394
+Asia,South-Eastern Asia,Singapore,2012,290
+Asia,South-Eastern Asia,Singapore,2013,254
+Asia,South-Eastern Asia,Singapore,2014,230
+Asia,South-Eastern Asia,Singapore,2015,123
+Asia,South-Eastern Asia,Singapore,2016,96
+Asia,South-Eastern Asia,Singapore,2017,69
+Asia,South-Eastern Asia,Thailand,2007,928
+Asia,South-Eastern Asia,Thailand,2008,711
+Asia,South-Eastern Asia,Thailand,2009,579
+Asia,South-Eastern Asia,Thailand,2010,1846
+Asia,South-Eastern Asia,Thailand,2011,1271
+Asia,South-Eastern Asia,Thailand,2012,1521
+Asia,South-Eastern Asia,Thailand,2013,1665
+Asia,South-Eastern Asia,Thailand,2014,1431
+Asia,South-Eastern Asia,Thailand,2015,1499
+Asia,South-Eastern Asia,Thailand,2016,1062
+Asia,South-Eastern Asia,Timor-Leste,2016,16
+Asia,South-Eastern Asia,Timor-Leste,2017,23
+Asia,Southern Asia,Bangladesh,2005,912
+Asia,Southern Asia,Bangladesh,2006,856
+Asia,Southern Asia,Bhutan,2008,29
+Asia,Southern Asia,Bhutan,2009,24
+Asia,Southern Asia,Bhutan,2010,47
+Asia,Southern Asia,Bhutan,2011,41
+Asia,Southern Asia,Bhutan,2012,33
+Asia,Southern Asia,Bhutan,2013,41
+Asia,Southern Asia,Bhutan,2014,13
+Asia,Southern Asia,Bhutan,2015,23
+Asia,Southern Asia,Bhutan,2016,25
+Asia,Southern Asia,Bhutan,2017,17
+Asia,Southern Asia,India,2004,18458
+Asia,Southern Asia,India,2005,17673
+Asia,Southern Asia,India,2006,18456
+Asia,Southern Asia,India,2007,19136
+Asia,Southern Asia,India,2008,20522
+Asia,Southern Asia,India,2009,22409
+Asia,Southern Asia,India,2010,23393
+Asia,Southern Asia,India,2011,24700
+Asia,Southern Asia,India,2012,31657
+Asia,Southern Asia,India,2013,36466
+Asia,Southern Asia,Maldives,2003,268
+Asia,Southern Asia,Maldives,2004,467
+Asia,Southern Asia,Maldives,2007,410
+Asia,Southern Asia,Maldives,2008,600
+Asia,Southern Asia,Maldives,2009,591
+Asia,Southern Asia,Maldives,2010,547
+Asia,Southern Asia,Maldives,2011,718
+Asia,Southern Asia,Maldives,2012,972
+Asia,Southern Asia,Maldives,2013,729
+Asia,Southern Asia,Nepal,2005,223
+Asia,Southern Asia,Nepal,2006,148
+Asia,Southern Asia,Nepal,2016,85
+Asia,Southern Asia,Pakistan,2010,18098
+Asia,Southern Asia,Pakistan,2011,20521
+Asia,Southern Asia,Pakistan,2012,17081
+Asia,Southern Asia,Pakistan,2013,17363
+Asia,Southern Asia,Pakistan,2014,18107
+Asia,Southern Asia,Pakistan,2015,15164
+Asia,Southern Asia,Pakistan,2016,13088
+Asia,Southern Asia,Pakistan,2017,12458
+Asia,Southern Asia,Sri Lanka,2003,6546
+Asia,Southern Asia,Sri Lanka,2004,7943
+Asia,Southern Asia,Sri Lanka,2008,6729
+Asia,Southern Asia,Sri Lanka,2009,6100
+Asia,Southern Asia,Sri Lanka,2010,6440
+Asia,Southern Asia,Sri Lanka,2011,6240
+Asia,Southern Asia,Sri Lanka,2012,6552
+Asia,Southern Asia,Sri Lanka,2013,4743
+Asia,Southern Asia,Sri Lanka,2014,4235
+Asia,Southern Asia,Sri Lanka,2015,4017
+Asia,Southern Asia,Sri Lanka,2016,3455
+Asia,Western Asia,Armenia,2003,140
+Asia,Western Asia,Armenia,2004,243
+Asia,Western Asia,Armenia,2005,269
+Asia,Western Asia,Armenia,2006,265
+Asia,Western Asia,Armenia,2007,199
+Asia,Western Asia,Armenia,2008,350
+Asia,Western Asia,Armenia,2009,416
+Asia,Western Asia,Armenia,2010,356
+Asia,Western Asia,Armenia,2011,344
+Asia,Western Asia,Armenia,2012,310
+Asia,Western Asia,Armenia,2013,257
+Asia,Western Asia,Armenia,2014,289
+Asia,Western Asia,Armenia,2015,291
+Asia,Western Asia,Armenia,2016,308
+Asia,Western Asia,Armenia,2017,229
+Asia,Western Asia,Azerbaijan,2003,168
+Asia,Western Asia,Azerbaijan,2004,176
+Asia,Western Asia,Azerbaijan,2005,196
+Asia,Western Asia,Azerbaijan,2006,238
+Asia,Western Asia,Azerbaijan,2009,354
+Asia,Western Asia,Azerbaijan,2010,294
+Asia,Western Asia,Azerbaijan,2011,306
+Asia,Western Asia,Azerbaijan,2012,252
+Asia,Western Asia,Azerbaijan,2013,227
+Asia,Western Asia,Azerbaijan,2014,241
+Asia,Western Asia,Azerbaijan,2016,490
+Asia,Western Asia,Azerbaijan,2017,397
+Asia,Western Asia,Bahrain,2003,244
+Asia,Western Asia,Bahrain,2004,478
+Asia,Western Asia,Bahrain,2005,420
+Asia,Western Asia,Bahrain,2006,233
+Asia,Western Asia,Bahrain,2007,295
+Asia,Western Asia,Bahrain,2008,306
+Asia,Western Asia,Cyprus,2003,69
+Asia,Western Asia,Cyprus,2004,103
+Asia,Western Asia,Cyprus,2005,84
+Asia,Western Asia,Cyprus,2006,80
+Asia,Western Asia,Cyprus,2007,74
+Asia,Western Asia,Cyprus,2008,71
+Asia,Western Asia,Cyprus,2009,142
+Asia,Western Asia,Cyprus,2010,156
+Asia,Western Asia,Cyprus,2011,137
+Asia,Western Asia,Cyprus,2012,173
+Asia,Western Asia,Cyprus,2013,149
+Asia,Western Asia,Cyprus,2014,104
+Asia,Western Asia,Cyprus,2015,93
+Asia,Western Asia,Cyprus,2016,105
+Asia,Western Asia,Cyprus,2017,117
+Asia,Western Asia,Georgia,2003,556
+Asia,Western Asia,Georgia,2004,1316
+Asia,Western Asia,Georgia,2005,2087
+Asia,Western Asia,Georgia,2006,2751
+Asia,Western Asia,Georgia,2007,1615
+Asia,Western Asia,Georgia,2008,1167
+Asia,Western Asia,Georgia,2009,958
+Asia,Western Asia,Georgia,2010,638
+Asia,Western Asia,Georgia,2014,471
+Asia,Western Asia,Israel,2004,2383
+Asia,Western Asia,Israel,2005,4332
+Asia,Western Asia,Israel,2006,3887
+Asia,Western Asia,Israel,2007,3103
+Asia,Western Asia,Israel,2008,2816
+Asia,Western Asia,Israel,2010,2906
+Asia,Western Asia,Israel,2011,2746
+Asia,Western Asia,Jordan,2005,619
+Asia,Western Asia,Jordan,2006,802
+Asia,Western Asia,Jordan,2017,593
+Asia,Western Asia,Kuwait,2004,426
+Asia,Western Asia,Kuwait,2005,431
+Asia,Western Asia,Kuwait,2006,668
+Asia,Western Asia,Kuwait,2007,723
+Asia,Western Asia,Kuwait,2008,802
+Asia,Western Asia,Kuwait,2009,657
+Asia,Western Asia,Lebanon,2015,2789
+Asia,Western Asia,Oman,2007,133
+Asia,Western Asia,Oman,2008,255
+Asia,Western Asia,Oman,2014,174
+Asia,Western Asia,Oman,2015,73
+Asia,Western Asia,Oman,2016,56
+Asia,Western Asia,Oman,2017,33
+Asia,Western Asia,Qatar,2003,21
+Asia,Western Asia,Qatar,2004,21
+Asia,Western Asia,Saudi Arabia,2017,3075
+Asia,Western Asia,State of Palestine,2003,49
+Asia,Western Asia,State of Palestine,2004,65
+Asia,Western Asia,State of Palestine,2005,204
+Asia,Western Asia,State of Palestine,2008,2770
+Asia,Western Asia,State of Palestine,2009,2874
+Asia,Western Asia,State of Palestine,2010,2843
+Asia,Western Asia,State of Palestine,2011,2297
+Asia,Western Asia,State of Palestine,2012,1996
+Asia,Western Asia,State of Palestine,2013,3734
+Asia,Western Asia,Syrian Arab Republic,2003,505
+Asia,Western Asia,Syrian Arab Republic,2004,555
+Asia,Western Asia,Syrian Arab Republic,2005,760
+Asia,Western Asia,Syrian Arab Republic,2006,854
+Asia,Western Asia,Syrian Arab Republic,2007,744
+Asia,Western Asia,Syrian Arab Republic,2008,870
+Asia,Western Asia,Turkey,2003,16679
+Asia,Western Asia,Turkey,2004,10082
+Asia,Western Asia,Turkey,2005,14353
+Asia,Western Asia,Turkey,2006,20516
+Asia,Western Asia,Turkey,2007,12664
+Asia,Western Asia,Turkey,2008,8893
+Asia,Western Asia,Turkey,2009,8698
+Asia,Western Asia,Turkey,2010,8581
+Asia,Western Asia,Turkey,2011,9662
+Asia,Western Asia,Turkey,2012,10303
+Asia,Western Asia,Turkey,2013,28854
+Asia,Western Asia,Turkey,2014,42602
+Asia,Western Asia,Turkey,2015,33931
+Asia,Western Asia,Turkey,2016,27123
+Asia,Western Asia,United Arab Emirates,2003,396
+Asia,Western Asia,United Arab Emirates,2004,437
+Asia,Western Asia,United Arab Emirates,2005,429
+Asia,Western Asia,United Arab Emirates,2006,557
+Asia,Western Asia,United Arab Emirates,2012,45
+Asia,Western Asia,United Arab Emirates,2013,719
+Asia,Western Asia,United Arab Emirates,2014,715
+Asia,Western Asia,United Arab Emirates,2015,826
+Asia,Western Asia,United Arab Emirates,2016,1028
+Asia,Western Asia,United Arab Emirates,2017,1564
+Asia,Western Asia,Yemen,2006,287
+Asia,Western Asia,Yemen,2007,310
+Asia,Western Asia,Yemen,2008,417
+Asia,Western Asia,Yemen,2009,442
+Europe,Eastern Europe,Belarus,2003,10307
+Europe,Eastern Europe,Belarus,2004,10692
+Europe,Eastern Europe,Belarus,2005,11562
+Europe,Eastern Europe,Belarus,2006,9793
+Europe,Eastern Europe,Belarus,2007,8816
+Europe,Eastern Europe,Belarus,2008,6696
+Europe,Eastern Europe,Belarus,2009,5722
+Europe,Eastern Europe,Belarus,2010,4735
+Europe,Eastern Europe,Belarus,2011,3641
+Europe,Eastern Europe,Belarus,2012,2656
+Europe,Eastern Europe,Belarus,2013,2770
+Europe,Eastern Europe,Belarus,2014,2460
+Europe,Eastern Europe,Bulgaria,2003,4933
+Europe,Eastern Europe,Bulgaria,2004,4131
+Europe,Eastern Europe,Bulgaria,2005,3754
+Europe,Eastern Europe,Bulgaria,2006,2875
+Europe,Eastern Europe,Bulgaria,2007,2996
+Europe,Eastern Europe,Bulgaria,2008,2868
+Europe,Eastern Europe,Bulgaria,2009,3596
+Europe,Eastern Europe,Bulgaria,2010,3737
+Europe,Eastern Europe,Bulgaria,2011,3110
+Europe,Eastern Europe,Bulgaria,2012,2955
+Europe,Eastern Europe,Bulgaria,2013,2977
+Europe,Eastern Europe,Bulgaria,2014,2326
+Europe,Eastern Europe,Bulgaria,2015,1946
+Europe,Eastern Europe,Bulgaria,2016,1666
+Europe,Eastern Europe,Bulgaria,2017,1558
+Europe,Eastern Europe,Czech Republic,2003,5508
+Europe,Eastern Europe,Czech Republic,2004,6107
+Europe,Eastern Europe,Czech Republic,2005,5550
+Europe,Eastern Europe,Czech Republic,2006,4783
+Europe,Eastern Europe,Czech Republic,2007,4856
+Europe,Eastern Europe,Czech Republic,2008,4641
+Europe,Eastern Europe,Czech Republic,2009,4687
+Europe,Eastern Europe,Czech Republic,2010,4019
+Europe,Eastern Europe,Czech Republic,2011,3881
+Europe,Eastern Europe,Czech Republic,2012,3416
+Europe,Eastern Europe,Czech Republic,2013,3051
+Europe,Eastern Europe,Czech Republic,2014,2547
+Europe,Eastern Europe,Czech Republic,2015,2022
+Europe,Eastern Europe,Czech Republic,2016,1646
+Europe,Eastern Europe,Czech Republic,2017,1585
+Europe,Eastern Europe,Hungary,2003,3289
+Europe,Eastern Europe,Hungary,2004,3227
+Europe,Eastern Europe,Hungary,2005,2982
+Europe,Eastern Europe,Hungary,2006,2709
+Europe,Eastern Europe,Hungary,2007,3119
+Europe,Eastern Europe,Hungary,2008,3128
+Europe,Eastern Europe,Hungary,2009,3159
+Europe,Eastern Europe,Hungary,2010,3396
+Europe,Eastern Europe,Hungary,2011,3203
+Europe,Eastern Europe,Hungary,2012,3036
+Europe,Eastern Europe,Hungary,2013,2298
+Europe,Eastern Europe,Hungary,2014,1954
+Europe,Eastern Europe,Hungary,2015,1440
+Europe,Eastern Europe,Hungary,2016,1104
+Europe,Eastern Europe,Hungary,2017,841
+Europe,Eastern Europe,Poland,2003,51688
+Europe,Eastern Europe,Poland,2004,48636
+Europe,Eastern Europe,Poland,2005,42150
+Europe,Eastern Europe,Poland,2006,35182
+Europe,Eastern Europe,Poland,2007,22766
+Europe,Eastern Europe,Poland,2008,21085
+Europe,Eastern Europe,Poland,2009,19267
+Europe,Eastern Europe,Poland,2010,19359
+Europe,Eastern Europe,Poland,2011,17729
+Europe,Eastern Europe,Poland,2012,16685
+Europe,Eastern Europe,Poland,2013,19533
+Europe,Eastern Europe,Poland,2014,13868
+Europe,Eastern Europe,Poland,2015,10210
+Europe,Eastern Europe,Poland,2016,9634
+Europe,Eastern Europe,Poland,2017,8114
+Europe,Eastern Europe,Republic of Moldova,2005,188
+Europe,Eastern Europe,Republic of Moldova,2006,152
+Europe,Eastern Europe,Republic of Moldova,2007,153
+Europe,Eastern Europe,Republic of Moldova,2008,175
+Europe,Eastern Europe,Republic of Moldova,2009,205
+Europe,Eastern Europe,Republic of Moldova,2010,185
+Europe,Eastern Europe,Republic of Moldova,2011,152
+Europe,Eastern Europe,Republic of Moldova,2012,167
+Europe,Eastern Europe,Republic of Moldova,2013,146
+Europe,Eastern Europe,Republic of Moldova,2014,125
+Europe,Eastern Europe,Romania,2003,2782
+Europe,Eastern Europe,Romania,2004,3087
+Europe,Eastern Europe,Romania,2005,3326
+Europe,Eastern Europe,Romania,2006,4078
+Europe,Eastern Europe,Romania,2007,2496
+Europe,Eastern Europe,Romania,2008,2464
+Europe,Eastern Europe,Romania,2009,2541
+Europe,Eastern Europe,Romania,2010,2484
+Europe,Eastern Europe,Romania,2011,2251
+Europe,Eastern Europe,Romania,2012,3193
+Europe,Eastern Europe,Romania,2013,2933
+Europe,Eastern Europe,Romania,2014,6418
+Europe,Eastern Europe,Romania,2015,3358
+Europe,Eastern Europe,Romania,2016,3096
+Europe,Eastern Europe,Romania,2017,3163
+Europe,Eastern Europe,Russian Federation,2004,251433
+Europe,Eastern Europe,Russian Federation,2005,344440
+Europe,Eastern Europe,Russian Federation,2006,357302
+Europe,Eastern Europe,Russian Federation,2007,295071
+Europe,Eastern Europe,Russian Federation,2008,243957
+Europe,Eastern Europe,Russian Federation,2009,205379
+Europe,Eastern Europe,Russian Federation,2010,164547
+Europe,Eastern Europe,Russian Federation,2011,127772
+Europe,Eastern Europe,Russian Federation,2012,110063
+Europe,Eastern Europe,Russian Federation,2013,16416
+Europe,Eastern Europe,Russian Federation,2014,14340
+Europe,Eastern Europe,Russian Federation,2015,13642
+Europe,Eastern Europe,Russian Federation,2016,11416
+Europe,Eastern Europe,Russian Federation,2017,9104
+Europe,Eastern Europe,Slovakia,2003,1918
+Europe,Eastern Europe,Slovakia,2004,2156
+Europe,Eastern Europe,Slovakia,2005,1919
+Europe,Eastern Europe,Slovakia,2006,1594
+Europe,Eastern Europe,Slovakia,2007,1429
+Europe,Eastern Europe,Slovakia,2008,1371
+Europe,Eastern Europe,Slovakia,2009,1358
+Europe,Eastern Europe,Slovakia,2010,1188
+Europe,Eastern Europe,Slovakia,2011,851
+Europe,Eastern Europe,Slovakia,2012,974
+Europe,Eastern Europe,Slovakia,2013,835
+Europe,Eastern Europe,Slovakia,2014,680
+Europe,Eastern Europe,Slovakia,2015,539
+Europe,Eastern Europe,Slovakia,2016,526
+Europe,Eastern Europe,Slovakia,2017,469
+Europe,Eastern Europe,Ukraine,2003,36486
+Europe,Eastern Europe,Ukraine,2004,40789
+Europe,Eastern Europe,Ukraine,2005,47050
+Europe,Eastern Europe,Ukraine,2006,41657
+Europe,Eastern Europe,Ukraine,2007,32266
+Europe,Eastern Europe,Ukraine,2008,36927
+Europe,Eastern Europe,Ukraine,2009,27598
+Europe,Eastern Europe,Ukraine,2010,23300
+Europe,Eastern Europe,Ukraine,2017,21136
+Europe,Northern Europe,Denmark,2003,3181
+Europe,Northern Europe,Denmark,2004,2989
+Europe,Northern Europe,Denmark,2005,2921
+Europe,Northern Europe,Denmark,2006,2650
+Europe,Northern Europe,Denmark,2007,2982
+Europe,Northern Europe,Denmark,2008,3397
+Europe,Northern Europe,Denmark,2009,4020
+Europe,Northern Europe,Denmark,2010,3372
+Europe,Northern Europe,Denmark,2011,3241
+Europe,Northern Europe,Denmark,2012,3003
+Europe,Northern Europe,Denmark,2013,3200
+Europe,Northern Europe,Denmark,2014,2322
+Europe,Northern Europe,Denmark,2015,2034
+Europe,Northern Europe,Denmark,2016,2185
+Europe,Northern Europe,Denmark,2017,2042
+Europe,Northern Europe,Estonia,2003,1885
+Europe,Northern Europe,Estonia,2004,1632
+Europe,Northern Europe,Estonia,2005,1326
+Europe,Northern Europe,Estonia,2006,1005
+Europe,Northern Europe,Estonia,2007,887
+Europe,Northern Europe,Estonia,2008,909
+Europe,Northern Europe,Estonia,2009,726
+Europe,Northern Europe,Estonia,2010,599
+Europe,Northern Europe,Estonia,2011,525
+Europe,Northern Europe,Estonia,2012,457
+Europe,Northern Europe,Estonia,2013,476
+Europe,Northern Europe,Estonia,2014,360
+Europe,Northern Europe,Estonia,2015,337
+Europe,Northern Europe,Estonia,2017,201
+Europe,Northern Europe,Finland,2003,2045
+Europe,Northern Europe,Finland,2004,2017
+Europe,Northern Europe,Finland,2005,1814
+Europe,Northern Europe,Finland,2006,1700
+Europe,Northern Europe,Finland,2007,1784
+Europe,Northern Europe,Finland,2008,1696
+Europe,Northern Europe,Finland,2009,1640
+Europe,Northern Europe,Finland,2010,1508
+Europe,Northern Europe,Finland,2011,1622
+Europe,Northern Europe,Finland,2012,1616
+Europe,Northern Europe,Finland,2013,1523
+Europe,Northern Europe,Finland,2014,1687
+Europe,Northern Europe,Finland,2015,1548
+Europe,Northern Europe,Finland,2016,1670
+Europe,Northern Europe,Finland,2017,1640
+Europe,Northern Europe,Iceland,2003,39
+Europe,Northern Europe,Iceland,2004,35
+Europe,Northern Europe,Iceland,2005,49
+Europe,Northern Europe,Iceland,2006,50
+Europe,Northern Europe,Iceland,2007,42
+Europe,Northern Europe,Iceland,2008,43
+Europe,Northern Europe,Iceland,2009,60
+Europe,Northern Europe,Iceland,2010,42
+Europe,Northern Europe,Iceland,2011,42
+Europe,Northern Europe,Iceland,2012,50
+Europe,Northern Europe,Iceland,2013,49
+Europe,Northern Europe,Iceland,2014,51
+Europe,Northern Europe,Iceland,2015,53
+Europe,Northern Europe,Iceland,2016,50
+Europe,Northern Europe,Iceland,2017,49
+Europe,Northern Europe,Ireland,2003,1714
+Europe,Northern Europe,Ireland,2004,2617
+Europe,Northern Europe,Ireland,2005,2424
+Europe,Northern Europe,Ireland,2006,2486
+Europe,Northern Europe,Ireland,2007,2171
+Europe,Northern Europe,Ireland,2008,2299
+Europe,Northern Europe,Ireland,2009,2491
+Europe,Northern Europe,Ireland,2010,3196
+Europe,Northern Europe,Ireland,2011,2931
+Europe,Northern Europe,Ireland,2012,2817
+Europe,Northern Europe,Ireland,2013,2806
+Europe,Northern Europe,Ireland,2014,2650
+Europe,Northern Europe,Ireland,2015,2574
+Europe,Northern Europe,Ireland,2016,2099
+Europe,Northern Europe,Ireland,2017,2187
+Europe,Northern Europe,Latvia,2003,2503
+Europe,Northern Europe,Latvia,2004,2467
+Europe,Northern Europe,Latvia,2005,2163
+Europe,Northern Europe,Latvia,2006,2248
+Europe,Northern Europe,Latvia,2007,1468
+Europe,Northern Europe,Latvia,2008,1441
+Europe,Northern Europe,Latvia,2009,1516
+Europe,Northern Europe,Latvia,2010,1072
+Europe,Northern Europe,Latvia,2011,1047
+Europe,Northern Europe,Latvia,2012,943
+Europe,Northern Europe,Latvia,2013,917
+Europe,Northern Europe,Latvia,2014,809
+Europe,Northern Europe,Latvia,2015,779
+Europe,Northern Europe,Latvia,2016,651
+Europe,Northern Europe,Latvia,2017,604
+Europe,Northern Europe,Lithuania,2003,4919
+Europe,Northern Europe,Lithuania,2004,5323
+Europe,Northern Europe,Lithuania,2005,5206
+Europe,Northern Europe,Lithuania,2006,4343
+Europe,Northern Europe,Lithuania,2007,3802
+Europe,Northern Europe,Lithuania,2008,3452
+Europe,Northern Europe,Lithuania,2009,3363
+Europe,Northern Europe,Lithuania,2010,2727
+Europe,Northern Europe,Lithuania,2011,2502
+Europe,Northern Europe,Lithuania,2012,1923
+Europe,Northern Europe,Lithuania,2013,1866
+Europe,Northern Europe,Lithuania,2014,1688
+Europe,Northern Europe,Lithuania,2015,1590
+Europe,Northern Europe,Lithuania,2016,1342
+Europe,Northern Europe,Lithuania,2017,1088
+Europe,Northern Europe,Norway,2003,1437
+Europe,Northern Europe,Norway,2004,1596
+Europe,Northern Europe,Norway,2005,1448
+Europe,Northern Europe,Norway,2006,1388
+Europe,Northern Europe,Norway,2007,1464
+Europe,Northern Europe,Norway,2008,1598
+Europe,Northern Europe,Norway,2009,1776
+Europe,Northern Europe,Norway,2010,1687
+Europe,Northern Europe,Norway,2011,1623
+Europe,Northern Europe,Norway,2012,1484
+Europe,Northern Europe,Norway,2013,1667
+Europe,Northern Europe,Norway,2014,1063
+Europe,Northern Europe,Norway,2015,930
+Europe,Northern Europe,Norway,2016,810
+Europe,Northern Europe,Norway,2017,781
+Europe,Northern Europe,Sweden,2003,8575
+Europe,Northern Europe,Sweden,2004,8590
+Europe,Northern Europe,Sweden,2005,9398
+Europe,Northern Europe,Sweden,2006,8584
+Europe,Northern Europe,Sweden,2007,8673
+Europe,Northern Europe,Sweden,2008,8909
+Europe,Northern Europe,Sweden,2009,9570
+Europe,Northern Europe,Sweden,2010,9219
+Europe,Northern Europe,Sweden,2011,9719
+Europe,Northern Europe,Sweden,2012,9213
+Europe,Northern Europe,Sweden,2013,8361
+Europe,Northern Europe,Sweden,2014,8364
+Europe,Northern Europe,Sweden,2015,8461
+Europe,Northern Europe,Sweden,2016,8562
+Europe,Northern Europe,Sweden,2017,8649
+Europe,Northern Europe,United Kingdom (England and Wales),2003,103736
+Europe,Northern Europe,United Kingdom (England and Wales),2004,91010
+Europe,Northern Europe,United Kingdom (England and Wales),2005,98198
+Europe,Northern Europe,United Kingdom (England and Wales),2006,101376
+Europe,Northern Europe,United Kingdom (England and Wales),2007,84773
+Europe,Northern Europe,United Kingdom (England and Wales),2008,80130
+Europe,Northern Europe,United Kingdom (England and Wales),2009,75105
+Europe,Northern Europe,United Kingdom (England and Wales),2010,76189
+Europe,Northern Europe,United Kingdom (England and Wales),2011,74688
+Europe,Northern Europe,United Kingdom (England and Wales),2012,65155
+Europe,Northern Europe,United Kingdom (England and Wales),2013,57828
+Europe,Northern Europe,United Kingdom (England and Wales),2014,50153
+Europe,Northern Europe,United Kingdom (England and Wales),2015,51133
+Europe,Northern Europe,United Kingdom (England and Wales),2016,59332
+Europe,Northern Europe,United Kingdom (England and Wales),2017,77089
+Europe,Northern Europe,United Kingdom (Northern Ireland),2003,2187
+Europe,Northern Europe,United Kingdom (Northern Ireland),2004,1531
+Europe,Northern Europe,United Kingdom (Northern Ireland),2005,1691
+Europe,Northern Europe,United Kingdom (Northern Ireland),2006,1624
+Europe,Northern Europe,United Kingdom (Northern Ireland),2007,1267
+Europe,Northern Europe,United Kingdom (Northern Ireland),2008,1149
+Europe,Northern Europe,United Kingdom (Northern Ireland),2009,1315
+Europe,Northern Europe,United Kingdom (Northern Ireland),2010,1349
+Europe,Northern Europe,United Kingdom (Northern Ireland),2011,1269
+Europe,Northern Europe,United Kingdom (Northern Ireland),2012,1040
+Europe,Northern Europe,United Kingdom (Northern Ireland),2013,969
+Europe,Northern Europe,United Kingdom (Northern Ireland),2014,906
+Europe,Northern Europe,United Kingdom (Northern Ireland),2015,810
+Europe,Northern Europe,United Kingdom (Northern Ireland),2016,673
+Europe,Northern Europe,United Kingdom (Northern Ireland),2017,567
+Europe,Northern Europe,United Kingdom (Scotland),2003,4159
+Europe,Northern Europe,United Kingdom (Scotland),2004,3736
+Europe,Northern Europe,United Kingdom (Scotland),2005,3553
+Europe,Northern Europe,United Kingdom (Scotland),2006,3578
+Europe,Northern Europe,United Kingdom (Scotland),2007,3064
+Europe,Northern Europe,United Kingdom (Scotland),2008,2963
+Europe,Northern Europe,United Kingdom (Scotland),2009,2496
+Europe,Northern Europe,United Kingdom (Scotland),2010,2557
+Europe,Northern Europe,United Kingdom (Scotland),2011,2244
+Europe,Northern Europe,United Kingdom (Scotland),2012,1832
+Europe,Northern Europe,United Kingdom (Scotland),2013,1499
+Europe,Northern Europe,United Kingdom (Scotland),2014,1497
+Europe,Northern Europe,United Kingdom (Scotland),2015,1327
+Europe,Northern Europe,United Kingdom (Scotland),2016,1435
+Europe,Northern Europe,United Kingdom (Scotland),2017,1556
+Europe,Southern Europe,Albania,2005,199
+Europe,Southern Europe,Albania,2006,164
+Europe,Southern Europe,Albania,2007,123
+Europe,Southern Europe,Albania,2008,144
+Europe,Southern Europe,Albania,2009,169
+Europe,Southern Europe,Albania,2010,236
+Europe,Southern Europe,Albania,2011,268
+Europe,Southern Europe,Albania,2012,326
+Europe,Southern Europe,Albania,2013,371
+Europe,Southern Europe,Albania,2014,297
+Europe,Southern Europe,Albania,2015,234
+Europe,Southern Europe,Albania,2016,159
+Europe,Southern Europe,Albania,2017,184
+Europe,Southern Europe,Andorra,2007,4
+Europe,Southern Europe,Andorra,2008,4
+Europe,Southern Europe,Andorra,2009,12
+Europe,Southern Europe,Andorra,2010,8
+Europe,Southern Europe,Andorra,2011,5
+Europe,Southern Europe,Andorra,2012,6
+Europe,Southern Europe,Andorra,2013,13
+Europe,Southern Europe,Andorra,2014,7
+Europe,Southern Europe,Andorra,2015,8
+Europe,Southern Europe,Bosnia and Herzegovina,2005,756
+Europe,Southern Europe,Bosnia and Herzegovina,2006,773
+Europe,Southern Europe,Bosnia and Herzegovina,2007,796
+Europe,Southern Europe,Bosnia and Herzegovina,2008,746
+Europe,Southern Europe,Bosnia and Herzegovina,2011,975
+Europe,Southern Europe,Bosnia and Herzegovina,2012,1010
+Europe,Southern Europe,Bosnia and Herzegovina,2013,1103
+Europe,Southern Europe,Bosnia and Herzegovina,2014,1025
+Europe,Southern Europe,Bosnia and Herzegovina,2016,1015
+Europe,Southern Europe,Bosnia and Herzegovina,2017,660
+Europe,Southern Europe,Croatia,2003,1236
+Europe,Southern Europe,Croatia,2004,1622
+Europe,Southern Europe,Croatia,2005,1560
+Europe,Southern Europe,Croatia,2006,1445
+Europe,Southern Europe,Croatia,2007,1272
+Europe,Southern Europe,Croatia,2008,1259
+Europe,Southern Europe,Croatia,2009,1411
+Europe,Southern Europe,Croatia,2010,1245
+Europe,Southern Europe,Croatia,2011,1382
+Europe,Southern Europe,Croatia,2012,1588
+Europe,Southern Europe,Croatia,2013,1523
+Europe,Southern Europe,Croatia,2014,1268
+Europe,Southern Europe,Croatia,2015,1311
+Europe,Southern Europe,Croatia,2016,1068
+Europe,Southern Europe,Croatia,2017,864
+Europe,Southern Europe,Greece,2003,2320
+Europe,Southern Europe,Greece,2004,2339
+Europe,Southern Europe,Greece,2005,2084
+Europe,Southern Europe,Greece,2006,2463
+Europe,Southern Europe,Greece,2007,2823
+Europe,Southern Europe,Greece,2008,3293
+Europe,Southern Europe,Greece,2009,4715
+Europe,Southern Europe,Greece,2010,6079
+Europe,Southern Europe,Greece,2011,6636
+Europe,Southern Europe,Greece,2012,5992
+Europe,Southern Europe,Greece,2013,4919
+Europe,Southern Europe,Greece,2014,3800
+Europe,Southern Europe,Greece,2015,4316
+Europe,Southern Europe,Greece,2016,4725
+Europe,Southern Europe,Greece,2017,4271
+Europe,Southern Europe,Holy See,2009,0
+Europe,Southern Europe,Holy See,2010,0
+Europe,Southern Europe,Holy See,2011,0
+Europe,Southern Europe,Holy See,2012,0
+Europe,Southern Europe,Holy See,2013,0
+Europe,Southern Europe,Holy See,2014,0
+Europe,Southern Europe,Holy See,2015,0
+Europe,Southern Europe,Italy,2003,41747
+Europe,Southern Europe,Italy,2004,46265
+Europe,Southern Europe,Italy,2005,65724
+Europe,Southern Europe,Italy,2006,71162
+Europe,Southern Europe,Italy,2007,74130
+Europe,Southern Europe,Italy,2008,64535
+Europe,Southern Europe,Italy,2009,50732
+Europe,Southern Europe,Italy,2010,47996
+Europe,Southern Europe,Italy,2011,58206
+Europe,Southern Europe,Italy,2012,62641
+Europe,Southern Europe,Italy,2013,63770
+Europe,Southern Europe,Italy,2014,39236
+Europe,Southern Europe,Italy,2015,35086
+Europe,Southern Europe,Italy,2016,33422
+Europe,Southern Europe,Italy,2017,31167
+Europe,Southern Europe,Kosovo under UNSCR 1244,2008,421
+Europe,Southern Europe,Kosovo under UNSCR 1244,2009,586
+Europe,Southern Europe,Kosovo under UNSCR 1244,2010,566
+Europe,Southern Europe,Kosovo under UNSCR 1244,2011,629
+Europe,Southern Europe,Kosovo under UNSCR 1244,2012,527
+Europe,Southern Europe,Kosovo under UNSCR 1244,2013,510
+Europe,Southern Europe,Kosovo under UNSCR 1244,2014,446
+Europe,Southern Europe,Kosovo under UNSCR 1244,2015,284
+Europe,Southern Europe,Kosovo under UNSCR 1244,2016,288
+Europe,Southern Europe,Kosovo under UNSCR 1244,2017,307
+Europe,Southern Europe,Malta,2003,195
+Europe,Southern Europe,Malta,2004,265
+Europe,Southern Europe,Malta,2005,256
+Europe,Southern Europe,Malta,2006,222
+Europe,Southern Europe,Malta,2007,200
+Europe,Southern Europe,Malta,2008,147
+Europe,Southern Europe,Malta,2009,202
+Europe,Southern Europe,Malta,2010,196
+Europe,Southern Europe,Malta,2011,219
+Europe,Southern Europe,Malta,2012,257
+Europe,Southern Europe,Malta,2013,207
+Europe,Southern Europe,Malta,2014,190
+Europe,Southern Europe,Malta,2015,242
+Europe,Southern Europe,Montenegro,2003,51
+Europe,Southern Europe,Montenegro,2004,71
+Europe,Southern Europe,Montenegro,2005,86
+Europe,Southern Europe,Montenegro,2006,80
+Europe,Southern Europe,Montenegro,2007,10
+Europe,Southern Europe,Montenegro,2008,6
+Europe,Southern Europe,Montenegro,2009,7
+Europe,Southern Europe,Montenegro,2010,3
+Europe,Southern Europe,Montenegro,2011,144
+Europe,Southern Europe,Montenegro,2012,117
+Europe,Southern Europe,Montenegro,2013,161
+Europe,Southern Europe,Montenegro,2014,188
+Europe,Southern Europe,Montenegro,2015,156
+Europe,Southern Europe,Montenegro,2016,128
+Europe,Southern Europe,Montenegro,2017,118
+Europe,Southern Europe,North Macedonia,2005,709
+Europe,Southern Europe,North Macedonia,2006,466
+Europe,Southern Europe,North Macedonia,2007,529
+Europe,Southern Europe,North Macedonia,2008,458
+Europe,Southern Europe,North Macedonia,2009,597
+Europe,Southern Europe,North Macedonia,2010,604
+Europe,Southern Europe,North Macedonia,2011,513
+Europe,Southern Europe,North Macedonia,2012,469
+Europe,Southern Europe,North Macedonia,2013,468
+Europe,Southern Europe,North Macedonia,2014,305
+Europe,Southern Europe,North Macedonia,2015,278
+Europe,Southern Europe,North Macedonia,2016,248
+Europe,Southern Europe,North Macedonia,2017,417
+Europe,Southern Europe,Portugal,2003,19767
+Europe,Southern Europe,Portugal,2004,21051
+Europe,Southern Europe,Portugal,2005,20218
+Europe,Southern Europe,Portugal,2006,20914
+Europe,Southern Europe,Portugal,2007,18483
+Europe,Southern Europe,Portugal,2008,20854
+Europe,Southern Europe,Portugal,2009,20472
+Europe,Southern Europe,Portugal,2010,20442
+Europe,Southern Europe,Portugal,2011,20372
+Europe,Southern Europe,Portugal,2012,18514
+Europe,Southern Europe,Portugal,2013,16590
+Europe,Southern Europe,Portugal,2014,15594
+Europe,Southern Europe,Portugal,2015,15472
+Europe,Southern Europe,Portugal,2016,13313
+Europe,Southern Europe,Portugal,2017,11885
+Europe,Southern Europe,Serbia,2005,2985
+Europe,Southern Europe,Serbia,2006,3793
+Europe,Southern Europe,Serbia,2007,3761
+Europe,Southern Europe,Serbia,2008,4082
+Europe,Southern Europe,Serbia,2009,4593
+Europe,Southern Europe,Serbia,2010,3620
+Europe,Southern Europe,Serbia,2011,3548
+Europe,Southern Europe,Serbia,2012,3791
+Europe,Southern Europe,Serbia,2013,3852
+Europe,Southern Europe,Serbia,2014,3232
+Europe,Southern Europe,Serbia,2015,3034
+Europe,Southern Europe,Serbia,2016,2422
+Europe,Southern Europe,Serbia,2017,1829
+Europe,Southern Europe,Slovenia,2003,349
+Europe,Southern Europe,Slovenia,2004,398
+Europe,Southern Europe,Slovenia,2005,429
+Europe,Southern Europe,Slovenia,2006,525
+Europe,Southern Europe,Slovenia,2007,450
+Europe,Southern Europe,Slovenia,2008,386
+Europe,Southern Europe,Slovenia,2009,481
+Europe,Southern Europe,Slovenia,2010,463
+Europe,Southern Europe,Slovenia,2011,403
+Europe,Southern Europe,Slovenia,2012,391
+Europe,Southern Europe,Slovenia,2013,377
+Europe,Southern Europe,Slovenia,2014,297
+Europe,Southern Europe,Slovenia,2015,232
+Europe,Southern Europe,Slovenia,2016,226
+Europe,Southern Europe,Slovenia,2017,238
+Europe,Southern Europe,Spain,2008,71421
+Europe,Southern Europe,Spain,2009,65159
+Europe,Southern Europe,Spain,2010,84411
+Europe,Southern Europe,Spain,2011,87718
+Europe,Southern Europe,Spain,2012,96607
+Europe,Southern Europe,Spain,2013,86034
+Europe,Southern Europe,Spain,2014,70855
+Europe,Southern Europe,Spain,2015,64581
+Europe,Southern Europe,Spain,2016,70645
+Europe,Southern Europe,Spain,2017,66783
+Europe,Western Europe,Austria,2004,4798
+Europe,Western Europe,Austria,2005,4770
+Europe,Western Europe,Austria,2006,5095
+Europe,Western Europe,Austria,2007,5030
+Europe,Western Europe,Austria,2008,4786
+Europe,Western Europe,Austria,2009,4577
+Europe,Western Europe,Austria,2010,4310
+Europe,Western Europe,Austria,2011,4066
+Europe,Western Europe,Austria,2012,4092
+Europe,Western Europe,Austria,2013,3737
+Europe,Western Europe,Austria,2014,3481
+Europe,Western Europe,Austria,2015,3416
+Europe,Western Europe,Austria,2016,3103
+Europe,Western Europe,Belgium,2003,217346
+Europe,Western Europe,Belgium,2004,197985
+Europe,Western Europe,Belgium,2005,191585
+Europe,Western Europe,Belgium,2006,205382
+Europe,Western Europe,Belgium,2007,201911
+Europe,Western Europe,Belgium,2008,199159
+Europe,Western Europe,Belgium,2009,189237
+Europe,Western Europe,Belgium,2010,23856
+Europe,Western Europe,Belgium,2011,27341
+Europe,Western Europe,Belgium,2012,25608
+Europe,Western Europe,Belgium,2013,22879
+Europe,Western Europe,Belgium,2014,21928
+Europe,Western Europe,Belgium,2015,22399
+Europe,Western Europe,Belgium,2016,20506
+Europe,Western Europe,Belgium,2017,18954
+Europe,Western Europe,France,2003,125286
+Europe,Western Europe,France,2004,119641
+Europe,Western Europe,France,2005,124600
+Europe,Western Europe,France,2006,127190
+Europe,Western Europe,France,2007,112885
+Europe,Western Europe,France,2008,106633
+Europe,Western Europe,France,2009,112765
+Europe,Western Europe,France,2010,121038
+Europe,Western Europe,France,2011,120966
+Europe,Western Europe,France,2012,123814
+Europe,Western Europe,France,2013,124657
+Europe,Western Europe,France,2014,114093
+Europe,Western Europe,France,2015,104116
+Europe,Western Europe,France,2016,104439
+Europe,Western Europe,France,2017,100080
+Europe,Western Europe,Germany,2003,59782
+Europe,Western Europe,Germany,2004,59732
+Europe,Western Europe,Germany,2005,54841
+Europe,Western Europe,Germany,2006,53696
+Europe,Western Europe,Germany,2007,52949
+Europe,Western Europe,Germany,2008,49913
+Europe,Western Europe,Germany,2009,49317
+Europe,Western Europe,Germany,2010,48166
+Europe,Western Europe,Germany,2011,48021
+Europe,Western Europe,Germany,2012,48711
+Europe,Western Europe,Germany,2013,47234
+Europe,Western Europe,Germany,2014,45475
+Europe,Western Europe,Germany,2015,44666
+Europe,Western Europe,Germany,2016,43009
+Europe,Western Europe,Germany,2017,38849
+Europe,Western Europe,Liechtenstein,2003,4
+Europe,Western Europe,Liechtenstein,2004,2
+Europe,Western Europe,Liechtenstein,2005,1
+Europe,Western Europe,Liechtenstein,2006,4
+Europe,Western Europe,Liechtenstein,2007,5
+Europe,Western Europe,Liechtenstein,2008,1
+Europe,Western Europe,Liechtenstein,2009,2
+Europe,Western Europe,Liechtenstein,2010,2
+Europe,Western Europe,Liechtenstein,2011,1
+Europe,Western Europe,Liechtenstein,2012,5
+Europe,Western Europe,Liechtenstein,2013,1
+Europe,Western Europe,Liechtenstein,2014,1
+Europe,Western Europe,Liechtenstein,2015,3
+Europe,Western Europe,Liechtenstein,2016,4
+Europe,Western Europe,Luxembourg,2006,313
+Europe,Western Europe,Luxembourg,2007,396
+Europe,Western Europe,Luxembourg,2008,326
+Europe,Western Europe,Luxembourg,2009,418
+Europe,Western Europe,Luxembourg,2010,377
+Europe,Western Europe,Luxembourg,2011,398
+Europe,Western Europe,Luxembourg,2012,527
+Europe,Western Europe,Luxembourg,2013,582
+Europe,Western Europe,Luxembourg,2014,615
+Europe,Western Europe,Luxembourg,2015,554
+Europe,Western Europe,Luxembourg,2016,459
+Europe,Western Europe,Luxembourg,2017,454
+Europe,Western Europe,Monaco,2003,2
+Europe,Western Europe,Monaco,2005,7
+Europe,Western Europe,Monaco,2006,4
+Europe,Western Europe,Monaco,2014,18
+Europe,Western Europe,Monaco,2015,12
+Europe,Western Europe,Netherlands,2003,20700
+Europe,Western Europe,Netherlands,2004,18300
+Europe,Western Europe,Netherlands,2005,16445
+Europe,Western Europe,Netherlands,2006,14485
+Europe,Western Europe,Netherlands,2007,13660
+Europe,Western Europe,Netherlands,2008,13175
+Europe,Western Europe,Netherlands,2009,16265
+Europe,Western Europe,Netherlands,2010,16125
+Europe,Western Europe,Netherlands,2011,15390
+Europe,Western Europe,Netherlands,2012,14765
+Europe,Western Europe,Netherlands,2013,13346
+Europe,Western Europe,Netherlands,2014,10451
+Europe,Western Europe,Netherlands,2015,9733
+Europe,Western Europe,Netherlands,2016,8987
+Europe,Western Europe,Netherlands,2017,8037
+Europe,Western Europe,Switzerland,2003,4344
+Europe,Western Europe,Switzerland,2004,2933
+Europe,Western Europe,Switzerland,2005,3977
+Europe,Western Europe,Switzerland,2006,4088
+Europe,Western Europe,Switzerland,2007,4481
+Europe,Western Europe,Switzerland,2008,4220
+Europe,Western Europe,Switzerland,2009,5027
+Europe,Western Europe,Switzerland,2010,4406
+Europe,Western Europe,Switzerland,2011,5236
+Europe,Western Europe,Switzerland,2012,6076
+Europe,Western Europe,Switzerland,2013,3196
+Europe,Western Europe,Switzerland,2014,2367
+Europe,Western Europe,Switzerland,2015,1859
+Europe,Western Europe,Switzerland,2016,1876
+Europe,Western Europe,Switzerland,2017,1746
+Oceania,Australia and New Zealand,Australia,2010,14634
+Oceania,Australia and New Zealand,Australia,2011,13650
+Oceania,Australia and New Zealand,Australia,2012,13161
+Oceania,Australia and New Zealand,Australia,2013,11711
+Oceania,Australia and New Zealand,Australia,2014,9893
+Oceania,Australia and New Zealand,Australia,2015,8968
+Oceania,Australia and New Zealand,Australia,2016,9412
+Oceania,Australia and New Zealand,Australia,2017,9599
+Oceania,Australia and New Zealand,New Zealand,2005,2322
+Oceania,Australia and New Zealand,New Zealand,2006,2916
+Oceania,Australia and New Zealand,New Zealand,2007,2752
+Oceania,Australia and New Zealand,New Zealand,2008,2657
+Oceania,Australia and New Zealand,New Zealand,2009,2665
+Oceania,Australia and New Zealand,New Zealand,2010,2492
+Oceania,Australia and New Zealand,New Zealand,2011,2340
+Oceania,Australia and New Zealand,New Zealand,2012,2086
+Oceania,Australia and New Zealand,New Zealand,2013,2032
+Oceania,Australia and New Zealand,New Zealand,2014,2016
+Oceania,Australia and New Zealand,New Zealand,2015,3032
+Oceania,Australia and New Zealand,New Zealand,2016,3627
+Oceania,Australia and New Zealand,New Zealand,2017,3742
+Oceania,Melanesia,Solomon Islands,2004,121
+Oceania,Melanesia,Solomon Islands,2005,24
+Oceania,Melanesia,Solomon Islands,2006,29
+Oceania,Melanesia,Solomon Islands,2007,64
+Oceania,Melanesia,Solomon Islands,2008,52

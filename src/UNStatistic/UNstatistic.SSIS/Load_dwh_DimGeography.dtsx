@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Load_dwh_DimGeography"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{AEE1079F-F8E5-43DF-A15B-E61E6EA287B3}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{7F6D5A34-7E6A-41A2-968A-1684879AD6EA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -26,7 +26,953 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SEQ Load">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Load\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{69F25E9E-7386-4258-B986-28A759449254}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQ Load\Data Flow Task\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[CountryCode_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryCode_SRC"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[CountryCode_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CountryCode_DST"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_DST]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[Country_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Country_SRC"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[Country_DST]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country_DST"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_DST]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[ToInsert]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ToInsert"
+                      synchronousInputId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[ISNULL](#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_DST]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CountryCode_DST)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[ToUpdate]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ToUpdate"
+                      synchronousInputId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">(![ISNULL](#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_SRC]})) &amp;&amp; (#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_SRC]} != #{Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_DST]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">(!ISNULL(CountryCode_SRC)) &amp;&amp; (Country_SRC != Country_DST)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\Data Flow Task\Merger by Country Code"
+                  componentClassID="Microsoft.MergeJoin"
+                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+                  name="Merger by Country Code"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of join to perform."
+                      name="JoinType"
+                      typeConverter="JoinType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of columns in the ordering key."
+                      name="NumKeyColumns">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the null values are treated as equal values."
+                      name="TreatNullsAsEqual">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates the requested maximum buffers per input before blocking."
+                      name="MaxBuffersPerInput">5</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Left Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[CountryCode]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryCode"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[CountryCode]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[region]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="region"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[region]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[sub-region]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="sub-region"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[sub-region]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Country"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[Country]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Right Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[CountryCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CountryCode"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[CountryCode]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[Region]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Region"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[Region]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[SubRegion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SubRegion"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[SubRegion]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[Country]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output]"
+                      isSorted="true"
+                      name="Merge Join Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_SRC]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_SRC]"
+                          name="CountryCode_SRC"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[CountryCode]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_DST]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_DST]"
+                          name="CountryCode_DST">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[CountryCode]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Region_SRC]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Region_SRC]"
+                          name="Region_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[region]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[SubRegion_SRC]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[SubRegion_SRC]"
+                          name="SubRegion_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[sub-region]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_SRC]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_SRC]"
+                          name="Country_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input].Columns[Country]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Region_DST]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Region_DST]"
+                          name="Region_DST">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[Region]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[SubRegion_DST]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[SubRegion_DST]"
+                          name="SubRegion_DST">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[SubRegion]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_DST]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_DST]"
+                          name="Country_DST">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input].Columns[Country]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST DimGeography"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dwh].[DimGeography]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].Columns[Region_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Region_SRC"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Region_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].Columns[SubRegion_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="SubRegion_SRC"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[SubRegion]"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[SubRegion_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].Columns[Country_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Country_SRC"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].Columns[CountryCode_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryCode_SRC"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_SRC]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[DimGeographyKey]"
+                          dataType="i4"
+                          name="DimGeographyKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          name="SubRegion" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="CountryCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysCreatedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysChangedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
+                          dataType="i4"
+                          name="sysChangedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedBy]"
+                          dataType="i4"
+                          name="sysCreatedBy" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC Country ref"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+      [region]
+      ,[sub-region]
+      ,[name] AS Country
+      ,[alpha-3] AS CountryCode
+   FROM [staging].[countriesref_untyped]
+ORDER BY CountryCode</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[region]"
+                          name="region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[sub-region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[sub-region]"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[sub-region]"
+                          name="sub-region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                          name="CountryCode"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                          dataType="wstr"
+                          length="100"
+                          name="region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[sub-region]"
+                          dataType="wstr"
+                          length="100"
+                          name="sub-region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="100"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                          dataType="wstr"
+                          length="100"
+                          name="CountryCode" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[region]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[region]"
+                          name="region" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[sub-region]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[sub-region]"
+                          name="sub-region" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                          name="CountryCode" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC DimGeography"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [DimGeographyKey]
+      ,[Region]
+      ,[SubRegion]
+      ,[Country]
+      ,[CountryCode]
+FROM [dwh].[DimGeography]
+ORDER BY [CountryCode]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[DimGeographyKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[DimGeographyKey]"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[DimGeographyKey]"
+                          name="DimGeographyKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[Region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[Region]"
+                          name="Region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[SubRegion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[SubRegion]"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[SubRegion]"
+                          name="SubRegion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                          length="3"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                          name="CountryCode"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[DimGeographyKey]"
+                          dataType="i4"
+                          name="DimGeographyKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Region" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          name="SubRegion" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="CountryCode" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[DimGeographyKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[DimGeographyKey]"
+                          name="DimGeographyKey" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[Region]"
+                          name="Region" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[SubRegion]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[SubRegion]"
+                          name="SubRegion" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                          name="CountryCode" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQ Load\Data Flow Task.Paths[Merge Join Output]"
+                  endId="Package\SEQ Load\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Merge Join Output"
+                  startId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\SEQ Load\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Left Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQ Load\Data Flow Task.Paths[OLE DB Source Output1]"
+                  endId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Inputs[Merge Join Right Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQ Load\Data Flow Task.Paths[ToInsert]"
+                  endId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input]"
+                  name="ToInsert"
+                  startId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[ToInsert]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SEQC Completion"
@@ -81,6 +1027,10 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\SEQ Load\Data Flow Task"
+          TopLeft="194,65" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -94,7 +1044,7 @@
           PanelSize="483,74"
           Size="483,117"
           Id="Package\SEQC Completion"
-          TopLeft="135,625" />
+          TopLeft="171,700" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -142,20 +1092,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="180,45.5"
+              EndConnector="-25.5,62"
               Start="0,0"
-              End="172.5,45.5">
+              End="-25.5,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,27" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41.5"
-                    Point2="0,45.5"
-                    Point3="4,45.5" />
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
                   <mssgle:LineSegment
-                    End="172.5,45.5" />
+                    End="-21.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,31"
+                    Point2="-25.5,31"
+                    Point3="-25.5,35" />
+                  <mssgle:LineSegment
+                    End="-25.5,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -167,5 +1123,195 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\SEQ Load\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref"
+          TopLeft="24,6.75" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography"
+          TopLeft="420,8.46153846153846" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\SEQ Load\Data Flow Task\Merger by Country Code"
+          TopLeft="219.230769230769,114.615384615385" />
+        <EdgeLayout
+          Id="Package\SEQ Load\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="113.5,48.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="171.730769230769,65.8653846153846"
+              Start="0,0"
+              End="171.730769230769,58.3653846153846">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.1959650778669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.1959650778669"
+                    Point2="0,39.1959650778669"
+                    Point3="4,39.1959650778669" />
+                  <mssgle:LineSegment
+                    End="167.730769230769,39.1959650778669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="167.730769230769,39.1959650778669"
+                    Point2="171.730769230769,39.1959650778669"
+                    Point3="171.730769230769,43.1959650778669" />
+                  <mssgle:LineSegment
+                    End="171.730769230769,58.3653846153846" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="518,50.4615384615385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-170.769230769231,64.1538461538461"
+              Start="0,0"
+              End="-170.769230769231,56.6538461538461">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1774421897121" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.1774421897121"
+                    Point2="0,38.1774421897121"
+                    Point3="-4,38.1774421897121" />
+                  <mssgle:LineSegment
+                    End="-166.769230769231,38.1774421897121" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-166.769230769231,38.1774421897121"
+                    Point2="-170.769230769231,38.1774421897121"
+                    Point3="-170.769230769231,42.1774421897121" />
+                  <mssgle:LineSegment
+                    End="-170.769230769231,56.6538461538461" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\SEQ Load\Data Flow Task\Conditional Split"
+          TopLeft="243.076923076923,213.846153846154" />
+        <EdgeLayout
+          Id="Package\SEQ Load\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="318.403846153846,156.615384615385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.2307692307693"
+              Start="0,0"
+              End="0,49.7307692307693">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.7307692307693" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography"
+          TopLeft="65.3846153846154,318.461538461539" />
+        <EdgeLayout
+          Id="Package\SEQ Load\Data Flow Task.Paths[ToInsert]"
+          TopLeft="320.576923076923,255.846153846154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-157.192307692308,62.6153846153847"
+              Start="0,0"
+              End="-157.192307692308,55.1153846153847">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3076923076923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.3076923076923"
+                    Point2="0,31.3076923076923"
+                    Point3="-4,31.3076923076923" />
+                  <mssgle:LineSegment
+                    End="-153.192307692308,31.3076923076923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153.192307692308,31.3076923076923"
+                    Point2="-157.192307692308,31.3076923076923"
+                    Point3="-157.192307692308,35.3076923076923" />
+                  <mssgle:LineSegment
+                    End="-157.192307692308,55.1153846153847" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98.2136343149039,36.3076923076923,39.2349609375,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="create DimGeography_tmp&#xD;&#xA;and perfrom batch update"
+          ParentId="Package\SEQ Load\Data Flow Task"
+          FontInfo="{assembly:Null}"
+          Size="171,60"
+          Id="0db00dd6-927d-405d-8753-32bb9777cbf2"
+          TopLeft="401.538461538461,345.384615384615" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
