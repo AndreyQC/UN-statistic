@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CountryRef", "CountryRef", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorldBank", "WorldBank", "{7A7EF9B7-572A-4A71-92F4-0A905E8B5700}"
 	ProjectSection(SolutionItems) = preProject
-		\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\Worldbank\API_SP.POP.TOTL_DS2_en_csv_v2_713131.csv = \\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\Worldbank\API_SP.POP.TOTL_DS2_en_csv_v2_713131.csv
+		\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\Worldbank\API_SP.POP.TOTL_DS2_en_csv_v2_713131_-_edit.csv = \\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\Worldbank\API_SP.POP.TOTL_DS2_en_csv_v2_713131_-_edit.csv
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbicourse", "msbicourse", "{3AF71481-B177-4D6D-8A37-4BDC86C72982}"
