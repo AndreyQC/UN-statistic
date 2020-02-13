@@ -7,12 +7,12 @@
   DTS:CreatorName="SARATOV\Andrey_Potapov"
   DTS:DTSID="{EBE0AD7C-ECBB-45D4-AE69-22CF072CAF86}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="15.0.1900.80"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{5430BE16-D6C4-4937-BB18-886133A00DCA}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{FF48A310-54AF-49FF-8996-5A1A151FFC95}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,6 +21,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{09840133-0D4C-4E9B-9067-9F9A2A211A76}"
       DTS:ObjectName="csv.UNCrime">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::UNStatisticSharedFolder]+"\\"+  @[$Project::UNStatisticUncrimeFolder]+"\\"+ @[User::CurrentFile]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -30,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="65001"
-          DTS:ConnectionString="\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\UNCrime\robbery.csv">
+          DTS:ConnectionString="\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\UNCrime\bribery.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +41,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="RegionName"
-              DTS:DTSID="{193D2DF7-E947-4172-8C46-88C5EDBCC9B2}"
+              DTS:DTSID="{A3080622-33AF-40B0-A3D4-48C123145D2A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +50,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="SubRegionName"
-              DTS:DTSID="{7A6D0539-1F14-4D4E-89A6-D5066CFBB749}"
+              DTS:DTSID="{330FCD71-09C1-4329-AE3B-BD7C1DFB6144}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +59,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CountryName"
-              DTS:DTSID="{EEF3C0B0-C5F9-44D4-BD25-34F9C9069363}"
+              DTS:DTSID="{72784D08-F68E-4AD7-9580-266E92E75A83}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +68,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Year"
-              DTS:DTSID="{9BEA5D91-F568-4088-947E-AB9ECFA11107}"
+              DTS:DTSID="{61463207-3F37-4A09-B9D1-364E3A1EF14B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +77,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Count"
-              DTS:DTSID="{FF9CB794-8BDD-407B-BD5C-2E61F0A27EC9}"
+              DTS:DTSID="{C97957E9-755B-4419-AA6E-744FF100F6F0}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -90,8 +92,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="CurrentFile">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">bribery.csv</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -3563,12 +3564,12 @@
               name="Derived Column Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename robbery, SourceItemId 1 columns.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output5]"
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output1]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\Union All.Inputs[Union All Input 6]"
               name="Derived Column Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename serious_assault, SourceItemId 1 columns.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output4]"
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output2]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\Union All.Inputs[Union All Input 5]"
               name="Derived Column Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename kidnapping, SourceItemId 1 columns.Outputs[Derived Column Output]" />
@@ -3578,12 +3579,12 @@
               name="Derived Column Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename corruption, SourceItemId 1 columns.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output2]"
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output4]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\Union All.Inputs[Union All Input 3]"
               name="Derived Column Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename burglary, SourceItemId 1 columns.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output1]"
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output5]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\Union All.Inputs[Union All Input 2]"
               name="Derived Column Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename bribery, SourceItemId 1 columns.Outputs[Derived Column Output]" />
@@ -3599,44 +3600,44 @@
               startId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename theft_private_cars, SourceItemId 1 columns.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output6]"
+              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename theft_private_cars, SourceItemId 1 columns.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_theft_private_cars.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output5]"
+              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename bribery, SourceItemId 1 columns.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_bribery.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output4]"
+              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename burglary, SourceItemId 1 columns.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_burglary.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename theft, SourceItemId 1 columns.Inputs[Derived Column Input]"
               name="Flat File Source Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_theft.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output5]"
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output2]"
+              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename kidnapping, SourceItemId 1 columns.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_kidnapping.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output1]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename serious_assault, SourceItemId 1 columns.Inputs[Derived Column Input]"
               name="Flat File Source Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_serious_assault.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output4]"
-              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename kidnapping, SourceItemId 1 columns.Inputs[Derived Column Input]"
+              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output7]"
+              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename robbery, SourceItemId 1 columns.Inputs[Derived Column Input]"
               name="Flat File Source Output"
-              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_kidnapping.Outputs[Flat File Source Output]" />
+              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_robbery.Outputs[Flat File Source Output]" />
             <path
               refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output3]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename corruption, SourceItemId 1 columns.Inputs[Derived Column Input]"
               name="Flat File Source Output"
               startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_corruption.Outputs[Flat File Source Output]" />
-            <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output2]"
-              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename burglary, SourceItemId 1 columns.Inputs[Derived Column Input]"
-              name="Flat File Source Output"
-              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_burglary.Outputs[Flat File Source Output]" />
-            <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output1]"
-              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename bribery, SourceItemId 1 columns.Inputs[Derived Column Input]"
-              name="Flat File Source Output"
-              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_bribery.Outputs[Flat File Source Output]" />
-            <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output7]"
-              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename theft_private_cars, SourceItemId 1 columns.Inputs[Derived Column Input]"
-              name="Flat File Source Output"
-              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_theft_private_cars.Outputs[Flat File Source Output]" />
-            <path
-              refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output]"
-              endId="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename robbery, SourceItemId 1 columns.Inputs[Derived Column Input]"
-              name="Flat File Source Output"
-              startId="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_robbery.Outputs[Flat File Source Output]" />
             <path
               refId="Package\DFT Load staging staging uncrime_untyped 1.Paths[Union All Output 1]"
               endId="Package\DFT Load staging staging uncrime_untyped 1\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input]"
@@ -3675,7 +3676,7 @@
                 <FEFEProperty
                   FileSpec="*.*" />
                 <FEFEProperty
-                  FileNameRetrievalType="2" />
+                  FileNameRetrievalType="1" />
                 <FEFEProperty
                   Recurse="0" />
               </ForEachFileEnumeratorProperties>
@@ -4209,8 +4210,8 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{C49F9F98-5498-4414-867C-327E02A1BF46}"
-              DTS:ObjectName="{C49F9F98-5498-4414-867C-327E02A1BF46}"
+              DTS:DTSID="{0330739E-ED65-490C-A358-AAF6521383E9}"
+              DTS:ObjectName="{0330739E-ED65-490C-A358-AAF6521383E9}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::CurrentFile" />
           </DTS:ForEachVariableMappings>
@@ -4359,46 +4360,50 @@ ORDER BY
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="284,42"
+          Size="292.8,41.6"
+          Id="Package\DFT Load staging staging uncrime_untyped 1"
+          TopLeft="712,286" />
+        <NodeLayout
+          Size="284,41.6"
           Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped"
-          TopLeft="42,59" />
+          TopLeft="47.7142858115994,85.0000003646402" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="364,121"
-          Size="364,164"
+          PanelSize="364,181.6"
+          Size="364,224.8"
           Id="Package\SEQ Load\Foreach Loop Container"
           TopLeft="66,12" />
         <NodeLayout
-          Size="206,42"
+          Size="206.4,41.6"
           Id="Package\SEQ Load\SQL Insert UNCrime_typed"
-          TopLeft="142,214" />
+          TopLeft="157.714285981898,276.705883232368" />
         <EdgeLayout
           Id="Package\SEQ Load.PrecedenceConstraints[Constraint]"
-          TopLeft="248,176">
+          TopLeft="248,236.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-24.5,38"
+              EndConnector="12.9142859818984,39.9058832323676"
               Start="0,0"
-              End="-24.5,30.5">
+              End="12.9142859818984,32.4058832323676">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15" />
+                    End="0,15.9529416161838" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="-4,19" />
+                    Point1="0,15.9529416161838"
+                    Point2="0,19.9529416161838"
+                    Point3="4,19.9529416161838" />
                   <mssgle:LineSegment
-                    End="-20.5,19" />
+                    End="8.91428598189844,19.9529416161838" />
                   <mssgle:CubicBezierSegment
-                    Point1="-20.5,19"
-                    Point2="-24.5,19"
-                    Point3="-24.5,23" />
+                    Point1="8.91428598189844,19.9529416161838"
+                    Point2="12.9142859818984,19.9529416161838"
+                    Point3="12.9142859818984,23.9529416161838" />
                   <mssgle:LineSegment
-                    End="-24.5,30.5" />
+                    End="12.9142859818984,32.4058832323676" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4410,23 +4415,23 @@ ORDER BY
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="474,317"
-          Size="474,360"
+          PanelSize="473.6,373.6"
+          Size="473.6,416.8"
           Id="Package\SEQ Load"
           TopLeft="140,343" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="483,50"
-          Size="483,93"
+          PanelSize="483.2,49.6"
+          Size="483.2,92.8"
           Id="Package\SEQC Completion"
-          TopLeft="133,768" />
+          TopLeft="148.714285981898,810.823530012349" />
         <NodeLayout
-          Size="251,42"
+          Size="251.2,41.6"
           Id="Package\SEQC Preparation\SQL truncate staging uncrime_typed"
           TopLeft="101,114" />
         <NodeLayout
-          Size="263,42"
+          Size="263.2,41.6"
           Id="Package\SEQC Preparation\SQL truncate staging uncrime_untyped"
           TopLeft="101,12" />
         <EdgeLayout
@@ -4454,36 +4459,36 @@ ORDER BY
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="475,211"
-          Size="475,254"
+          PanelSize="475.2,211.2"
+          Size="475.2,254.4"
           Id="Package\SEQC Preparation"
           TopLeft="127,42" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="364.5,296">
+          TopLeft="364.6,296.4">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12.5,47"
+              EndConnector="12.2,46.6000000000001"
               Start="0,0"
-              End="12.5,39.5">
+              End="12.2,39.1000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5" />
+                    End="0,19.3000000000001" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="4,23.5" />
+                    Point1="0,19.3000000000001"
+                    Point2="0,23.3000000000001"
+                    Point3="4,23.3000000000001" />
                   <mssgle:LineSegment
-                    End="8.5,23.5" />
+                    End="8.19999999999999,23.3000000000001" />
                   <mssgle:CubicBezierSegment
-                    Point1="8.5,23.5"
-                    Point2="12.5,23.5"
-                    Point3="12.5,27.5" />
+                    Point1="8.19999999999999,23.3000000000001"
+                    Point2="12.2,23.3000000000001"
+                    Point3="12.2,27.3000000000001" />
                   <mssgle:LineSegment
-                    End="12.5,39.5" />
+                    End="12.2,39.1000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4494,18 +4499,30 @@ ORDER BY
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="375.75,703">
+          TopLeft="376.8,759.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65"
+              EndConnector="13.5142859818984,51.0235300123485"
               Start="0,0"
-              End="0,57.5">
+              End="13.5142859818984,43.5235300123485">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.5" />
+                    End="0,21.5117650061742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5117650061742"
+                    Point2="0,25.5117650061742"
+                    Point3="4,25.5117650061742" />
+                  <mssgle:LineSegment
+                    End="9.51428598189841,25.5117650061742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.51428598189841,25.5117650061742"
+                    Point2="13.5142859818984,25.5117650061742"
+                    Point3="13.5142859818984,29.5117650061742" />
+                  <mssgle:LineSegment
+                    End="13.5142859818984,43.5235300123485" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4514,10 +4531,6 @@ ORDER BY
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="293,42"
-          Id="Package\DFT Load staging staging uncrime_untyped 1"
-          TopLeft="712,286" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4525,57 +4538,31 @@ ORDER BY
     design-time-name="Package\DFT Load staging staging uncrime_untyped 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="176,61"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename robbery, SourceItemId 1 columns"
-          TopLeft="486,215" />
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="185,42"
           Id="Package\DFT Load staging staging uncrime_untyped 1\OLE_DST staging uncrime_untyped"
           TopLeft="1159,444" />
         <NodeLayout
+          Size="1530,42"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\Union All"
+          TopLeft="489,348" />
+        <NodeLayout
           Size="172,42"
           Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_robbery"
           TopLeft="489,88" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output]"
-          TopLeft="574.5,130">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,85"
-              Start="0,0"
-              End="0,77.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,77.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="167,61"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename corruption, SourceItemId 1 columns"
+          TopLeft="1083,212" />
+        <NodeLayout
+          Size="191,59"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename serious_assault, SourceItemId 1 columns"
+          TopLeft="1435,212" />
         <NodeLayout
           Size="176,42"
           Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_bribery"
           TopLeft="692,91" />
-        <NodeLayout
-          Size="175,44"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_burglary"
-          TopLeft="892,87" />
-        <NodeLayout
-          Size="175,43"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_corruption"
-          TopLeft="1074,87" />
-        <NodeLayout
-          Size="178,43"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_kidnapping"
-          TopLeft="1254,88" />
         <NodeLayout
           Size="199,42"
           Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_serious_assault"
@@ -4585,263 +4572,45 @@ ORDER BY
           Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_theft"
           TopLeft="1647,89" />
         <NodeLayout
-          Size="215,42"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_theft_private_cars"
-          TopLeft="1812,90" />
-        <NodeLayout
-          Size="178,59"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename bribery, SourceItemId 1 columns"
-          TopLeft="688,219" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output1]"
-          TopLeft="778.5,133">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,86"
-              Start="0,0"
-              End="0,78.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,78.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="175,44"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_burglary"
+          TopLeft="892,87" />
         <NodeLayout
           Size="176,61"
           Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename burglary, SourceItemId 1 columns"
           TopLeft="890,213" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output2]"
-          TopLeft="978.75,131">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,82"
-              Start="0,0"
-              End="0,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,74.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="167,61"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename corruption, SourceItemId 1 columns"
-          TopLeft="1083,212" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output3]"
-          TopLeft="1164,130">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,82"
-              Start="0,0"
-              End="0,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,74.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,57"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename kidnapping, SourceItemId 1 columns"
-          TopLeft="1258,214" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output4]"
-          TopLeft="1344.5,131">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,83"
-              Start="0,0"
-              End="0,75.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,75.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="191,59"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename serious_assault, SourceItemId 1 columns"
-          TopLeft="1435,212" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output5]"
-          TopLeft="1534,130">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,82"
-              Start="0,0"
-              End="0,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,74.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157,61"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename theft, SourceItemId 1 columns"
-          TopLeft="1638,211" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output6]"
-          TopLeft="1719,131">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80"
-              Start="0,0"
-              End="0,72.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="176,61"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename robbery, SourceItemId 1 columns"
+          TopLeft="486,215" />
         <NodeLayout
           Size="208,63"
           Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename theft_private_cars, SourceItemId 1 columns"
           TopLeft="1818,210" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output7]"
-          TopLeft="1920.75,132">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,78"
-              Start="0,0"
-              End="0,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,70.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="1530,42"
-          Id="Package\DFT Load staging staging uncrime_untyped 1\Union All"
-          TopLeft="489,348" />
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output]"
-          TopLeft="574,276">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="88.1111111111111,72"
-              Start="0,0"
-              End="88.1111111111111,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.713727348099" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.713727348099"
-                    Point2="0,58.713727348099"
-                    Point3="4,58.713727348099" />
-                  <mssgle:LineSegment
-                    End="84.1111111111111,58.713727348099" />
-                  <mssgle:CubicBezierSegment
-                    Point1="84.1111111111111,58.713727348099"
-                    Point2="88.1111111111111,58.713727348099"
-                    Point3="88.1111111111111,62.713727348099" />
-                  <mssgle:LineSegment
-                    End="88.1111111111111,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output1]"
-          TopLeft="777,278">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54.2222222222222,70"
-              Start="0,0"
-              End="54.2222222222222,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.3642749623683" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.3642749623683"
-                    Point2="0,48.3642749623683"
-                    Point3="4,48.3642749623683" />
-                  <mssgle:LineSegment
-                    End="50.2222222222222,48.3642749623683" />
-                  <mssgle:CubicBezierSegment
-                    Point1="50.2222222222222,48.3642749623683"
-                    Point2="54.2222222222222,48.3642749623683"
-                    Point3="54.2222222222222,52.3642749623683" />
-                  <mssgle:LineSegment
-                    End="54.2222222222222,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="175,43"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_corruption"
+          TopLeft="1074,87" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_theft_private_cars"
+          TopLeft="1812,90" />
+        <NodeLayout
+          Size="178,43"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\FFS_SRC UNCrime_kidnapping"
+          TopLeft="1254,88" />
+        <NodeLayout
+          Size="178,59"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename bribery, SourceItemId 1 columns"
+          TopLeft="688,219" />
+        <NodeLayout
+          Size="176,57"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename kidnapping, SourceItemId 1 columns"
+          TopLeft="1258,214" />
+        <NodeLayout
+          Size="157,61"
+          Id="Package\DFT Load staging staging uncrime_untyped 1\DER Add Filename theft, SourceItemId 1 columns"
+          TopLeft="1638,211" />
         <EdgeLayout
           Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Union All Output 1]"
           TopLeft="1252.75,390">
@@ -4861,153 +4630,201 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output2]"
-          TopLeft="978,274">
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output7]"
+          TopLeft="574.5,130">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22.3333333333333,74"
+              EndConnector="0,85"
               Start="0,0"
-              End="22.3333333333333,66.5">
+              End="0,77.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.3536171324106" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.3536171324106"
-                    Point2="0,44.3536171324106"
-                    Point3="4,44.3536171324106" />
-                  <mssgle:LineSegment
-                    End="18.3333333333333,44.3536171324106" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.3333333333333,44.3536171324106"
-                    Point2="22.3333333333333,44.3536171324106"
-                    Point3="22.3333333333333,48.3536171324106" />
-                  <mssgle:LineSegment
-                    End="22.3333333333333,66.5" />
+                    End="0,77.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output3]"
-          TopLeft="1167.97222222222,273">
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output6]"
+          TopLeft="1920.75,132">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,75"
+              EndConnector="0,78"
               Start="0,0"
-              End="0,67.5">
+              End="0,70.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,67.5" />
+                    End="0,70.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output4]"
-          TopLeft="1342.27777777778,271">
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output5]"
+          TopLeft="778.5,133">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,69.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output5]"
-          TopLeft="1530.5,271">
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output4]"
+          TopLeft="978.75,131">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.8333333333335,77"
+              EndConnector="0,82"
               Start="0,0"
-              End="-22.8333333333335,69.5">
+              End="0,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.1517367458867" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42.1517367458867"
-                    Point2="0,46.1517367458867"
-                    Point3="-4,46.1517367458867" />
-                  <mssgle:LineSegment
-                    End="-18.8333333333335,46.1517367458867" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.8333333333335,46.1517367458867"
-                    Point2="-22.8333333333335,46.1517367458867"
-                    Point3="-22.8333333333335,50.1517367458867" />
-                  <mssgle:LineSegment
-                    End="-22.8333333333335,69.5" />
+                    End="0,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output6]"
-          TopLeft="1716.5,272">
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output3]"
+          TopLeft="1164,130">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-39.7222222222222,76"
+              EndConnector="0,82"
               Start="0,0"
-              End="-39.7222222222222,68.5">
+              End="0,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.509784244857" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,48.509784244857"
-                    Point2="0,52.509784244857"
-                    Point3="-4,52.509784244857" />
-                  <mssgle:LineSegment
-                    End="-35.7222222222222,52.509784244857" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-35.7222222222222,52.509784244857"
-                    Point2="-39.7222222222222,52.509784244857"
-                    Point3="-39.7222222222222,56.509784244857" />
-                  <mssgle:LineSegment
-                    End="-39.7222222222222,68.5" />
+                    End="0,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output2]"
+          TopLeft="1344.5,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output1]"
+          TopLeft="1534,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82"
+              Start="0,0"
+              End="0,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Flat File Source Output]"
+          TopLeft="1719,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80"
+              Start="0,0"
+              End="0,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5041,7 +4858,237 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output6]"
+          TopLeft="1716.5,272">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-39.7222222222222,76"
+              Start="0,0"
+              End="-39.7222222222222,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.509784244857" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.509784244857"
+                    Point2="0,52.509784244857"
+                    Point3="-4,52.509784244857" />
+                  <mssgle:LineSegment
+                    End="-35.7222222222222,52.509784244857" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35.7222222222222,52.509784244857"
+                    Point2="-39.7222222222222,52.509784244857"
+                    Point3="-39.7222222222222,56.509784244857" />
+                  <mssgle:LineSegment
+                    End="-39.7222222222222,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output5]"
+          TopLeft="777,278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.2222222222222,70"
+              Start="0,0"
+              End="54.2222222222222,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.3642749623683" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.3642749623683"
+                    Point2="0,48.3642749623683"
+                    Point3="4,48.3642749623683" />
+                  <mssgle:LineSegment
+                    End="50.2222222222222,48.3642749623683" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.2222222222222,48.3642749623683"
+                    Point2="54.2222222222222,48.3642749623683"
+                    Point3="54.2222222222222,52.3642749623683" />
+                  <mssgle:LineSegment
+                    End="54.2222222222222,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output4]"
+          TopLeft="978,274">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.3333333333333,74"
+              Start="0,0"
+              End="22.3333333333333,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.3536171324106" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.3536171324106"
+                    Point2="0,44.3536171324106"
+                    Point3="4,44.3536171324106" />
+                  <mssgle:LineSegment
+                    End="18.3333333333333,44.3536171324106" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.3333333333333,44.3536171324106"
+                    Point2="22.3333333333333,44.3536171324106"
+                    Point3="22.3333333333333,48.3536171324106" />
+                  <mssgle:LineSegment
+                    End="22.3333333333333,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output3]"
+          TopLeft="1167.97222222222,273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output2]"
+          TopLeft="1342.27777777778,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output1]"
+          TopLeft="1530.5,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.8333333333335,77"
+              Start="0,0"
+              End="-22.8333333333335,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.1517367458867" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.1517367458867"
+                    Point2="0,46.1517367458867"
+                    Point3="-4,46.1517367458867" />
+                  <mssgle:LineSegment
+                    End="-18.8333333333335,46.1517367458867" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.8333333333335,46.1517367458867"
+                    Point2="-22.8333333333335,46.1517367458867"
+                    Point3="-22.8333333333335,50.1517367458867" />
+                  <mssgle:LineSegment
+                    End="-22.8333333333335,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load staging staging uncrime_untyped 1.Paths[Derived Column Output]"
+          TopLeft="574,276">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.1111111111111,72"
+              Start="0,0"
+              End="88.1111111111111,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.713727348099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.713727348099"
+                    Point2="0,58.713727348099"
+                    Point3="4,58.713727348099" />
+                  <mssgle:LineSegment
+                    End="84.1111111111111,58.713727348099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.1111111111111,58.713727348099"
+                    Point2="88.1111111111111,58.713727348099"
+                    Point3="88.1111111111111,62.713727348099" />
+                  <mssgle:LineSegment
+                    End="88.1111111111111,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5066,17 +5113,17 @@ ORDER BY
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="166,42"
-          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
-          TopLeft="489,88" />
+          Size="279.2,41.6"
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add Filename, SourceItemId columns"
+          TopLeft="436,216" />
         <NodeLayout
-          Size="246,42"
+          Size="246.4,41.6"
           Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped"
           TopLeft="460,314" />
         <NodeLayout
-          Size="279,42"
-          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add Filename, SourceItemId columns"
-          TopLeft="436,216" />
+          Size="166.4,41.6"
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
+          TopLeft="489,88" />
         <EdgeLayout
           Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped.Paths[Flat File Source Output]"
           TopLeft="573.75,130">
