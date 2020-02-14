@@ -7,12 +7,12 @@
   DTS:CreatorName="SARATOV\Andrey_Potapov"
   DTS:DTSID="{EBE0AD7C-ECBB-45D4-AE69-22CF072CAF86}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1900.80"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{9D9BCD36-609C-41F9-9962-BAB810CC366B}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{6A4740A8-929A-45A3-AD84-00514989D2F7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,6 +21,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{09840133-0D4C-4E9B-9067-9F9A2A211A76}"
       DTS:ObjectName="csv.UNCrime">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::UNStatisticSharedFolder]+"\\"+ @[$Project::UNStatisticUncrimeFolder]+"\\"+ @[User::CurrentFile]+".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -30,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="65001"
-          DTS:ConnectionString="\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\UNCrime\robbery.csv">
+          DTS:ConnectionString="\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\UNCrime\.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -82,7 +84,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC44495E-E53D-4196-96C8-40134CD2C7C9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentFile">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\SEQ Load"
@@ -95,528 +108,591 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{02CDFA59-0F2C-4D49-9A0B-F142B6A058F4}"
-          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:refId="Package\SEQ Load\Foreach Loop Container"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{04D2E751-A6A1-44C8-B160-534B6D987620}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
-          DTS:ObjectName="DFT Load staging staging uncrime_untyped"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          DTS:ObjectName="Foreach Loop Container">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{4E42BBE5-FD53-4F19-9333-94BABCCEAE96}"
+            DTS:ObjectName="{4E42BBE5-FD53-4F19-9333-94BABCCEAE96}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="\\ECSC00A014AD\shared\UNStatistic.SourceData.DEV\UNCrime" />
+                <FEFEProperty
+                  FileSpec="*.*" />
+                <FEFEProperty
+                  FileNameRetrievalType="2" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{02CDFA59-0F2C-4D49-9A0B-F142B6A058F4}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT Load staging staging uncrime_untyped"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                      name="DER Add some columns"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[FileName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[FileName]"
+                              name="FileName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">(DT_WSTR,100)@[User::CurrentFile]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">(DT_WSTR,100)@[User::CurrentFile]</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[SourceItemId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[SourceItemId]"
+                              name="SourceItemId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">1</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">1</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="1033"
+                      name="FFS_SRC UNCrime"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[csv.UNCrime]"
+                          connectionManagerRefId="Package.ConnectionManagers[csv.UNCrime]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[RegionName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[RegionName]"
+                              length="100"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[RegionName]"
+                              name="RegionName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[SubRegionName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[SubRegionName]"
+                              length="100"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[SubRegionName]"
+                              name="SubRegionName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[CountryName]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[CountryName]"
+                              length="100"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[CountryName]"
+                              name="CountryName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Year]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Year]"
+                              length="100"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Year]"
+                              name="Year"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Count]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Count]"
+                              length="100"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Count]"
+                              name="Count"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[RegionName]"
+                              dataType="wstr"
+                              length="100"
+                              name="RegionName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[SubRegionName]"
+                              dataType="wstr"
+                              length="100"
+                              name="SubRegionName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[CountryName]"
+                              dataType="wstr"
+                              length="100"
+                              name="CountryName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Year]"
+                              dataType="wstr"
+                              length="100"
+                              name="Year" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Count]"
+                              dataType="wstr"
+                              length="100"
+                              name="Count" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="65001"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE_DST staging uncrime_untyped"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[staging].[uncrime_untyped]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Connections[OleDbConnection]"
+                          connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                          connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[RegionName]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="RegionName"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[RegionName]"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[RegionName]" />
+                            <inputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[SubRegionName]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="SubRegionName"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SubRegionName]"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[SubRegionName]" />
+                            <inputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[CountryName]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="CountryName"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[CountryName]" />
+                            <inputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[Year]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="Year"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Year]" />
+                            <inputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[Count]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="Count"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Count]" />
+                            <inputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[FileName]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="FileName"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[FileName]" />
+                            <inputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[SourceItemId]"
+                              cachedDataType="i4"
+                              cachedName="SourceItemId"
+                              externalMetadataColumnId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SourceItemId]"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[SourceItemId]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                              dataType="wstr"
+                              length="100"
+                              name="FileName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SourceItemId]"
+                              dataType="i4"
+                              name="SourceItemId" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[RegionName]"
+                              dataType="wstr"
+                              length="100"
+                              name="RegionName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SubRegionName]"
+                              dataType="wstr"
+                              length="100"
+                              name="SubRegionName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                              dataType="wstr"
+                              length="100"
+                              name="CountryName" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                              dataType="wstr"
+                              length="100"
+                              name="Year" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
+                              dataType="wstr"
+                              length="100"
+                              name="Count" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedAt]"
+                              dataType="dbTimeStamp"
+                              name="sysCreatedAt" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedAt]"
+                              dataType="dbTimeStamp"
+                              name="sysChangedAt" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
+                              dataType="i4"
+                              name="sysChangedBy" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedBy]"
+                              dataType="i4"
+                              name="sysCreatedBy" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped.Paths[Derived Column Output]"
+                      endId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input]"
+                      name="Derived Column Output"
+                      startId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped.Paths[Flat File Source Output]"
+                      endId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]"
+                      name="Flat File Source Output"
+                      startId="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{C6C26D80-D82A-4ADC-807A-91F9889F3865}"
+              DTS:ObjectName="{C6C26D80-D82A-4ADC-807A-91F9889F3865}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CurrentFile" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Load\SQL Insert UNCrime_typed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1579577A-EC31-4DD9-B176-EBA9C1F9850C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL Insert UNCrime_typed"
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="DER Add some columns"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[FileName]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          length="100"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[FileName]"
-                          name="FileName"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">(DT_WSTR,100)"Robbery"</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">(DT_WSTR,100)"Robbery"</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[SourceItemId]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[SourceItemId]"
-                          name="SourceItemId"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">1</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">1</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
-                  componentClassID="Microsoft.FlatFileSource"
-                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Flat File Source"
-                  localeId="1033"
-                  name="FFS_SRC UNCrime"
-                  usesDispositions="true"
-                  version="1">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      description="Specifies whether zero-length columns are treated as null."
-                      name="RetainNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                      name="FileNameColumnName"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[csv.UNCrime]"
-                      connectionManagerRefId="Package.ConnectionManagers[csv.UNCrime]"
-                      name="FlatFileConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output]"
-                      name="Flat File Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[RegionName]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[RegionName]"
-                          length="100"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[RegionName]"
-                          name="RegionName"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[SubRegionName]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[SubRegionName]"
-                          length="100"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[SubRegionName]"
-                          name="SubRegionName"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[CountryName]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[CountryName]"
-                          length="100"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[CountryName]"
-                          name="CountryName"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Year]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Year]"
-                          length="100"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Year]"
-                          name="Year"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Count]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Count]"
-                          length="100"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Count]"
-                          name="Count"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[RegionName]"
-                          dataType="wstr"
-                          length="100"
-                          name="RegionName" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[SubRegionName]"
-                          dataType="wstr"
-                          length="100"
-                          name="SubRegionName" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[CountryName]"
-                          dataType="wstr"
-                          length="100"
-                          name="CountryName" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Year]"
-                          dataType="wstr"
-                          length="100"
-                          name="Year" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].ExternalColumns[Count]"
-                          dataType="wstr"
-                          length="100"
-                          name="Count" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output]"
-                      isErrorOut="true"
-                      name="Flat File Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                          codePage="65001"
-                          dataType="text"
-                          description="Flat File Source Error Output Column"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                          name="Flat File Source Error Output Column" />
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="OLE_DST staging uncrime_untyped"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[staging].[uncrime_untyped]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Connections[OleDbConnection]"
-                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[RegionName]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="RegionName"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[RegionName]"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[RegionName]" />
-                        <inputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[SubRegionName]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="SubRegionName"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SubRegionName]"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[SubRegionName]" />
-                        <inputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[CountryName]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="CountryName"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[CountryName]" />
-                        <inputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[Year]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="Year"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Year]" />
-                        <inputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[Count]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="Count"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output].Columns[Count]" />
-                        <inputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[FileName]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="FileName"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[FileName]" />
-                        <inputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].Columns[SourceItemId]"
-                          cachedDataType="i4"
-                          cachedName="SourceItemId"
-                          externalMetadataColumnId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SourceItemId]"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output].Columns[SourceItemId]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
-                          dataType="wstr"
-                          length="100"
-                          name="FileName" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SourceItemId]"
-                          dataType="i4"
-                          name="SourceItemId" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[RegionName]"
-                          dataType="wstr"
-                          length="100"
-                          name="RegionName" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[SubRegionName]"
-                          dataType="wstr"
-                          length="100"
-                          name="SubRegionName" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
-                          dataType="wstr"
-                          length="100"
-                          name="CountryName" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                          dataType="wstr"
-                          length="100"
-                          name="Year" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[Count]"
-                          dataType="wstr"
-                          length="100"
-                          name="Count" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedAt]"
-                          dataType="dbTimeStamp"
-                          name="sysCreatedAt" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedAt]"
-                          dataType="dbTimeStamp"
-                          name="sysChangedAt" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
-                          dataType="i4"
-                          name="sysChangedBy" />
-                        <externalMetadataColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedBy]"
-                          dataType="i4"
-                          name="sysCreatedBy" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped.Paths[Derived Column Output]"
-                  endId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped.Inputs[OLE DB Destination Input]"
-                  name="Derived Column Output"
-                  startId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\SEQ Load\DFT Load staging staging uncrime_untyped.Paths[Flat File Source Output]"
-                  endId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns.Inputs[Derived Column Input]"
-                  name="Flat File Source Output"
-                  startId="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime.Outputs[Flat File Source Output]" />
-              </paths>
-            </pipeline>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="INSERT INTO [staging].[uncrime_typed] ([FileName]&#xA;      ,[SourceItemId]&#xA;      ,[RegionName]&#xA;      ,[SubRegionName]&#xA;      ,[CountryName]&#xA;      ,[Year]&#xA;      ,[Count])&#xA;SELECT [FileName]&#xA;      ,[SourceItemId]&#xA;      ,[RegionName]&#xA;      ,[SubRegionName]&#xA;      ,[CountryName]&#xA;      ,[Year]&#xA;      ,ROUND([Count], 0)&#xA;  FROM [staging].[uncrime_untyped]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ Load.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C3EEF805-16C6-478C-8E9A-7A60B8DEF298}"
+          DTS:From="Package\SEQ Load\Foreach Loop Container"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ Load\SQL Insert UNCrime_typed" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SEQC Completion"
@@ -716,13 +792,46 @@
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="284,42"
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped"
-          TopLeft="101,39" />
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped"
+          TopLeft="5.5,4" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="474,138"
-          Size="474,181"
+          PanelSize="294,101"
+          Size="294,144"
+          Id="Package\SEQ Load\Foreach Loop Container"
+          TopLeft="78,5.5" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SEQ Load\SQL Insert UNCrime_typed"
+          TopLeft="146,193" />
+        <EdgeLayout
+          Id="Package\SEQ Load.PrecedenceConstraints[Constraint]"
+          TopLeft="226.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5"
+              Start="0,0"
+              End="0,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="474,290"
+          Size="474,333"
           Id="Package\SEQ Load"
           TopLeft="133,333" />
         <ContainerLayout
@@ -731,7 +840,7 @@
           PanelSize="483,74"
           Size="483,117"
           Id="Package\SEQC Completion"
-          TopLeft="122,546" />
+          TopLeft="134,756" />
         <NodeLayout
           Size="251,42"
           Id="Package\SEQC Preparation\SQL truncate staging uncrime_typed"
@@ -793,18 +902,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="366.75,514">
+          TopLeft="372.75,666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32"
+              EndConnector="0,90"
               Start="0,0"
-              End="0,24.5">
+              End="0,82.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.5" />
+                    End="0,82.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -817,24 +926,24 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\SEQ Load\DFT Load staging staging uncrime_untyped">
+    design-time-name="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="191,42"
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\DER Add some columns"
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\DER Add some columns"
           TopLeft="247,231" />
         <NodeLayout
           Size="246,42"
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped"
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped"
           TopLeft="217,363" />
         <NodeLayout
           Size="166,42"
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\FFS_SRC UNCrime"
           TopLeft="256,90" />
         <EdgeLayout
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped.Paths[Flat File Source Output]"
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped.Paths[Flat File Source Output]"
           TopLeft="340.75,132">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -856,7 +965,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQ Load\DFT Load staging staging uncrime_untyped.Paths[Derived Column Output]"
+          Id="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped.Paths[Derived Column Output]"
           TopLeft="341.25,273">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -881,7 +990,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQ Load\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped">
+    design-time-name="Package\SEQ Load\Foreach Loop Container\DFT Load staging staging uncrime_untyped\OLE_DST staging uncrime_untyped">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
