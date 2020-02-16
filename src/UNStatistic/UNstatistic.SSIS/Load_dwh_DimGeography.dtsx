@@ -7,12 +7,12 @@
   DTS:CreatorName="SARATOV\Andrey_Potapov"
   DTS:DTSID="{3872FD61-D826-483F-A732-FBD9C1D0260E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1900.80"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
   DTS:LocaleID="1033"
   DTS:ObjectName="Load_dwh_DimGeography"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{7F6D5A34-7E6A-41A2-968A-1684879AD6EA}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{049245F8-6630-45BF-BEA4-CB780CE812C2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -569,6 +569,134 @@
                   </outputs>
                 </component>
                 <component
+                  refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST DimGeography_tmp"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[staging].[DimGeography_tmp]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input].Columns[Country_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Country_SRC"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[Country_SRC]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input].Columns[CountryCode_SRC]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryCode_SRC"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                          lineageId="Package\SEQ Load\Data Flow Task\Merger by Country Code.Outputs[Merge Join Output].Columns[CountryCode_SRC]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="CountryCode" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -968,11 +1096,42 @@ ORDER BY [CountryCode]</property>
                   endId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography.Inputs[OLE DB Destination Input]"
                   name="ToInsert"
                   startId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[ToInsert]" />
+                <path
+                  refId="Package\SEQ Load\Data Flow Task.Paths[ToUpdate]"
+                  endId="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp.Inputs[OLE DB Destination Input]"
+                  name="ToUpdate"
+                  startId="Package\SEQ Load\Data Flow Task\Conditional Split.Outputs[ToUpdate]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Load\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{775BCC62-0B0F-412D-A293-20EFF683FBF1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="UPDATE n&#xA;    SET n.[Country] = o.[Country]&#xA;FROM&#xA;    [staging].[DimGeography_tmp] AS o&#xA;    INNER JOIN [dwh].[DimGeography] AS n ON o.[CountryCode] = n.[CountryCode]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ Load.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6573AAE9-C99B-451E-826D-6CEF085FA403}"
+          DTS:From="Package\SEQ Load\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ Load\Execute SQL Task" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SEQC Completion"
@@ -994,7 +1153,24 @@ ORDER BY [CountryCode]</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="SEQC Preparation">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Preparation\SQL truncate staging DimGeography_tmp"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2E0D9636-2870-45ED-B21E-142BB5FC251B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL truncate staging DimGeography_tmp"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [staging].[DimGeography_tmp]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -1026,11 +1202,37 @@ ORDER BY [CountryCode]</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="151,42"
           Id="Package\SEQ Load\Data Flow Task"
-          TopLeft="194,65" />
+          TopLeft="218,21" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\SEQ Load\Execute SQL Task"
+          TopLeft="219,110" />
+        <EdgeLayout
+          Id="Package\SEQ Load.PrecedenceConstraints[Constraint]"
+          TopLeft="297,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -1045,6 +1247,10 @@ ORDER BY [CountryCode]</property>
           Size="483,117"
           Id="Package\SEQC Completion"
           TopLeft="171,700" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\SEQC Preparation\SQL truncate staging DimGeography_tmp"
+          TopLeft="161,44" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -1129,49 +1335,59 @@ ORDER BY [CountryCode]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="196,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography"
+          TopLeft="65.3846153846154,318.461538461539" />
+        <NodeLayout
           Size="179,42"
           Id="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref"
           TopLeft="24,6.75" />
         <NodeLayout
-          Size="196,42"
-          Id="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography"
-          TopLeft="420,8.46153846153846" />
-        <NodeLayout
           Size="194,42"
           Id="Package\SEQ Load\Data Flow Task\Merger by Country Code"
           TopLeft="219.230769230769,114.615384615385" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\SEQ Load\Data Flow Task\Conditional Split"
+          TopLeft="242.076923076923,213.846153846154" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_SRC DimGeography"
+          TopLeft="420,8.46153846153846" />
         <EdgeLayout
-          Id="Package\SEQ Load\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="113.5,48.75">
+          Id="Package\SEQ Load\Data Flow Task.Paths[ToInsert]"
+          TopLeft="295.076923076923,255.846153846154">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="171.730769230769,65.8653846153846"
+              EndConnector="-131.692307692308,62.615384615385"
               Start="0,0"
-              End="171.730769230769,58.3653846153846">
+              End="-131.692307692308,55.115384615385">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.1959650778669" />
+                    End="0,21.4300029472445" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.1959650778669"
-                    Point2="0,39.1959650778669"
-                    Point3="4,39.1959650778669" />
+                    Point1="0,21.4300029472445"
+                    Point2="0,25.4300029472445"
+                    Point3="-4,25.4300029472445" />
                   <mssgle:LineSegment
-                    End="167.730769230769,39.1959650778669" />
+                    End="-127.692307692308,25.4300029472445" />
                   <mssgle:CubicBezierSegment
-                    Point1="167.730769230769,39.1959650778669"
-                    Point2="171.730769230769,39.1959650778669"
-                    Point3="171.730769230769,43.1959650778669" />
+                    Point1="-127.692307692308,25.4300029472445"
+                    Point2="-131.692307692308,25.4300029472445"
+                    Point3="-131.692307692308,29.4300029472445" />
                   <mssgle:LineSegment
-                    End="171.730769230769,58.3653846153846" />
+                    End="-131.692307692308,55.115384615385" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-85.463634314904,30.4300029472445,39.2349609375,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1180,26 +1396,26 @@ ORDER BY [CountryCode]</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-170.769230769231,64.1538461538461"
+              EndConnector="-170.769230769231,64.1538461538465"
               Start="0,0"
-              End="-170.769230769231,56.6538461538461">
+              End="-170.769230769231,56.6538461538465">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.1774421897121" />
+                    End="0,34.1774421897124" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.1774421897121"
-                    Point2="0,38.1774421897121"
-                    Point3="-4,38.1774421897121" />
+                    Point1="0,34.1774421897124"
+                    Point2="0,38.1774421897124"
+                    Point3="-4,38.1774421897124" />
                   <mssgle:LineSegment
-                    End="-166.769230769231,38.1774421897121" />
+                    End="-166.769230769231,38.1774421897124" />
                   <mssgle:CubicBezierSegment
-                    Point1="-166.769230769231,38.1774421897121"
-                    Point2="-170.769230769231,38.1774421897121"
-                    Point3="-170.769230769231,42.1774421897121" />
+                    Point1="-166.769230769231,38.1774421897124"
+                    Point2="-170.769230769231,38.1774421897124"
+                    Point3="-170.769230769231,42.1774421897124" />
                   <mssgle:LineSegment
-                    End="-170.769230769231,56.6538461538461" />
+                    End="-170.769230769231,56.6538461538465" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1208,24 +1424,54 @@ ORDER BY [CountryCode]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\SEQ Load\Data Flow Task\Conditional Split"
-          TopLeft="243.076923076923,213.846153846154" />
+        <EdgeLayout
+          Id="Package\SEQ Load\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="113.5,48.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="171.730769230769,65.865384615385"
+              Start="0,0"
+              End="171.730769230769,58.365384615385">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.1959650778671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.1959650778671"
+                    Point2="0,39.1959650778671"
+                    Point3="4,39.1959650778671" />
+                  <mssgle:LineSegment
+                    End="167.730769230769,39.1959650778671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="167.730769230769,39.1959650778671"
+                    Point2="171.730769230769,39.1959650778671"
+                    Point3="171.730769230769,43.1959650778671" />
+                  <mssgle:LineSegment
+                    End="171.730769230769,58.365384615385" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQ Load\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="318.403846153846,156.615384615385">
+          TopLeft="317.903846153846,156.615384615385">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.2307692307693"
+              EndConnector="0,57.230769230769"
               Start="0,0"
-              End="0,49.7307692307693">
+              End="0,49.730769230769">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.7307692307693" />
+                    End="0,49.730769230769" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1235,55 +1481,61 @@ ORDER BY [CountryCode]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="196,42"
-          Id="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography"
-          TopLeft="65.3846153846154,318.461538461539" />
+          Size="220,42"
+          Id="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp"
+          TopLeft="409,322" />
         <EdgeLayout
-          Id="Package\SEQ Load\Data Flow Task.Paths[ToInsert]"
-          TopLeft="320.576923076923,255.846153846154">
+          Id="Package\SEQ Load\Data Flow Task.Paths[ToUpdate]"
+          TopLeft="344.076923076923,255.846153846154">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-157.192307692308,62.6153846153847"
+              EndConnector="174.923076923077,66.153846153846"
               Start="0,0"
-              End="-157.192307692308,55.1153846153847">
+              End="174.923076923077,58.653846153846">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.3076923076923" />
+                    End="0,22.8670792808723" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.3076923076923"
-                    Point2="0,31.3076923076923"
-                    Point3="-4,31.3076923076923" />
+                    Point1="0,22.8670792808723"
+                    Point2="0,26.8670792808723"
+                    Point3="4,26.8670792808723" />
                   <mssgle:LineSegment
-                    End="-153.192307692308,31.3076923076923" />
+                    End="170.923076923077,26.8670792808723" />
                   <mssgle:CubicBezierSegment
-                    Point1="-153.192307692308,31.3076923076923"
-                    Point2="-157.192307692308,31.3076923076923"
-                    Point3="-157.192307692308,35.3076923076923" />
+                    Point1="170.923076923077,26.8670792808723"
+                    Point2="174.923076923077,26.8670792808723"
+                    Point3="174.923076923077,30.8670792808723" />
                   <mssgle:LineSegment
-                    End="-157.192307692308,55.1153846153847" />
+                    End="174.923076923077,58.653846153846" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-98.2136343149039,36.3076923076923,39.2349609375,9.421875"
+              BoundingBox="65.2190970552885,31.8670792808723,44.4848828125,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="create DimGeography_tmp&#xD;&#xA;and perfrom batch update"
-          ParentId="Package\SEQ Load\Data Flow Task"
-          FontInfo="{assembly:Null}"
-          Size="171,60"
-          Id="0db00dd6-927d-405d-8753-32bb9777cbf2"
-          TopLeft="401.538461538461,345.384615384615" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\SEQ Load\Data Flow Task\OLE_SRC Country ref">
     <Properties>
@@ -1301,7 +1553,7 @@ ORDER BY [CountryCode]</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography">
+    design-time-name="Package\SEQ Load\Data Flow Task\OLE_DST DimGeography_tmp">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
