@@ -1518,10 +1518,10 @@
                 <SSIS:Property SSIS:Name="Name">Load_dwh_DimGeography</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">27</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">34</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{362B195C-3B33-48EB-A5EF-A6A0653A82B4}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9A537345-642D-4672-B4CA-DF0047A55A96}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
