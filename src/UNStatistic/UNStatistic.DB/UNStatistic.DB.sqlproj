@@ -66,6 +66,8 @@
     <Folder Include="etl\Stored procedures" />
     <Folder Include="dwh" />
     <Folder Include="dwh\Tables" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\RoleMemberships.sql" />
@@ -91,6 +93,7 @@
     <Build Include="staging\Tables\population_untyped.sql" />
     <Build Include="msbicourse\DimCustomer_tmp.sql" />
     <Build Include="staging\Tables\population_unpivoted.sql" />
+    <Build Include="dbo\tables\sysssislog.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStatistic.DB.DEV.publish.xml" />
