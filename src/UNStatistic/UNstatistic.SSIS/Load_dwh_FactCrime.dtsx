@@ -7,12 +7,12 @@
   DTS:CreatorName="SARATOV\Andrey_Potapov"
   DTS:DTSID="{56DAD2F0-4D72-4E3B-86E6-247255CD0015}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1900.80"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
   DTS:LocaleID="1033"
   DTS:ObjectName="Load_dwh_FactCrime"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{07D3F03B-3E51-439F-9D6C-4A79494FF028}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{CAAE2B7F-E303-44DB-AEC7-757330E3352D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -26,7 +26,1705 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SEQ Load">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ Load\DFT Load FactCrime"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BFA13A81-AF50-4ECD-9475-98A88AD22687}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT Load FactCrime"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER Date SRC"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Inputs[Derived Column Input].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Output].Columns[Date_SRC]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Output].Columns[Date_SRC]"
+                          name="Date_SRC"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBDATE)((DT_WSTR,20)(#{Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]}) + "-01-01 00:00:00")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)((DT_WSTR,20)(Year) + "-01-01 00:00:00")</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DER DimGeographyKey"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Output].Columns[DimGeographyKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Output].Columns[DimGeographyKey]"
+                          name="DimGeographyKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">-1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">-1</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP DimCrimeType"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [DimCrimeTypeKey]
+      ,[CrimeType]
+  FROM [dwh].[DimCrimeType] with (nolock)</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT [DimCrimeTypeKey]
+      ,[CrimeType]
+  FROM [dwh].[DimCrimeType] with (nolock)) [refTable]
+where [refTable].[CrimeType] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DimCrimeTypeKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CrimeType" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[FileName]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Inputs[Lookup Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FileName"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[FileName]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">CrimeType</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output].Columns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output].Columns[DimCrimeTypeKey]"
+                          name="DimCrimeTypeKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DimCrimeTypeKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP DimDate"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [DateSK]
+      ,[DateBK]
+  FROM [dwh].[DimDate]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT [DateSK]
+      ,[DateBK]
+  FROM [dwh].[DimDate]) [refTable]
+where [refTable].[DateBK] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateBK" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQ Load\DFT Load FactCrime\336:invalid};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Inputs[Lookup Input].Columns[Date_SRC]"
+                          cachedDataType="dbDate"
+                          cachedName="Date_SRC"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Output].Columns[Date_SRC]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DateBK</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output].Columns[DateSK]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output].Columns[DateSK]"
+                          name="DateSK"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DateSK</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LKP DimGeography"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [DimGeographyKey]
+      ,[Country]
+  FROM [dwh].[DimGeography]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT [DimGeographyKey]
+      ,[Country]
+  FROM [dwh].[DimGeography]) [refTable]
+where [refTable].[Country] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DimGeographyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Country" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[CountryName]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Inputs[Lookup Input].Columns[CountryName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryName"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[CountryName]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Country</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Match Output].Columns[DimGeographyKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Match Output].Columns[DimGeographyKey]"
+                          name="DimGeographyKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">DimGeographyKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\Multicast"
+                  componentClassID="Microsoft.Multicast"
+                  contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                  name="Multicast">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\Multicast.Inputs[Multicast Input 1]"
+                      name="Multicast Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\Multicast.Outputs[Multicast Output 1]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 1"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\Multicast.Outputs[Multicast Output 2]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 2"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\Multicast.Outputs[Multicast Output 3]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 3"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE_DST dwh FactCrime"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dwh].[FactCrime]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].Columns[DimGeographyKey]"
+                          cachedDataType="i4"
+                          cachedName="DimGeographyKey"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[DimGeographyKey]"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimGeographyKey]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].Columns[Count]"
+                          cachedDataType="i4"
+                          cachedName="Count"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfCrime]"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Count]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].Columns[DateSK]"
+                          cachedDataType="i4"
+                          cachedName="DateSK"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[DimDateKey]"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DateSK]" />
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].Columns[DimCrimeTypeKey]"
+                          cachedDataType="i4"
+                          cachedName="DimCrimeTypeKey"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[DimCrimeTypeKey]"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[FactCrimeKey]"
+                          dataType="i4"
+                          name="FactCrimeKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[DimGeographyKey]"
+                          dataType="i4"
+                          name="DimGeographyKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[DimDateKey]"
+                          dataType="i4"
+                          name="DimDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          name="DimCrimeTypeKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfCrime]"
+                          dataType="i8"
+                          name="NumberOfCrime" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysCreatedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedAt]"
+                          dataType="dbTimeStamp"
+                          name="sysChangedAt" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[sysChangedBy]"
+                          dataType="i4"
+                          name="sysChangedBy" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input].ExternalColumns[sysCreatedBy]"
+                          dataType="i4"
+                          name="sysCreatedBy" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC staging uncrime_typed"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [FileName]
+      ,[CountryName]
+      ,convert(char(4),[Year]) AS Year
+      , [Count]
+  FROM [staging].[uncrime_typed] WITH (NOLOCK)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Connections[OleDbConnection]"
+                      connectionManagerID="{C8280E6A-099E-4B72-AF38-EA1BA0104291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[UNStatistic.DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[FileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[FileName]"
+                          name="FileName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[CountryName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[CountryName]"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[CountryName]"
+                          name="CountryName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]"
+                          name="Year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Count]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[Count]"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Count]"
+                          name="Count"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="100"
+                          name="FileName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[CountryName]"
+                          dataType="wstr"
+                          length="100"
+                          name="CountryName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].ExternalColumns[Count]"
+                          dataType="i4"
+                          name="Count" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                          name="FileName" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[CountryName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[CountryName]"
+                          name="CountryName" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          name="Year" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[Count]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[Count]"
+                          name="Count" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FileName"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[FileName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input].Columns[CountryName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryName"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[CountryName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input].Columns[Count]"
+                          cachedDataType="i4"
+                          cachedName="Count"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Count]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input].Columns[Date_SRC]"
+                          cachedDataType="dbDate"
+                          cachedName="Date_SRC"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Output].Columns[Date_SRC]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input].Columns[DateSK]"
+                          cachedDataType="i4"
+                          cachedName="DateSK"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output].Columns[DateSK]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input].Columns[DimCrimeTypeKey]"
+                          cachedDataType="i4"
+                          cachedName="DimCrimeTypeKey"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output].Columns[DimCrimeTypeKey]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[FileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[FileName]"
+                          name="FileName">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[FileName]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[CountryName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[CountryName]"
+                          name="CountryName"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[CountryName]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Year]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Year]"
+                          name="Year">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Count]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Count]"
+                          name="Count">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Count]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Date_SRC]"
+                          dataType="dbDate"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Date_SRC]"
+                          name="Date_SRC">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Output].Columns[Date_SRC]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[DateSK]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[DateSK]"
+                          name="DateSK">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output].Columns[DateSK]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[DimCrimeTypeKey]"
+                          name="DimCrimeTypeKey">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output].Columns[DimCrimeTypeKey]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 2].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 2].Columns[Count]"
+                          cachedDataType="i4"
+                          cachedName="Count"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Count]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Count]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 2].Columns[DateSK]"
+                          cachedDataType="i4"
+                          cachedName="DateSK"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output].Columns[DateSK]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DateSK]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 2].Columns[DimGeographyKey]"
+                          cachedDataType="i4"
+                          cachedName="DimGeographyKey"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Output].Columns[DimGeographyKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimGeographyKey]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 2].Columns[DimCrimeTypeKey]"
+                          cachedDataType="i4"
+                          cachedName="DimCrimeTypeKey"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output].Columns[DimCrimeTypeKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 3]"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 3].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Year]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 3].Columns[Count]"
+                          cachedDataType="i4"
+                          cachedName="Count"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output].Columns[Count]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Count]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 3].Columns[DateSK]"
+                          cachedDataType="i4"
+                          cachedName="DateSK"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output].Columns[DateSK]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DateSK]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 3].Columns[DimCrimeTypeKey]"
+                          cachedDataType="i4"
+                          cachedName="DimCrimeTypeKey"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output].Columns[DimCrimeTypeKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 3].Columns[DimGeographyKey]"
+                          cachedDataType="i4"
+                          cachedName="DimGeographyKey"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Match Output].Columns[DimGeographyKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimGeographyKey]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 1]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Year]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Year]"
+                          name="Year" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Count]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[Count]"
+                          name="Count" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DateSK]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DateSK]"
+                          name="DateSK" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimGeographyKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimGeographyKey]"
+                          name="DimGeographyKey" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]"
+                          name="DimCrimeTypeKey" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ Load\DFT Load FactCrime\Union All 1"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All 1"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FileName"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[FileName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[FileName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1].Columns[CountryName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CountryName"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[CountryName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[CountryName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Year]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Year]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1].Columns[Count]"
+                          cachedDataType="i4"
+                          cachedName="Count"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Count]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Count]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1].Columns[Date_SRC]"
+                          cachedDataType="dbDate"
+                          cachedName="Date_SRC"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[Date_SRC]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Date_SRC]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1].Columns[DateSK]"
+                          cachedDataType="i4"
+                          cachedName="DateSK"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[DateSK]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[DateSK]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1].Columns[DimCrimeTypeKey]"
+                          cachedDataType="i4"
+                          cachedName="DimCrimeTypeKey"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output].Columns[DimCrimeTypeKey]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 2]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[FileName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[FileName]"
+                          name="FileName" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[CountryName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[CountryName]"
+                          name="CountryName" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Year]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Year]"
+                          name="Year" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Count]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Count]"
+                          name="Count" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Date_SRC]"
+                          dataType="dbDate"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[Date_SRC]"
+                          name="Date_SRC" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[DateSK]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[DateSK]"
+                          name="DateSK" />
+                        <outputColumn
+                          refId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Outputs[Union All Output 1].Columns[DimCrimeTypeKey]"
+                          name="DimCrimeTypeKey" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Derived Column Output]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Derived Column Output1]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 2]"
+                  name="Derived Column Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup Match Output]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\LKP DimDate.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup Match Output1]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup Match Output2]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\Union All.Inputs[Union All Input 3]"
+                  name="Lookup Match Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup No Match Output]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\Multicast.Inputs[Multicast Input 1]"
+                  name="Lookup No Match Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Multicast Output 1]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey.Inputs[Derived Column Input]"
+                  name="Multicast Output 1"
+                  startId="Package\SEQ Load\DFT Load FactCrime\Multicast.Outputs[Multicast Output 1]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Multicast Output 2]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\Sort.Inputs[Sort Input]"
+                  name="Multicast Output 2"
+                  startId="Package\SEQ Load\DFT Load FactCrime\Multicast.Outputs[Multicast Output 2]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[OLE DB Source Output]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\DER Date SRC.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Sort Output]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\Union All 1.Inputs[Union All Input 1]"
+                  name="Sort Output"
+                  startId="Package\SEQ Load\DFT Load FactCrime\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\SEQ Load\DFT Load FactCrime.Paths[Union All Output 1]"
+                  endId="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime.Inputs[OLE DB Destination Input]"
+                  name="Union All Output 1"
+                  startId="Package\SEQ Load\DFT Load FactCrime\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SEQC Completion"
@@ -48,7 +1746,24 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SEQC Preparation">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Preparation\SQL Truncate FactCrime"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F70E824A-0D92-411E-A61A-748B6FF7D6F5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL Truncate FactCrime"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE dwh.FactCrime" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -81,6 +1796,10 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SEQ Load\DFT Load FactCrime"
+          TopLeft="216,94" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -95,6 +1814,10 @@
           Size="483,117"
           Id="Package\SEQC Completion"
           TopLeft="170,699" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\SEQC Preparation\SQL Truncate FactCrime"
+          TopLeft="157,53" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -149,5 +1872,400 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\SEQ Load\DFT Load FactCrime">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="233,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed"
+          TopLeft="125,31" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography"
+          TopLeft="164,379" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\DER Date SRC"
+          TopLeft="167,113" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[OLE DB Source Output]"
+          TopLeft="240.75,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\LKP DimDate"
+          TopLeft="173,221" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Derived Column Output]"
+          TopLeft="241.5,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\Multicast"
+          TopLeft="461,380" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup No Match Output]"
+          TopLeft="333,400.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128,0"
+              Start="0,0"
+              End="120.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="120.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime"
+          TopLeft="224,708" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType"
+          TopLeft="163,294" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\DER DimGeographyKey"
+          TopLeft="427,542" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Multicast Output 1]"
+          TopLeft="521.25,422">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,120"
+              Start="0,0"
+              End="0,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,112.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\Union All"
+          TopLeft="257,626" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Derived Column Output1]"
+          TopLeft="521.5,584">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-185.166666666667,42"
+              Start="0,0"
+              End="-185.166666666667,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8711256117455" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8711256117455"
+                    Point2="0,24.8711256117455"
+                    Point3="-4,24.8711256117455" />
+                  <mssgle:LineSegment
+                    End="-181.166666666667,24.8711256117455" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-181.166666666667,24.8711256117455"
+                    Point2="-185.166666666667,24.8711256117455"
+                    Point3="-185.166666666667,28.8711256117455" />
+                  <mssgle:LineSegment
+                    End="-185.166666666667,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Union All Output 1]"
+          TopLeft="319.75,668">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup Match Output]"
+          TopLeft="245.25,263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,5.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup Match Output1]"
+          TopLeft="248,336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Lookup Match Output2]"
+          TopLeft="248.5,421">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.1666666666667,205"
+              Start="0,0"
+              End="50.1666666666667,197.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,117.394779771615" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,117.394779771615"
+                    Point2="0,121.394779771615"
+                    Point3="4,121.394779771615" />
+                  <mssgle:LineSegment
+                    End="46.1666666666667,121.394779771615" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.1666666666667,121.394779771615"
+                    Point2="50.1666666666667,121.394779771615"
+                    Point3="50.1666666666667,125.394779771615" />
+                  <mssgle:LineSegment
+                    End="50.1666666666667,197.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.1080533854167,126.394779771615,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="98,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\Sort"
+          TopLeft="694,382" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Multicast Output 2]"
+          TopLeft="581,402">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113,0"
+              Start="0,0"
+              End="105.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="105.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQ Load\DFT Load FactCrime\Union All 1"
+          TopLeft="685,514" />
+        <EdgeLayout
+          Id="Package\SEQ Load\DFT Load FactCrime.Paths[Sort Output]"
+          TopLeft="746.5,424">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90"
+              Start="0,0"
+              End="0,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,33.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load FactCrime\OLE_SRC staging uncrime_typed">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load FactCrime\LKP DimGeography">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load FactCrime\OLE_DST dwh FactCrime">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ Load\DFT Load FactCrime\LKP DimCrimeType">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
