@@ -1,7 +1,6 @@
 ﻿CREATE TABLE [dwh].[FactPopulation]
 (
-	[FactPopulation]	INT PRIMARY KEY CLUSTERED IDENTITY(1,1),
-	[FactPopulationKey]	INT NOT NULL DEFAULT -1,
+	[FactPopulationKey]	INT PRIMARY KEY CLUSTERED IDENTITY(1,1),
 	[DimGeographyKey]	INT NOT NULL DEFAULT -1,
 	[DimDateKey]		INT NOT NULL DEFAULT -1,
 	[Population]		BIGINT NOT NULL,
