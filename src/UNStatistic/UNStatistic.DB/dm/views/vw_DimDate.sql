@@ -1,4 +1,4 @@
-﻿CREATE VIEW [dbo].[vw_DimDate]
+﻿CREATE VIEW [dm].[vw_DimDate]
     AS 
     
     SELECT 

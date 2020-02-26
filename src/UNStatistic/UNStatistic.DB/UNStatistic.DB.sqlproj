@@ -102,6 +102,9 @@
     <Build Include="dm\views\vw_DimGeography.sql" />
     <Build Include="etl\Tables\PackageStream.sql" />
     <Build Include="etl\Stored procedures\usp_PackagesInStream_Get.sql" />
+    <Build Include="dm\views\vw_DimCrimeType.sql" />
+    <Build Include="dm\views\vw_FactPopulation.sql" />
+    <Build Include="dm\views\vw_FactCrime.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStatistic.DB.DEV.publish.xml" />
