@@ -68,6 +68,9 @@
     <Folder Include="dwh\Tables" />
     <Folder Include="dbo" />
     <Folder Include="dbo\tables" />
+    <Folder Include="dm" />
+    <Folder Include="dm\views" />
+    <Folder Include="etl\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\RoleMemberships.sql" />
@@ -94,6 +97,11 @@
     <Build Include="msbicourse\DimCustomer_tmp.sql" />
     <Build Include="staging\Tables\population_unpivoted.sql" />
     <Build Include="dbo\tables\sysssislog.sql" />
+    <Build Include="Security\dm.sql" />
+    <Build Include="dm\views\vw_DimDate.sql" />
+    <Build Include="dm\views\vw_DimGeography.sql" />
+    <Build Include="etl\Tables\PackageStream.sql" />
+    <Build Include="etl\Stored procedures\usp_PackagesInStream_Get.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStatistic.DB.DEV.publish.xml" />
