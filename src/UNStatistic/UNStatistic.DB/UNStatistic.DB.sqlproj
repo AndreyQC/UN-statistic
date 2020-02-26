@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStatistic.DB.DEV.publish.xml" />
+    <None Include="UNStatistic.DB.TST.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />
