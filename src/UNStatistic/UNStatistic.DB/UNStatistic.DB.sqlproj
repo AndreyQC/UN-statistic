@@ -105,6 +105,7 @@
     <Build Include="dm\views\vw_DimCrimeType.sql" />
     <Build Include="dm\views\vw_FactPopulation.sql" />
     <Build Include="dm\views\vw_FactCrime.sql" />
+    <Build Include="staging\Tables\DimGeography_tmp.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UNStatistic.DB.DEV.publish.xml" />

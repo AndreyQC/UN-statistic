@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="msbi_Load_staging_Customer"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{6ACBCBCA-3F20-4826-B2E2-47B9515EF54D}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{2EF23BCA-5A98-4360-AFC0-F6CEFDC696E3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -70,6 +70,7 @@
       DTS:refId="Package\SEQ Load"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{521B08D1-B2C4-45FA-AF62-F934AF0D68A8}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -415,6 +416,7 @@
       DTS:refId="Package\SEQC Preparation"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{440BA85E-4132-4A17-9EB6-3CB658E0AD06}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -429,7 +431,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SQL truncate staging staging_Sales"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -438,6 +440,124 @@
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC Preparation 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{a0314d75-951b-4fd2-a395-c5c2c9fc02f6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC Preparation 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Preparation 1\on error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1d60ffc6-92d5-427e-a761-dc48724e0b79}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="on error"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\SEQC Preparation 1\on error.EventHandlers[OnPostExecute]"
+              DTS:CreationName="OnPostExecute"
+              DTS:DTSID="{F92B84B3-7800-48FA-8E00-A9CE70E9CD7B}"
+              DTS:EventID="0"
+              DTS:EventName="OnPostExecute"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{64EE8915-41B5-4A8C-B29D-CD9A3A184785}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\SEQC Preparation 1\on error.EventHandlers[OnPostExecute]\Execute SQL Task"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Execute SQL Task"
+                  DTS:DTSID="{E7BDB933-DB36-4C06-A761-8A5ECEA4E5D0}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Execute SQL Task">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+                      SQLTask:SqlStatementSource="SELECT 'event handler on error'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="SELECT 'error'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Preparation 1\on success"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{fc48a925-ad8c-43ef-ac70-4bc7eb82522d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="on success"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="SELECT 'Success'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC Preparation 1\SQL truncate staging staging_Sales"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6f90ef54-ac50-4acc-bfe7-98c4d9aa716b}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL truncate staging staging_Sales"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="SELECT 1/0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC Preparation 1.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{99CD1250-33D3-4377-B1E4-DC17F04B7BC8}"
+          DTS:From="Package\SEQC Preparation 1\SQL truncate staging staging_Sales"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC Preparation 1\on error"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC Preparation 1.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{62C852BF-C14F-4CAC-961F-752E45F36E81}"
+          DTS:From="Package\SEQC Preparation 1\SQL truncate staging staging_Sales"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC Preparation 1\on success" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -458,6 +578,72 @@
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\SEQC Completion" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPostExecute]"
+      DTS:CreationName="OnPostExecute"
+      DTS:DTSID="{1942D3B8-8288-478E-AFB5-E80CD4F87906}"
+      DTS:EventID="0"
+      DTS:EventName="OnPostExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{A72F0E09-F37A-4D93-82C6-7816F3A9E5C0}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\dummy"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D97D0DB2-9737-4129-BA7A-A58B34B6EFCE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dummy">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="select 1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{14EA4B94-7E34-4112-B214-CB4D3FB5C8CC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
+              SQLTask:SqlStatementSource="SELECT 'event handler PACKAGE'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnPostExecute].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{55F3792A-53B2-421A-A198-5858A1890F38}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[System::PackageID]== @[System::SourceID]"
+          DTS:From="Package.EventHandlers[OnPostExecute]\dummy"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnPostExecute]\Execute SQL Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -469,7 +655,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="192,42"
           Id="Package\SEQ Load\DFT Load staging_Sales"
@@ -477,17 +663,17 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="610,208"
-          Size="610,251"
+          PanelSize="501,162"
+          Size="501,205"
           Id="Package\SEQ Load"
-          TopLeft="133,349" />
+          TopLeft="210.428571428571,769.142857142857" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="483,74"
           Size="483,117"
           Id="Package\SEQC Completion"
-          TopLeft="135,625" />
+          TopLeft="205.571428571429,1051.71428571429" />
         <NodeLayout
           Size="245,42"
           Id="Package\SEQC Preparation\SQL truncate staging staging_Sales"
@@ -495,36 +681,24 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="569,204"
-          Size="569,247"
+          PanelSize="569,276"
+          Size="569,319"
           Id="Package\SEQC Preparation"
-          TopLeft="127,42" />
+          TopLeft="178.428571428572,382.714285714286" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="411.5,289">
+          TopLeft="461.928571428571,701.714285714286">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="26.5,60"
+              EndConnector="0,67.4285714285714"
               Start="0,0"
-              End="26.5,52.5">
+              End="0,59.9285714285714">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="22.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,30"
-                    Point2="26.5,30"
-                    Point3="26.5,34" />
-                  <mssgle:LineSegment
-                    End="26.5,52.5" />
+                    End="0,59.9285714285714" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -535,30 +709,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="438,600">
+          TopLeft="460.928571428571,974.142857142857">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-61.5,25"
+              EndConnector="-13.8571428571427,77.5714285714283"
               Start="0,0"
-              End="-61.5,17.5">
+              End="-13.8571428571427,70.0714285714283">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.5" />
+                    End="0,34.7857142857142" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.5"
-                    Point2="0,12.5"
-                    Point3="-4,12.5" />
+                    Point1="0,34.7857142857142"
+                    Point2="0,38.7857142857142"
+                    Point3="-4,38.7857142857142" />
                   <mssgle:LineSegment
-                    End="-57.5,12.5" />
+                    End="-9.85714285714266,38.7857142857142" />
                   <mssgle:CubicBezierSegment
-                    Point1="-57.5,12.5"
-                    Point2="-61.5,12.5"
-                    Point3="-61.5,16.5" />
+                    Point1="-9.85714285714266,38.7857142857142"
+                    Point2="-13.8571428571427,38.7857142857142"
+                    Point3="-13.8571428571427,42.7857142857142" />
                   <mssgle:LineSegment
-                    End="-61.5,17.5" />
+                    End="-13.8571428571427,70.0714285714283" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -567,6 +741,95 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="117,42"
+          Id="Package\SEQC Preparation 1\on error"
+          TopLeft="68,177" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQC Preparation 1\on success"
+          TopLeft="370,181" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\SEQC Preparation 1\SQL truncate staging staging_Sales"
+          TopLeft="131,71" />
+        <EdgeLayout
+          Id="Package\SEQC Preparation 1.PrecedenceConstraints[Constraint]"
+          TopLeft="253.5,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-127,64"
+              Start="0,0"
+              End="-127,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="-4,32" />
+                  <mssgle:LineSegment
+                    End="-123,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-123,32"
+                    Point2="-127,32"
+                    Point3="-127,36" />
+                  <mssgle:LineSegment
+                    End="-127,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-78.74134765625,37,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC Preparation 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="293,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142,68"
+              Start="0,0"
+              End="142,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4647201946472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.4647201946472"
+                    Point2="0,27.4647201946472"
+                    Point3="4,27.4647201946472" />
+                  <mssgle:LineSegment
+                    End="138,27.4647201946472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="138,27.4647201946472"
+                    Point2="142,27.4647201946472"
+                    Point3="142,31.4647201946472" />
+                  <mssgle:LineSegment
+                    End="142,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="569,276"
+          Size="569,319"
+          Id="Package\SEQC Preparation 1"
+          TopLeft="260.666666666667,33.7142857142858" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -574,7 +837,7 @@
     design-time-name="Package\SEQ Load\DFT Load staging_Sales">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182,42"
           Id="Package\SEQ Load\DFT Load staging_Sales\OLE_DST staing Sales"
@@ -602,7 +865,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -621,5 +886,57 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\SEQC Preparation 1\on error.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\SEQC Preparation 1\on error.EventHandlers[OnPostExecute]\Execute SQL Task"
+          TopLeft="302,145" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package.EventHandlers[OnPostExecute]\Execute SQL Task"
+          TopLeft="299,241" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package.EventHandlers[OnPostExecute]\dummy"
+          TopLeft="321,74" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnPostExecute].PrecedenceConstraints[Constraint]"
+          TopLeft="379.25,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,125"
+              Start="0,0"
+              End="0,117.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,117.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,50.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

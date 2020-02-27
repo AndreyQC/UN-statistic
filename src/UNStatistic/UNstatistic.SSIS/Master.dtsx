@@ -12,13 +12,25 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="89"
-  DTS:VersionGUID="{4D5797D0-69EB-4374-B286-666F6E25C091}">
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{AFA58B1E-574A-4DDE-87EC-D5C3E18F90EE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSISFrameworkADO]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{EFC6A8EA-9D72-4C83-89B1-8FD765924392}"
+      DTS:ObjectName="SSISFrameworkADO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ECSC00A014AD\MSSQL2017TM;Initial Catalog=UNStatistic.DWH.DEV;Integrated Security=True;Application Name=SSIS-Master-{EFC6A8EA-9D72-4C83-89B1-8FD765924392}ECSC00A014AD\MSSQL2017TM.UNStatistic.DWH.DEV1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:LogProviders>
     <DTS:LogProvider
-      DTS:ConfigString="DST_UNStatisticDWH"
+      DTS:ConfigString="UNStatistic.DWH"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Writes log entries for events to a SQL Server database"
       DTS:DTSID="{D39975E6-86AB-4730-8EA9-031CE32FCCAE}"
@@ -45,7 +57,7 @@
       DTS:ObjectName="pSSISproject">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">UNStatistic</DTS:Property>
+        DTS:Name="ParameterValue">UNstatistic.SSIS</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -94,7 +106,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="SSISProject">
       <DTS:VariableValue
-        DTS:DataType="8">UNStatistic</DTS:VariableValue>
+        DTS:DataType="8">UNstatistic.SSIS</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -732,21 +744,21 @@ namespace ST_ab1a847d266b4a39875b2b04e1df6acb.Properties {
                 Name="Project"
                 Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
 <c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-	<msb:PropertyGroup>
-		<msb:CodeName>ST_2e017805a0294679a0cb5a329c751c85</msb:CodeName>
-		<msb:Language>msBuild</msb:Language>
-		<msb:DisplayName>ST_2e017805a0294679a0cb5a329c751c85</msb:DisplayName>
-		<msb:ProjectId>{D00D33A4-A6C5-4E84-AD17-EACDBED517DC}</msb:ProjectId>
-	</msb:PropertyGroup>
-	<msb:ItemGroup>
-		<msb:Project Include="ST_2e017805a0294679a0cb5a329c751c85.csproj"/>
-		<msb:File Include="Properties\Settings.settings"/>
-		<msb:File Include="Properties\AssemblyInfo.cs"/>
-		<msb:File Include="Properties\Resources.resx"/>
-		<msb:File Include="Properties\Resources.Designer.cs"/>
-		<msb:File Include="Properties\Settings.Designer.cs"/>
-		<msb:File Include="ScriptMain.cs"/>
-	</msb:ItemGroup>
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_2e017805a0294679a0cb5a329c751c85</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_2e017805a0294679a0cb5a329c751c85</msb:DisplayName>
+    <msb:ProjectId>{057FD81E-0030-4804-A1BB-7CCF664B1EFB}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_2e017805a0294679a0cb5a329c751c85.csproj" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
@@ -892,7 +904,7 @@ using System.Runtime.CompilerServices;
               <BinaryItem
                 Name="ST_2e017805a0294679a0cb5a329c751c85.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAIsr9VoAAAAAAAAAAOAAIiALATAAACAAAAAIAAAAAAAA7j8A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAP1tV14AAAAAAAAAAOAAIiALATAAACAAAAAIAAAAAAAA7j8A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJw/AABPAAAAAEAAAKgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -956,7 +968,7 @@ ARYBJAAcBOkAJAAiCREBqQDgARYByQEnACQBqQBUAV0AKQHnCCkBEQHrBjABEQFaBDkB0QFtCekA
 BwYACAAUAHEBCAAYAHYBKQBzAN4BLgALALYBLgATAL8BLgAbAN4BLgAjAOcBLgArABACLgAzABAC
 LgA7ABYCLgBDAOcBLgBLACgCLgBTABACLgBbAEsCQwBjAHYBSQBzAN4BYQB7AHYBYwBrAHYBGwAD
 AAEABAADAAAAtQanAQAAGAKsAQAALAmxAQIABAADAAIABQAFAAEABgAFAAIABwAHAMMA8wAKAR4B
-BIAAAAEAAAAxGmVDAAAAAAAAPwAAAAQAAAAAAAAAAAAAAF8BwwAAAAAADgAAAAAAAAAAAAAAaAGU
+BIAAAAEAAADCHN5PAAAAAAAAPwAAAAQAAAAAAAAAAAAAAF8BwwAAAAAADgAAAAAAAAAAAAAAaAGU
 BAAAAAAMAAAAAAAAAAAAAABoAS8HAAAAAAQAAAAAAAAAAAAAAF8BVAUAAAAADgAAAAAAAAAAAAAA
 aAFsAAAAAAAEAAAAAAAAAAAAAABfAZMAAAAAAAwAAAAAAAAAAAAAAGgBzAAAAAAAAAAAAAEAAACT
 BwAABQACAAAAAAAATnVsbGFibGVgMQBDb2xsZWN0aW9uYDEASUVudW1lcmF0b3JgMQBUb0ludDMy
@@ -1025,8 +1037,8 @@ IABtAGUAcwBzAGEAZwBlAHMAIABwAG8AcwB0AGUAZAAgAGIAZQBmAG8AcgBlACAAdABoAGkAcwAg
 AHcAaQB0AGgAIABtAG8AcgBlACAAaQBuAGYAbwByAG0AYQB0AGkAbwBuACAAYQBiAG8AdQB0ACAA
 dABoAGUAIABmAGEAaQBsAHUAcgBlAC4AABFGAGEAaQBsAGUAZAA6ACAAAHFTAFQAXwBhAGIAMQBh
 ADgANAA3AGQAMgA2ADYAYgA0AGEAMwA5ADgANwA1AGIAMgBiADAANABlADEAZABmADYAYQBjAGIA
-LgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAB9g38AM0a0aSYavW
-m6CkwAAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERdSQHDwISPQ4OHQ4VEkEBEkkKEk0VElEBElUS
+LgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAgv+fw4lAfUiBpJ50
+Kh4HNQAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERdSQHDwISPQ4OHQ4VEkEBEkkKEk0VElEBElUS
 VQ4OFRFZAQYGEl0FIAASgIUFIAASgIkFIAASgI0GIAESgJEcAyAAHAMgAA4FAAIODg4CBg4KIAYB
 CA4ODggQAgUgABKAmQYgARKAnRwGIAEBEoChBiABHQ4dAwUgABKAqQYgARKArQ4FIAASgLEGIAES
 gLUOBSAAEoC5BiABEoC9DgUgABKAwQUgARJFDgYVEkEBEkkNIAMKAhKAxRUSQQESSQUgABKAyQUg
@@ -1045,14 +1057,14 @@ AAAAAAAAAAAA3j8AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAANA/AAAAAAAAAAAAAAAAX0NvckRs
 bE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQ
 AAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFhA
 AABKBAAAAAAAAAAAAABKBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv
-/gAAAQAAAAEAZUMxGgAAAQBlQzEaPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYA
+/gAAAQAAAAEA3k/CHAAAAQDeT8IcPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYA
 YQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAA
 ALAEqgMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAhgMAAAEAMAAwADAAMAAwADQA
 YgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAADoADQABAEMAbwBtAHAAYQBuAHkATgBh
 AG0AZQAAAAAARQBQAEEATQAgAFMAeQBzAHQAZQBtAHMAAAAAAHAAJAABAEYAaQBsAGUARABlAHMA
 YwByAGkAcAB0AGkAbwBuAAAAAABTAFQAXwBhAGIAMQBhADgANAA3AGQAMgA2ADYAYgA0AGEAMwA5
 ADgANwA1AGIAMgBiADAANABlADEAZABmADYAYQBjAGIAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMA
-aQBvAG4AAAAAADEALgAwAC4ANgA3ADAANQAuADEANwAyADUAMwAAAAAAcAAoAAEASQBuAHQAZQBy
+aQBvAG4AAAAAADEALgAwAC4ANwAzADYAMgAuADIAMAA0ADQANgAAAAAAcAAoAAEASQBuAHQAZQBy
 AG4AYQBsAE4AYQBtAGUAAABTAFQAXwAyAGUAMAAxADcAOAAwADUAYQAwADIAOQA0ADYANwA5AGEA
 MABjAGIANQBhADMAMgA5AGMANwA1ADEAYwA4ADUALgBkAGwAbAAAAGAAHgABAEwAZQBnAGEAbABD
 AG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgAEUAUABBAE0AIABTAHkA
@@ -1061,9 +1073,9 @@ AAAAAAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAVABfADIA
 ZQAwADEANwA4ADAANQBhADAAMgA5ADQANgA3ADkAYQAwAGMAYgA1AGEAMwAyADkAYwA3ADUAMQBj
 ADgANQAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAFQAXwBhAGIA
 MQBhADgANAA3AGQAMgA2ADYAYgA0AGEAMwA5ADgANwA1AGIAMgBiADAANABlADEAZABmADYAYQBj
-AGIAAABCAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYANwAwADUA
-LgAxADcAMgA1ADMAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAx
-AC4AMAAuADYANwAwADUALgAxADcAMgA1ADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AGIAAABCAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADcAMwA2ADIA
+LgAyADAANAA0ADYAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAx
+AC4AMAAuADcAMwA2ADIALgAyADAANAA0ADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1106,11 +1118,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:PropertyExpression
-        DTS:Name="SqlStatementSource">"EXEC	 [config].[usp_PackagesInStream_Get]		@pStreamID = " +  (DT_WSTR, 50) @[User::StreamID]</DTS:PropertyExpression>
+        DTS:Name="SqlStatementSource">"EXEC	 [etl].[usp_PackagesInStream_Get]		@pStreamID = " +  (DT_WSTR, 50) @[User::StreamID]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C8280E6A-099E-4B72-AF38-EA1BA0104291}"
-          SQLTask:SqlStatementSource="EXEC&#x9; [config].[usp_PackagesInStream_Get]&#x9;&#x9;@pStreamID = 1"
+          SQLTask:SqlStatementSource="EXEC&#x9; [etl].[usp_PackagesInStream_Get]&#x9;&#x9;@pStreamID = 1"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -1158,18 +1170,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="346,246" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="508.4,287.6">
+          TopLeft="508.25,288">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.4"
+              EndConnector="0,77"
               Start="0,0"
-              End="0,69.9">
+              End="0,69.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.9" />
+                    End="0,69.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
