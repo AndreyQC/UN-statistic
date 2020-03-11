@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbicourse", "msbicourse", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerBI", "PowerBI", "{5969C597-7F88-45E0-AEA1-75EEAB1A6F77}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "UNStatistic.DWH.Azure", "UNStatistic.DWH.Azure\UNStatistic.DWH.Azure.sqlproj", "{01649710-AB3D-4E22-8424-61DCDB2C3D0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,15 @@ Global
 		{341C84AF-B24D-4DD1-BAD5-D96B05671887}.Development|Any CPU.Build.0 = Development
 		{341C84AF-B24D-4DD1-BAD5-D96B05671887}.Release|Any CPU.ActiveCfg = Development
 		{341C84AF-B24D-4DD1-BAD5-D96B05671887}.Release|Any CPU.Build.0 = Development
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01649710-AB3D-4E22-8424-61DCDB2C3D0E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
