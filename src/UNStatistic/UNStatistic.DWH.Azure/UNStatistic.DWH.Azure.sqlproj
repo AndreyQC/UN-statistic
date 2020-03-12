@@ -65,6 +65,9 @@
     <Folder Include="etl\" />
     <Folder Include="etl\Stored Procedures\" />
     <Folder Include="Security\" />
+    <Folder Include="adf" />
+    <Folder Include="adf\tables" />
+    <Folder Include="adf\Stored procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dwh\Tables\DimCrimeType.sql" />
@@ -89,5 +92,15 @@
     <Build Include="Security\msbicourse.sql" />
     <Build Include="Security\staging.sql" />
     <PostDeploy Include="Script.PostDeployment1.sql" />
+    <Build Include="Security\adf.sql" />
+    <Build Include="adf\tables\Configuration.sql" />
+    <Build Include="adf\tables\PipelineExecutionHistory.sql" />
+    <Build Include="adf\Stored procedures\usp_Configuration_Get.sql" />
+    <Build Include="adf\Stored procedures\usp_Configuration_Seed.sql" />
+    <Build Include="adf\Stored procedures\usp_PipelineExecutionHistory_Create.sql" />
+    <Build Include="adf\Stored procedures\usp_PipelineExecutionHistory_Update.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="seed-configuration.sql" />
   </ItemGroup>
 </Project>
