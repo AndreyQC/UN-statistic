@@ -99,6 +99,7 @@
     <Build Include="adf\Stored procedures\usp_Configuration_Seed.sql" />
     <Build Include="adf\Stored procedures\usp_PipelineExecutionHistory_Create.sql" />
     <Build Include="adf\Stored procedures\usp_PipelineExecutionHistory_Update.sql" />
+    <Build Include="staging\Tables\population_unpivoted.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="seed-configuration.sql" />
